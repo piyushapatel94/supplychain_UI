@@ -1,5 +1,37 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+{{partial 'header'}}
 
 {{outlet}}
+<br/>
+<br/>
+<br/>
+{{#if showlogin}}
+<div class="box">
+  
+   <div id="header">
+  <!-- <div id="cont-lock" style="text-align:center ;color:white"><h1><b>Login</b></h1></div>
+    <div id="bottom-head"><h1 id="logintoregister">Login</h1></div>-->
+  </div>
+   <form action="" method="post">
+           
+<div class="thisgroup">  
+   <b> Email ID:</b>
+</div>
+    <div class="group">  
+     
+       {{validated-input  type="text" model=this  valuePath='email' placeholder="Enter Email ID" required=""}}
+      
+    </div>
+    <div class="thisgroup">  
+ <b>   Password :</b>
+</div>
+	    <div class="group">      
+         {{validated-input  type="password" model=this  valuePath='password' placeholder="Enter Password" required=""}}
+      </div>
+    <button id="buttonlogintoregister" type="submit" {{action 'login'}}>Login</button>
+    <br/>
+    <br/>
+  </form>
+  <!--<div id="footer-box"><!--<p class="footer-text">Not a member?<span class="sign-up"{{action 'signup'}}> Sign up now</span></p></div>-->
+
+</div>
+{{/if}}

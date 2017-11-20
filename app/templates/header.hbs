@@ -1,0 +1,28 @@
+<nav class="navbar  navbar-fixed-top" style="background-color:#0198E1">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#" >SMOB</a>
+    </div>
+    {{#if showUser}}
+    <ul class="nav navbar-nav navbar-left">
+      <li class="mynavbar-right"{{action 'gotodashboard'}}> Dashboard</li>
+      
+      &nbsp; &nbsp;
+      <li  class="mynavbar-right">Requests</li>
+
+     
+    </ul>
+    {{/if}}
+    <ul class="nav navbar-nav navbar-right">
+      <li class="mynavbar-right"> About Us</li>
+      
+      &nbsp; &nbsp;
+      <li  class="mynavbar-right">Contact Us</li>
+    {{#if showUser}}
+     <li  class="mynavbar-right"{{action 'logout'}}>Log Out</li>
+    {{else}}
+      <li  class="mynavbar-right"{{action 'toggleModal'}}>Log In</li>
+    {{/if}}  
+    </ul>
+  </div>
+</nav>
