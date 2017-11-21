@@ -121,7 +121,7 @@
 }
 
 .box button:active{
-	background: #009688;
+	background: #0198E1;
   color: #263238;
 }
 
@@ -177,9 +177,12 @@
 .container{
     padding-left: 15px;
     padding-right:15px;
+    margin-left: 20px;
 }
 
-
+.upper-title{
+  margin-bottom: 8px;
+}
 
   /* Simple setup for this demo */
 
@@ -234,7 +237,7 @@
   }
   
   .mdl-stepper-horizontal-alternative .mdl-stepper-step:hover .mdl-stepper-circle {
-    background-color: #757575;
+    background-color: 	#808080;
   }
   
   .mdl-stepper-horizontal-alternative .mdl-stepper-step:first-child .mdl-stepper-bar-left,
@@ -246,7 +249,7 @@
     width: 24px;
     height: 24px;
     margin: 0 auto;
-    background-color: #9E9E9E;
+    background-color: 	#808080;
     border-radius: 50%;
     text-align: center;
     line-height: 2em;
@@ -256,8 +259,25 @@
   
   .mdl-stepper-horizontal-alternative .mdl-stepper-step.active-step .mdl-stepper-circle {
    /* background-color: rgb(33, 150, 243);*/
-   background-color:#44d43b;
+   background-color:#68DC83;
   }
+  .mdl-stepper-horizontal-alternative .mdl-stepper-step.active-step .mdl-stepper-circle1 {
+    /* background-color: rgb(33, 150, 243);*/
+    border: 5px solid #a1a1a1;
+     width: 20px;
+     height:20px;
+     border-radius: 50%;
+     margin-left:30px;
+   }
+   .mdl-stepper-horizontal-alternative .mdl-stepper-step.active-step .mdl-stepper-circle2 {
+    /* background-color: rgb(33, 150, 243);*/
+    position: relative;
+    border: 5px solid #a1a1a1;
+     width: 20px;
+     height:20px;
+     border-radius: 50%;
+     margin-left:-25px;
+   }
   
   .mdl-stepper-horizontal-alternative .mdl-stepper-step.step-done .mdl-stepper-circle:before {
     content: "\2714";
@@ -284,7 +304,8 @@
   }
   
   .mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-title {
-    margin-top: 16px;
+   /* margin-top: 16px;*/
+   padding-bottom: 16px;
     font-size: 14px;
     font-weight: normal;
   }
@@ -317,18 +338,98 @@
   .mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-bar-right {
     position: absolute;
     top: 36px;
-    height: 1px;
-    border-top: 1px solid #BDBDBD;
+    height: 5px;
+    border-top: 3px solid #697572;
   }
   
   .mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-bar-right {
     right: 0;
     left: 50%;
-    margin-left: 20px;
+    margin-left: 25px;
   }
   
   .mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-bar-left {
-    left: 0;
+   left:0.3px;
     right: 50%;
-    margin-right: 20px;
+    margin-right: 25px;
   }
+  
+/*--------*/
+  .rectangle-2 {
+    height: 347px;
+    width: 1140px;
+    border-radius: 2px;
+    background-color: #FFFFFF;
+    box-shadow: 0 7px 16px 0 rgba(132,152,172,0.1);
+  }
+  .oval {
+    box-sizing: border-box;
+    height: 12px;
+    width: 12px;
+    border: 2px solid #697572;
+    background-color: #FFFFFF;
+  }
+
+  .oval-2 {
+    box-sizing: border-box;
+    height: 24px;
+    width: 24px;
+    border: 4px solid #FFFFFF;
+    background-color: #68DC83;
+  }
+  .middle-container{
+    margin-top:50px;
+    margin-left:40px;
+    height: 700px;
+    width: 500px
+    /*margin-right:30px*/
+  }
+
+.two-dash-btn-circle1 {
+  width: 5px;
+  height: 5px;
+  text-align: center;
+  padding: 6px 6px;
+  font-size: 10px;
+  /*line-height: 1.428571429;*/
+  border-radius: 50%;
+  background-color: #68DC83;
+  border: black;
+}
+.two-dash-btn-circle2 {
+  width: 5px;
+  height: 5px;
+  text-align: center;
+  padding: 6px 6px;
+  font-size: 10px;
+  /*line-height: 1.428571429;*/
+  border-radius: 50%;
+  background-color: #FF923F;
+  border: black;
+}
+.two-dash-btn-circle3 {
+  width: 5px;
+  height: 5px;
+  text-align: center;
+  padding: 6px 6px;
+  font-size: 9px;
+  /*line-height: 1.428571429;*/
+  border-radius: 50%;
+  background-color: #499EF6;
+  border: black;
+}
+
+.lower-row{
+  margin-top:250px;
+  margin-right: 40px;
+}
+
+.is-grouped {   
+  display: inline-block;
+ 
+}
+
+.is-grouped > .button:not(:last-child) {
+  margin-right: 40px;
+  font-size:10px;
+}
