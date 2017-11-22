@@ -15,37 +15,76 @@
         <div class="mdl-stepper-bar-right"></div>
       </div>
      <div class="mdl-stepper-step active-step ">
+        <div class="mdl-stepper-title2">Requests</div>
+       <div class="mdl-stepper-circle"></div>
+         <div class="vl"></div>
+          <div class="circle" ><div id="request-details">Delayed 152</div></div>
+          <div class="vl"></div>
+          <div class="circle"><div id="request-details">Accepted 52</div> </div>
+          
+          <div class="mdl-stepper-bar-left"></div>
+          <div class="mdl-stepper-bar-right"></div>
+      </div>
+       
+       <div class="mdl-stepper-step active-step ">
+      <div class="upper-line">
+        
+          <div class="this-circle2"><div id="request-details">Received 152</div></div>
+          <div class="vl2"></div>
+          <div class="this-circle2"><div id="request-details">Accepted 152</div></div>
+          <div class="vl2"></div>
+         </div>
         <div class="mdl-stepper-circle"></div>
-        <div class="mdl-stepper-title">Requests</div>
+         <div class="mdl-stepper-title">Quoatation</div>
         <div class="mdl-stepper-bar-left"></div>
         <div class="mdl-stepper-bar-right"></div>
       </div>
        <div class="mdl-stepper-step active-step ">
-        <div class="mdl-stepper-circle"></div>
-        <div class="mdl-stepper-title">Quoatation</div>
+         <div class="mdl-stepper-title2" style="margin-left:20px">Purchase&nbsp;Order</div>
+         <div class="mdl-stepper-circle"></div>
+         <div class="po-style">
+         <div class="vl"></div>
+          <div class="circle"><div id="request-details">Accepted 152</div></div>
+         <!-- <div class="vl"></div>
+          <div class="circle"><div id="request-details">Delayed 152</div></div>-->
+         
+       </div>
         <div class="mdl-stepper-bar-left"></div>
         <div class="mdl-stepper-bar-right"></div>
       </div>
        <div class="mdl-stepper-step active-step ">
+         <div class="upper-line2">
+         
+          <div class="this-circle3"><div id="request-details">Delayed 152</div></div>
+          <div class="vl2"></div>
+          <div class="this-circle3"><div id="request-details">Delivered 152</div></div>
+          <div class="vl2"></div>
+         </div>
         <div class="mdl-stepper-circle"></div>
-        <div class="mdl-stepper-title">Purchase Order</div>
-        <div class="mdl-stepper-bar-left"></div>
-        <div class="mdl-stepper-bar-right"></div>
-      </div>
-       <div class="mdl-stepper-step active-step ">
-
-        <div class="mdl-stepper-circle"></div>
-        <div class="mdl-stepper-title">Delivery Order</div>
+        <div class="mdl-stepper-title">Delivery&nbsp;Order</div>
         <div class="mdl-stepper-bar-left"></div>
         <div class="mdl-stepper-bar-right"></div>
       </div>
       <div class="mdl-stepper-step active-step ">
+        <div class="mdl-stepper-title2">&nbsp;Invoice</div>
         <div class="mdl-stepper-circle"></div>
-        <div class="mdl-stepper-title">Invoice</div>
+            <div class="io-style">
+              <div class="vl"></div>
+              <div class="circle"><div id="request-details">Raised 152</div></div>
+              <div class="vl"></div>
+              <div class="circle"><div id="request-details">Approved 152</div></div>
+         </div>
         <div class="mdl-stepper-bar-left"></div>
         <div class="mdl-stepper-bar-right"></div>
       </div>
         <div class="mdl-stepper-step active-step ">
+          <div class="upper-line3">
+         
+          <div class="this-circle3"><div id="request-details">Iniaited 152</div></div>
+          <div class="vl2"></div>
+          <div class="this-circle3"><div id="request-details">Paid 152</div></div>
+          <div class="vl2"></div>
+         </div>
         <div class="mdl-stepper-circle"></div>
         <div class="mdl-stepper-title">Payments</div>
         <div class="mdl-stepper-bar-left"></div>
@@ -270,5 +309,47 @@ clip: auto;"></div>
 </div>
 </div>
 </div>
+  </div>
+</div>
+
+<div class="last-container">
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="col-sm-6" id="left-part">
+        <p>Inventory</p>
+      </div>
+      <div class="col-sm-6">
+         <span><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"><img src="assets/images/search.svg" alt="Smiley face" width="25" height="25">  &nbsp;&nbsp;&nbsp; <span style="color:#499EF6"{{action 'newrequest'}}>New Request <img src="assets/images/forward.svg" alt="Smiley face" width="15" height="9"></span> </span>
+      </div>
+      <table id="myTable-inventory">
+  <tr style="color:#485676" >
+    <th>Item Name</th>
+    <th>Current Quantity</th>
+    <th>Reorder Quantity</th>
+     
+  </tr>
+  <tr  style="color:#A7B8C9">
+    <td>Peter</td>
+    <td>005</td>
+    <td>2017</td>
+    
+  </tr>
+  <tr style="color:#A7B8C9">
+    <td>Peter</td>
+    <td>005</td>
+    <td>157</td>
+    
+  </tr>
+  <tr style="color:#A7B8C9">
+    <td>Peter</td>
+    <td>005</td>
+    <td>1517</td>
+    
+  </tr>
+</table>
+    </div>
+    <div class="col-sm-6">
+      
+    </div>
   </div>
 </div>
