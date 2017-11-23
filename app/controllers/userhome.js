@@ -30,5 +30,9 @@ var Validations = buildValidations({
 });
 
 export default Ember.Controller.extend(Validations,{
-    
+    actions:{
+        gotorequest:function(){
+            this.transitionToRoute('alldetails');    
+        }
+    }
 });

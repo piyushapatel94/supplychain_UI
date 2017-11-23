@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('userhome');
   this.route('home');
   this.route('dashboard');
+  this.route('alldetails');
 });
 
 export default Router;
