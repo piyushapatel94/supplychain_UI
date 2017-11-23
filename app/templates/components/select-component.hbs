@@ -1,0 +1,7 @@
+<select {{action 'change' on='change' }} class="form-control" >
+    <option default>--Select Material Type--</option>
+    {{#each listitem as |item|}}
+    <option value={{item}} selected={{selecteditem}}>{{item}} </option>
+    {{/each}}
+</select> {{selecteditem}}
+

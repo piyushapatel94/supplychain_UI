@@ -319,7 +319,7 @@ clip: auto;"></div>
         <p>Inventory</p>
       </div>
       <div class="col-sm-6">
-         <span><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"><img src="assets/images/search.svg" alt="Smiley face" width="25" height="25">  &nbsp;&nbsp;&nbsp; <span style="color:#499EF6"{{action 'newrequest'}}>New Request <img src="assets/images/forward.svg" alt="Smiley face" width="15" height="9"></span> </span>
+         <span><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"><img src="assets/images/search.svg" alt="Smiley face" width="25" height="25">  &nbsp;&nbsp;&nbsp; <span style="color:#499EF6"{{action 'toggleModal'}}>New Request <img src="assets/images/forward.svg" alt="Smiley face" width="15" height="9" style="margin-bottom:1px"></span> </span>
       </div>
       <table id="myTable-inventory">
   <tr style="color:#485676" >
@@ -353,3 +353,14 @@ clip: auto;"></div>
     </div>
   </div>
 </div>
+
+
+{{#if isShowingModal}}
+{{#modal-dialog close="toggleModal"
+               targetAttachment="center"
+                  translucentOverlay=true}}
+                  
+                  {{partial 'newrequest'}}
+                
+{{/modal-dialog}}
+{{/if}}

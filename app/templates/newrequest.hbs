@@ -1,0 +1,63 @@
+<div class="NR-container">
+    <!--<div class="row" style="height:1.5cm">-->
+
+  
+    <h5 aign="left"><b>New Material Request</b></h5>
+    <!-- </div>-->
+    <div class="row" style="height:2.2cm">
+        <div class="thisgroup-NR">
+            <b> Material Type:</b>
+        </div>
+        <div class="group" style="width:9cm">
+            {{select-component dropdowntype="test" listitem=testlist selecteditemlist=selectedtest}}
+        </div>
+
+    </div>
+    <div class="row" >
+
+        <div id="left">
+            <div class="thisgroup-NR">
+                <b> Quantity:</b>
+            </div>
+            <div class="group" style="width:4cm">
+                {{validated-input type="text" model=this valuePath='Quantity' placeholder="Quantity" required=""}}
+
+            </div>
+        </div>
+
+        <div id="right" style="margin-left:1px;width:6cm" >
+            <div class="thisgroup-NR">
+                <b >Expected Delivery:</b>
+            </div>
+            <br/>
+            <div class="group" style="width:4cm">
+                {{bootstrap-datepicker placeholder="Click to play" class="form-control" value=mydate style="background: url('assets/images/forward.svg') no-repeat right center;"}}
+            </div>
+
+        </div>
+    </div>
+
+   <div class="row" style="height:2.2cm">
+        <div class="thisgroup-NR">
+            <b>Shipping Address:</b>
+        </div>
+        <div class="group" style="width:9cm">
+            {{validated-input type="text" model=this valuePath='companyname' placeholder="Request To" required=""}}
+        </div>
+
+    </div>
+    <div id="NR-reactangle">
+        <p style="margin-top:3mm"> <img src="assets/images/upload.svg" alt="Smiley face" width="20" height="20" style="margin-bottom:3mm">&nbsp; Choose File to Upload</p>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+        </div>
+       
+            <div class="col-sm-3">
+     <button id="NR-button" type="submit" {{action 'submit'}}>CANCEL</button>
+            </div>
+         <div class="col-sm-3">
+      <button id="NR-button" type="submit" {{action 'submit'}}>SEND</button>
+        </div>
+    </div>
+</div>
