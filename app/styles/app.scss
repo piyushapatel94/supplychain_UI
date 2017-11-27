@@ -138,7 +138,7 @@ html, body {
 	 //margin-top:5mm; 
 	// padding-up: -2mm;
 	 margin-left: 40px;
-	// width:1px;
+	 margin-right: 40px;
  }
  
 
@@ -172,13 +172,13 @@ html, body {
  #myTable th {
 	 text-align: left;
 	 padding: 12px;
-	 color: #151B54;
+	 color:#616F7E;
 	
  }
 	#myTable td{
 	 text-align: left;
 	 padding: 12px;
- color:#9bc2cf;
+ color:#7D94AB;
  }
  #myInput {
 	 background-image: url('assets/images/search.svg');
@@ -605,5 +605,102 @@ margin-top:2cm;
 		/*border: 1px solid #ddd;*/
 		font-size: 15px;
 		padding:20px 20px 20px 20px;
+		margin-left: 100px;
+		margin-right: 30px;
 	
+}
+#tr-details{
+	font-size: 16px;
+	color: #4B6D95;
+}
+#th-details{
+	font-size: 12px;
+	color:#74808E;
+}
+.details-container{
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-top: 50px;
+}
+.first-row{
+	position:relative;
+	//margin-top: 20px;
+	margin-left: 2.0cm;
+}
+.details-column{
+	position:relative;
+	width:1.5cm;
+	margin-left: 0px;
+	float: left;
+}
+.top-image{
+	position:relative;
+}
+#detais-status{
+	margin-top:1cm;
+	color:#499EF6;
+	font-family: Avenir Heavy;
+	font-size: 21px;
+}
+#in-detais-status{
+	font-size:10px;
+	margin-top:- 3mm;
+	color: #A2ADB7;
+}
+.vl-details{
+	box-sizing: border-box;
+		height: 635.5px;	
+		width: 2px;
+		border: 0.5px solid #C0D0E2;
+		margin-left: 0.8cm;
+		height: 2.0cm;
+}
+.oval-4 {
+	height: 24px;
+	width: 24px;
+	border: 6px solid #499EF6;
+	background-color: #FFFFFF;
+	border-radius:50%;
+	margin-top:2cm;
+	margin-left: -2.55mm;
+}
+.second-row{
+		margin-top: 2.0cm;
+		height: 144px;
+		width: 1100.4px;
+		border-radius: 2px;
+		background-color: #FFFFFF;
+		box-shadow: 0 7px 16px 0 rgba(132,152,172,0.1);
+		margin-left: 2.0cm;
+	
+}
+.in-second-row{
+	margin-top: 4mm;
+}
+.in-first-row{
+	position:relative; 
+	margin-top:1cm;
+}
+#in-first-row11{
+	margin-top: -1cm;
+	margin-left:15cm;
+}
+.in-mytable-details{
+	border-collapse: collapse;
+	width: 100%;
+	/*border: 1px solid #ddd;*/
+	font-size: 15px;
+	padding:20px 20px 20px 20px;
+//	margin-left: 100px;
+	margin-right: 30px;
+}
+#in-tr-details{
+	color:#718CAC;
+	font-size: 14px;
+	font-weight:300;
+}
+#in-th-details{
+	font-size: 12px;
+	color:#74808E;
+	font-weight:900;
 }
