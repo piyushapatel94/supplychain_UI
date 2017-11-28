@@ -23,7 +23,7 @@
  
      {{#each item.Record.transactionlist   as |myitem|}}
     <td>{{myitem.transactiondetails.materialtype}}</td>
-    <td><a href=# {{action 'gotorequest'}}>{{item.Key}}</a></td>
+    <td><a href=# {{action   'gotorequest' item.Key}}>{{item.Key}}</a></td>
     <td>{{myitem.transactiondetails.today}}</td>
     <td>{{myitem.transactiondetails.Quantity}}</td>
     <td>{{myitem.transactiondetails.expecteddelivery}}</td>

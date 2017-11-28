@@ -25,18 +25,10 @@ var Validations = buildValidations({
         ],
     },
     
-
-
 });
 
 export default Ember.Controller.extend(Validations,{
-    actions:{
-        gotorequest:function(Key){
-            
-            var requestid = Key;
-            console.log("requestid---",requestid);
-            this.set("requestid",requestid);
-            this.transitionToRoute('alldetails');    
-        }
-    }
+
+
+
 });
