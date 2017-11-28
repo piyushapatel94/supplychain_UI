@@ -8,8 +8,8 @@
         <div class="thisgroup-NR">
             <b> Material Type:</b>
         </div>
-        <div class="group" style="width:9cm">
-            {{select-component dropdowntype="test" listitem=testlist selecteditemlist=selectedtest}}
+        <div class="group" style="width:10cm">
+            {{select-component dropdowntype="test" listitem=testlist selecteditemlist=materialtype}}
         </div>
 
     </div>
@@ -25,13 +25,13 @@
             </div>
         </div>
 
-        <div id="right" style="margin-left:1px;width:6cm" >
+        <div id="right" style="margin-left:-1cm;width:7cm" >
             <div class="thisgroup-NR">
                 <b >Expected Delivery:</b>
             </div>
             <br/>
             <div class="group" style="width:4cm">
-                {{bootstrap-datepicker placeholder="Click to play" class="form-control" value=mydate style="background: url('assets/images/forward.svg') no-repeat right center;"}}
+                {{bootstrap-datepicker placeholder="Select Date" format="dd/mm/yyyy" class="form-control" value=mydate style="background: url('assets/images/forward.svg') no-repeat right center;"}}
             </div>
 
         </div>
@@ -41,8 +41,8 @@
         <div class="thisgroup-NR">
             <b>Shipping Address:</b>
         </div>
-        <div class="group" style="width:9cm">
-            {{validated-input type="text" model=this valuePath='companyname' placeholder="Request To" required=""}}
+        <div class="group" style="width:10cm">
+            {{validated-input type="text" model=this valuePath='address' placeholder="Request To" required=""}}
         </div>
 
     </div>
@@ -54,10 +54,10 @@
         </div>
        
             <div class="col-sm-3">
-     <button id="NR-button" type="submit" {{action 'submit'}}>CANCEL</button>
+     <button id="NR-button" type="submit" {{action 'cancelrequest'}}>CANCEL</button>
             </div>
          <div class="col-sm-3">
-      <button id="NR-button" type="submit" {{action 'submit'}}>SEND</button>
+      <button id="NR-button" type="submit" {{action 'submitrequest'}}>SEND</button>
         </div>
     </div>
 </div>

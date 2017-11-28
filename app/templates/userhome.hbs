@@ -7,8 +7,9 @@
 <div align="right">
     <span><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"><img src="assets/images/search.svg" alt="Smiley face" width="35" height="35"></span>
 </div>
+<div class="userome-container">
 <table id="myTable">
-  <tr >
+  <tr id="mytable-th">
     <th>Material Type</th>
     <th>Request Id</th>
     <th>Date</th>
@@ -17,7 +18,21 @@
       <th>shipping address</th>
       <th>Status</th>
   </tr>
-  <tr>
+  {{#each mydetails   as |item|}}
+  <tr id="mytable-td">
+ 
+     {{#each item.Record.transactionlist   as |myitem|}}
+    <td>{{myitem.transactiondetails.materialtype}}</td>
+    <td><a href=# {{action 'gotorequest'}}>{{item.Key}}</a></td>
+    <td>{{myitem.transactiondetails.today}}</td>
+    <td>{{myitem.transactiondetails.Quantity}}</td>
+    <td>{{myitem.transactiondetails.expecteddelivery}}</td>
+    <td>{{myitem.transactiondetails.address}}</td>
+    <td>{{myitem.transactiondetails.status}}</td>
+    {{/each}}
+  </tr>
+  {{/each}}
+  <tr id="mytable-td">
     <td>Peter</td>
     <td><a href=# {{action 'gotorequest'}}>005</a></td>
     <td>15/08/2017</td>
@@ -27,3 +42,4 @@
     <td>PO raised</td>
   </tr>
 </table>
+</div>

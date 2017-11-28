@@ -314,42 +314,61 @@ clip: auto;"></div>
 
 <div class="last-container">
   <div class="row">
-    <div class="col-sm-9">
+    <div class="col-sm-8">
       <div class="col-sm-6" id="left-part">
         <p>Inventory</p>
       </div>
       <div class="col-sm-6">
-         <span><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"><img src="assets/images/search.svg" alt="Smiley face" width="25" height="25">  &nbsp;&nbsp;&nbsp; <span style="color:#499EF6"{{action 'toggleModal'}}>New Request <img src="assets/images/forward.svg" alt="Smiley face" width="15" height="9" style="margin-bottom:1px"></span> </span>
-      </div>
+         <span><input type="text" id="myInput" onkeyup="myFunction()"  title="Type in a name"><img src="assets/images/search.svg" alt="Smiley face" width="22" height="22">  &nbsp;&nbsp;&nbsp; <span style="color:#499EF6"{{action 'toggleModal'}}>New Request <img src="assets/images/forward.svg" alt="Smiley face" width="15" height="9" style="margin-bottom:1px"></span> </span>
+     </div>
+    <div class="in-left-part-table">
       <table id="myTable-inventory">
-  <tr style="color:#485676" >
+  <tr  id="myTable-inventory-th" >
     <th>Item Name</th>
     <th>Current Quantity</th>
     <th>Reorder Quantity</th>
      
   </tr>
-  <tr  style="color:#A7B8C9">
+  <tr id="myTable-inventory-td">
     <td>Peter</td>
     <td>005</td>
     <td>2017</td>
     
   </tr>
-  <tr style="color:#A7B8C9">
+  <tr id="myTable-inventory-td" >
     <td>Peter</td>
     <td>005</td>
     <td>157</td>
     
   </tr>
-  <tr style="color:#A7B8C9">
+  <tr id="myTable-inventory-td">
     <td>Peter</td>
     <td>005</td>
     <td>1517</td>
     
   </tr>
 </table>
+
     </div>
-    <div class="col-sm-6">
-      
+      </div>
+    <div class="col-sm-4" id="dashboard-right-container">
+      <div class="heading-right">
+        Track Deliveries
+      </div>
+      <div class="dashboard-track">
+       <div id="head-dashboard-track">
+         Engine Blocks
+       </div>
+       <p style="color: #536C89;font-family: Avenir;font-size: 13px;font-style: oblique;font-weight: 900;"> Retailer :<span style="font-weight: 300;color: #022351;font-size: 13px;">TVS Clinton Ltd.</span></p>
+      <p style="margin-top:-3mm;color: #677B92;	font-family: Avenir;	font-size: 12px;">Reached Thambaram will be delived on Monday &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #3B89F3;	font-family: Avenir;	font-size: 13px;	font-weight: 900;text-decoration: underline;">Track</span></p>
+      </div>
+      <div class="dashboard-track">
+       <div id="head-dashboard-track">
+         Engine Blocks
+       </div>
+       <p style="color: #536C89;font-family: Avenir;font-size: 13px;font-style: oblique;font-weight: 900;"> Retailer :<span style="font-weight: 300;color: #022351;font-size: 13px;">TVS Clinton Ltd.</span></p>
+      <p style="margin-top:-3mm;color: #677B92;	font-family: Avenir;	font-size: 12px;">Reached Thambaram will be delived on Monday &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #3B89F3;	font-family: Avenir;	font-size: 13px;	font-weight: 900;text-decoration: underline;">Track</span></p>
+      </div>
     </div>
   </div>
 </div>

@@ -50,7 +50,7 @@ export default Ember.Controller.extend(Validations,{
             console.log(email);
               var password = this.get('password');
             console.log(password);
-            /*if (email === null || email === undefined || email === "" || password === null || password === undefined || password === "") {
+        if (email === null || email === undefined || email === "" || password === null || password === undefined || password === "") {
                     alert("please fill details for login");
                 } else {
                     let {
@@ -83,6 +83,7 @@ export default Ember.Controller.extend(Validations,{
                            
                             mycontroller.set('isShowingModal', false);
                             mycontroller.set('showUser',true);
+                            mycontroller.set('showlogin', false);
                             mycontroller.transitionToRoute('userhome')    
                         
                     // mycontroller.transitionToRoute('home');
@@ -97,10 +98,10 @@ export default Ember.Controller.extend(Validations,{
                 });
 
            
-                }*/
-                this.set('showUser',true);
+                }
+              /*  this.set('showUser',true);
                 this.set('showlogin', false);
-                this.transitionToRoute('userhome')    
+                this.transitionToRoute('userhome') */   
 
         },
         logout:function(){

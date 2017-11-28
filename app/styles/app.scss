@@ -156,18 +156,27 @@ html, body {
 }
  .inputMaterial 				{
 	 font-size:18px;
-	 padding:10px 10px 10px 5px;
+	 padding:10px 10px 10px 10px;
 	 display:block;
 	 //width:300px;
 	 border:none;
 	 border-bottom:1px solid #757575;
  }
+ .userome-container{
+	position: relative;
+	margin-left: 40px;
+	 margin-right: 40px;
+	 margin-top: 30px;
+ }
  #myTable {
+	 position: relative;
 	 border-collapse: collapse;
 	 width: 100%;
 	 /*border: 1px solid #ddd;*/
 	 font-size: 15px;
-	 padding:20px 20px 20px 20px;
+	 padding:10px 10px 10px 10px;
+	 margin-left: 15px;
+	// margin-right: 40px;
  }
  #myTable th {
 	 text-align: left;
@@ -536,15 +545,16 @@ html, body {
 .last-container{
  margin-left:50px;
  margin-right:50px;
+
 }  
 
 #left-part{
  position: relative;
  text-align: left;
  font-size:20px;
- font-weight:800;
+ 
  color: #485676;
- font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+ font-family: Avenir;		font-weight: 900;
 }
 .right-part{
 text-align: right
@@ -558,7 +568,7 @@ text-align: right
 }
 .NR-container{
 height: 400px;
-width:400px;
+width:450px;
 }
 #left { float:left }
 #right { float:right }
@@ -698,9 +708,48 @@ margin-top:2cm;
 	color:#718CAC;
 	font-size: 14px;
 	font-weight:300;
+	font-family: Avenir;
 }
 #in-th-details{
 	font-size: 12px;
 	color:#74808E;
 	font-weight:900;
+	font-family: Avenir;
+}
+#mytable-th{
+	font-family: Avenir;	font-size: 13px;	font-weight: 900;	line-height: 18px;
+}
+#mytable-td{
+	font-family: Avenir;	font-size: 13px;	font-weight: 500;	line-height: 18px;color: #7288A2;
+}
+#myTable-inventory-td{
+	font-family: Avenir;	font-size: 13px;	font-weight: 500;	line-height: 18px;color: #7288A2;
+
+}
+#myTable-inventory-th{
+	font-family: Avenir;	font-size: 13px;	font-weight: 900;	
+	line-height: 18px;    color: #616F7E;
+	padding: 20px 20px 20px	20px;
+}
+
+td, th {
+    padding: 10px;
+}
+.heading-right{
+height: 22px;	width: 133.33px;	color: #161B21;	font-family: Avenir;	font-size: 16px;	font-weight: 900;	line-height: 22px;
+}
+.in-left-part-table{
+//text-align: right;
+}
+.dashboard-track{
+position:relative;
+margin-top:8mm;
+}
+#head-dashboard-track{
+	margin-left:0px;
+	width: 400px;	
+border-radius: 2px;	background-color: #FFFFFF;
+	box-shadow: 0 7px 16px 0 rgba(132,152,172,0.1);
+	font-weight: 900;
+	font-family: Avenir;
 }

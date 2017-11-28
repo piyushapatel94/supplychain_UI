@@ -37,9 +37,79 @@ export default Ember.Controller.extend(Validations,{
       toggleModal: function() {
         this.toggleProperty('isShowingModal');
       },
-      submit:function(){
+      submitrequest:function(){
           var mydate =this.get('mydate');
+          var dd = mydate.getDate();
+          var mm = mydate.getMonth()+1; //January is 0!
+          
+          var yyyy = mydate.getFullYear();
+          if(dd<10){
+              dd='0'+dd;
+          } 
+          if(mm<10){
+              mm='0'+mm;
+          } 
+          var mydate = dd+'/'+mm+'/'+yyyy;
           console.log("mydate",mydate);
+          var today = new Date();
+          var dd = today.getDate();
+          var mm = today.getMonth()+1; //January is 0!
+          
+          var yyyy = today.getFullYear();
+          if(dd<10){
+              dd='0'+dd;
+          } 
+          if(mm<10){
+              mm='0'+mm;
+          } 
+          var today = dd+'/'+mm+'/'+yyyy;
+          console.log("today--",today);
+          let{
+            materialtype,
+            Quantity,
+            address
+          }=this.getProperties('materialtype','Quantity','address');
+         
+          var dataString = {  
+            "status":"MaterialRequested",
+            "InvolvedParties":"manufacturer",
+            "transactionString":{
+               // "updatedBy":usertype,
+                "expecteddelivery":mydate,
+                "address": address,
+                "materialtype":materialtype,
+                "Quantity": Quantity,
+                "today":today,
+               // "url":url,
+                "remark":"NA",
+                "status":"MaterialRequested",
+            }
+        };
+        console.log(dataString);
+        var mycontroller = this;
+        
+        return $.ajax({
+        url:CONFIG.GOURL+'/newRequest',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(dataString),
+        success: function(response) {
+        var message = response.message;
+        console.log("message" + message);
+        
+        mycontroller.toggleProperty('ShowingModalrequest');
+        // mycontroller.transitionToRoute('userhome')
+        //mycontroller.transitionToRoute('home');
+
+        },      
+            error: function(response) {
+        console.log('DEBUG: GET Enquiries Failed');
+        console.log("Error Message: ", response.message);
+        
+    }
+        
+        });
+                  
       }
     }
 });
