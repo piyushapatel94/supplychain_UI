@@ -32,12 +32,14 @@ var Validations = buildValidations({
 export default Ember.Controller.extend(Validations,{
 
     isShowingModal: false,
-    testlist:['Engine blocks',"Hex 24fastners",'fuel hose','fuel tank','Breakes','washers'],
+    testlist:['Engine block',"Engine Payload",'Fule Hose','fuel tank','Speedometer','Magnetometer','washer'],
     actions: {
       toggleModal: function() {
         this.toggleProperty('isShowingModal');
       },
       submitrequest:function(){
+          var usertype =this.get('usertype');
+          console.log("usertype--lol",usertype)
           var mydate =this.get('mydate');
           var dd = mydate.getDate();
           var mm = mydate.getMonth()+1; //January is 0!
@@ -67,22 +69,26 @@ export default Ember.Controller.extend(Validations,{
           let{
             materialtype,
             Quantity,
-            address
-          }=this.getProperties('materialtype','Quantity','address');
+            address,
+            requestto,
+            companyname
+          }=this.getProperties('materialtype','Quantity','address','requestto','companyname');
          
           var dataString = {  
-            "status":"MaterialRequested",
+            "status":"RequestInitiated",
             "InvolvedParties":"manufacturer",
             "transactionString":{
-               // "updatedBy":usertype,
+               "updatedby":usertype,
                 "expecteddelivery":mydate,
                 "address": address,
                 "materialtype":materialtype,
                 "Quantity": Quantity,
                 "today":today,
+                "companyname": companyname,
+                "requestto":requestto,
                // "url":url,
                 "remark":"NA",
-                "status":"MaterialRequested",
+                "status":"RequestInitiated",
             }
         };
         console.log(dataString);

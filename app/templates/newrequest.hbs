@@ -4,7 +4,7 @@
   
     <h5 aign="left"><b>New Material Request</b></h5>
     <!-- </div>-->
-    <div class="row" style="height:2.2cm">
+    <div class="row" style="height:1.5cm">
         <div class="thisgroup-NR">
             <b> Material Type:</b>
         </div>
@@ -19,7 +19,7 @@
             <div class="thisgroup-NR">
                 <b> Quantity:</b>
             </div>
-            <div class="group" style="width:4cm">
+            <div class="group" style="width:4cm;margin-top:-3mm">
                 {{validated-input type="text" model=this valuePath='Quantity' placeholder="Quantity" required=""}}
 
             </div>
@@ -36,22 +36,30 @@
 
         </div>
     </div>
-
-   <div class="row" style="height:2.2cm">
+<div class="row" style="height:2.0cm">
         <div class="thisgroup-NR">
-            <b>Shipped From:</b>
+            <b>Request To:</b>
         </div>
-        <div class="group" style="width:10cm">
-            {{validated-input type="text" model=this valuePath='companyname' placeholder="Request To" required=""}}
+        <div class="group" style="width:10cm; margin-top: -5mm;">
+            {{validated-input type="text" model=this valuePath='requestto' placeholder="Enter company name" required=""}}
         </div>
 
     </div>
-    <div class="row" style="height:2.2cm">
+   <div class="row" style="height:2.0cm">
+        <div class="thisgroup-NR">
+            <b>Shipped From:</b>
+        </div>
+        <div class="group" style="width:10cm; margin-top: -5mm;">
+            {{validated-input type="text" model=this valuePath='companyname' placeholder="shipped from" required=""}}
+        </div>
+
+    </div>
+    <div class="row" style="height:2.0cm">
         <div class="thisgroup-NR">
             <b>Shipping Address:</b>
         </div>
-        <div class="group" style="width:10cm">
-            {{validated-input type="text" model=this valuePath='address' placeholder="Request To" required=""}}
+        <div class="group" style="width:10cm; margin-top: -5mm;">
+            {{validated-input type="text" model=this valuePath='address' placeholder="shipping address" required=""}}
         </div>
 
     </div>

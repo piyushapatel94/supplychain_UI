@@ -13,7 +13,7 @@
         <tr id="tr-details">
             <td></td>
             <td><b>{{requestid}}</b></td>
-            <td><b>TVs </b></td>
+            <td><b>{{transactiondetails.requestto}} </b></td>
             <td><b>{{transactiondetails.materialtype}}</b></td>
             <td><b>{{transactiondetails.Quantity}}</b></td>
 
@@ -27,25 +27,50 @@
     <div class="details-column">
 
         <div class="top-image">
+            {{#if isShowRequestInitaited}}
             <img src="assets/images/requests.svg" alt="Smiley face" style="background:#499EF6;border-radius: 50%;" height="60" width="60">
+            {{/if}}
+          {{#if isShowRequestAccept}}
+            <img src="assets/images/requests.svg" alt="Smiley face" style="background:#68DC83;border-radius: 50%;" height="60" width="60">
+        {{/if}}
         </div>
         <div class="vl-details">
+            {{#if isShowRequestInitaited}}
             <div class="oval-4"></div>
+            {{/if}}
+            {{#if isShowRequestAccept}}
+            <img src="assets/images/Checkbox-unselected.svg" alt="Smiley face" style="background:#68DC83;border-radius: 50%;margin-top:2cm;
+	margin-left: -2.55mm;" height="24" width="24">
+        {{/if}}
+
         </div>
         
     </div>
     <div class="first-row">
-        <p id="detais-status"><b> Request Initiated</b></p>
-        <p id="in-detais-status">You sent material request.</p>
+        <div class="first-row-left">
+        {{#if isShowRequestInitaited}}<p id="detais-status"><b>{{mystatus}}</b></p>{{/if}}
+        {{#if isShowRequestAccept}}<p id="detais-status" style="color:#68DC83"><b>{{mystatus}}</b></p>{{/if}}
+        <p id="in-detais-status">{{message}}.</p>
+         </div>
+         
+          {{#if isShowSupplier}}
+         <div class="first-row-right">
+             <button class="button-right" {{action 'declinerequest'}}>Decline</button>
+             <button class="button-right" {{action 'acceptrequest'}}>Accept</button>
+         </div>
+         {{/if}}
     </div>
+   
+    
+    
     <!--<div class="oval-4"></div>-->
     <div class="second-row">
         <div class="in-first-row">
             <div>
                 <p style="font-size:17px;color:#42709F"><b>Request</b></p>
-                <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">PID2345123</p>
+                <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F"><b style="color:#466A8F">Received</b> :17 Sep 2017 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F"><b style="color:#466A8F">Received</b> :{{transactiondetails.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 </div>
             </div>
 
@@ -63,11 +88,11 @@
 
                 </tr>
                 <tr id="in-tr-details">
-                    <td>TVS Motors</td>
-                    <td>Engine Manifold Module</td>
-                    <td>40,000</td>
-                    <td>14 Aug 2018</td>
-                    <td>nirmal lifestyle,mulund,mumbai</td>
+                    <td>{{transactiondetails.requestto}}</td>
+                    <td>{{transactiondetails.materialtype}}</td>
+                    <td>{{transactiondetails.Quantity}}</td>
+                    <td>{{transactiondetails.expecteddelivery}}</td>
+                    <td>{{transactiondetails.address}}</td>
 
                 </tr>
             </table>
