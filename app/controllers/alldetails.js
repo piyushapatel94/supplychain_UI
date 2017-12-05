@@ -159,8 +159,8 @@ actions:{
         var requestid1 = JSON.stringify(requestid)
         var usertype =this.get('usertype');
         console.log('usertype',usertype);
-       /* var url =this.get('url');
-        console.log('url------>',url);*/
+        var url =this.get('url');
+        console.log('url------>',url);
         var today = new Date();
         var dd = today.getDate();
         var mm = today.getMonth()+1; //January is 0!
@@ -192,7 +192,7 @@ actions:{
                                  
                                     "Quantity":Quantity,    
                                     "today":today,
-                                    "url":"url",
+                                    "url":url,
                                     "totalprice":totalprice,
                                     "status":"QuotationRaised",
                                     "remark":"NA"}
@@ -227,6 +227,207 @@ actions:{
     },
     toggleModal: function() {
         this.toggleProperty('isShowingModal');
-      }
+      },
+      toggleModals:function(){
+        this.toggleProperty('isShowingModals');
+      },
+      toggleModalss:function(){
+        this.toggleProperty('isShowingModalss');
+      },
+
+      acceptquotation:function(){
+        var requestid =this.get('requestid')
+        var requestid1 = JSON.stringify(requestid)
+        var usertype =this.get('usertype');
+        console.log('usertype',usertype);
+       /* var url =this.get('url');
+        console.log('url------>',url);*/
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+        
+        var yyyy = today.getFullYear();
+        if(dd<10){
+            dd='0'+dd;
+        } 
+        if(mm<10){
+            mm='0'+mm;
+        } 
+        var today = dd+'/'+mm+'/'+yyyy;
+        console.log("today--",today);
+        
+         var dataString =
+                {
+                    
+                    "status": "quotationAccepted",
+                      "InvolvedParties":"retailer",
+                    "transactionString": {"updatedby":usertype,
+                                        "companyname": "companyname",
+                                        "address":"address",
+                                        "materialtype": "Speedometer",
+                                     
+                                        "Quantity":"00",    
+                                        "today":today,
+                                        "url":"url",
+                                        "totalprice":"totalprice",
+                                        "status":"quotationAccepted",
+                                        "remark":"NA"}
+                    }
+            console.log(JSON.stringify(dataString));
+            var mycontroller = this;
+
+                return $.ajax({
+                url:CONFIG.GOURL+'/updateRequest',
+                type: 'POST',
+                headers: {
+                'authorization' : requestid  ,
+              
+                 },
+                contentType: 'application/json',
+                data: JSON.stringify(dataString),
+                success: function(response) {
+                    var message = response.message;
+                    console.log("message" +JSON.stringify (response));
+                          
+                },      
+                    error: function(response) {
+                   console.log('DEBUG: GET Enquiries Failed');
+               console.log("Error Message: ", response.message);       
+            }
+                });
+      },
+      poraised:function(){
+        var requestid =this.get('requestid')
+        var usertype =this.get('usertype');
+        console.log('usertype',usertype);
+        var url =this.get('url');
+        console.log('url------>',url);
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+        
+        var yyyy = today.getFullYear();
+        if(dd<10){
+            dd='0'+dd;
+        } 
+        if(mm<10){
+            mm='0'+mm;
+        } 
+        var today = dd+'/'+mm+'/'+yyyy;
+        console.log("today--",today);
+        let{
+            remark, Quantity,units
+            
+        }=this.getProperties('remark','Quantity','units');
+
+        
+         var dataString ={ 
+                    "status": "purchaseorderRaised",
+                      "InvolvedParties":usertype,
+                    "transactionString": {"updatedby":usertype,
+                                        "companyname": "companyname",
+                                        "address":"address",
+                                        "materialtype": "NA",
+                                        "units":units,
+                                        "Quantity":Quantity,    
+                                        "today":today,
+                                        "url":url,
+                                        "totalprice":"NA",
+                                        "status":"purchaseorderRaised",
+                                        "remark":remark}
+                    }
+            console.log(JSON.stringify(dataString));
+            var mycontroller = this;
+
+                return $.ajax({
+                url:CONFIG.GOURL+'/updateRequest',
+                type: 'POST',
+                headers: {
+                'authorization' : requestid  ,
+              
+                 },
+                contentType: 'application/json',
+                data: JSON.stringify(dataString),
+                success: function(response) {
+                    var message = response.message;
+                    console.log("message" +JSON.stringify (response));
+                          
+                },      
+                    error: function(response) {
+                   console.log('DEBUG: GET Enquiries Failed');
+                   console.log("Error Message: ", response.message);
+                   
+            }
+                
+                });
+
+      },
+      Doraised:function(){
+        var requestid =this.get('requestid')
+        var usertype =this.get('usertype');
+        console.log('usertype',usertype);
+        var url =this.get('url');
+        console.log('url------>',url);
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+        
+        var yyyy = today.getFullYear();
+        if(dd<10){
+            dd='0'+dd;
+        } 
+        if(mm<10){
+            mm='0'+mm;
+        } 
+        var today = dd+'/'+mm+'/'+yyyy;
+        console.log("today--",today);
+        
+
+        let{
+            logistics
+            
+        }=this.getProperties('logistics');
+         var dataString ={ 
+                    "status": "deliveryorderRaised",
+                      "InvolvedParties":usertype,
+                    "transactionString": {"updatedby":usertype,
+                                        "companyname": "companyname",
+                                        "address":"address",
+                                        "materialtype": "NA",
+                                        "units":"NA",
+                                        "Quantity":"NA",    
+                                        "today":today,
+                                        "url":url,
+                                        "totalprice":"NA",
+                                        "logistics":logistics,
+                                        "status":"deliveryorderRaised",
+                                        "remark":"NA"}
+                    }
+            console.log(JSON.stringify(dataString));
+            var mycontroller = this;
+
+                return $.ajax({
+                url:CONFIG.GOURL+'/updateRequest',
+                type: 'POST',
+                headers: {
+                'authorization' : requestid  ,
+              
+                 },
+                contentType: 'application/json',
+                data: JSON.stringify(dataString),
+                success: function(response) {
+                    var message = response.message;
+                    console.log("message" +JSON.stringify (response));
+                          
+                },      
+                    error: function(response) {
+                   console.log('DEBUG: GET Enquiries Failed');
+                   console.log("Error Message: ", response.message);
+                   
+            }
+                
+                });
+
+      } 
 }
 });

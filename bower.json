@@ -4,6 +4,7 @@
     "pickadate": "^3.5.6",
     "flatpickr": "flatpickr-calendar#^4.1.2",
     "clockpicker-seconds": "~0.1.6",
-    "bootstrap-datepicker": "^1.7.1"
+    "bootstrap-datepicker": "^1.7.1",
+    "dinosheets": "0.1.1"
   }
 }

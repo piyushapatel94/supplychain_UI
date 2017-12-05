@@ -1,6 +1,30 @@
 import Route from '@ember/routing/route';
 import CONFIG from 'supplychain-1/config/environment';
 export default Route.extend({
+    actions:{
+        uploadDoc:function (file) {
+            // var mycontroller = this;
+            console.log("entering upload FIR 3");
+    var mycontroller = this;
+             console.log(file)
+       
+          file.upload(CONFIG.GOURL+'/UploadDocs').then(function (response) {
+            console.log(JSON.stringify(response));
+            var url =response.body.url;
+            console.log("url ::",JSON.stringify(url));
+            mycontroller.controllerFor('invoice').set('url',url);
+            mycontroller.controllerFor('invoice').set("isShowingModal",true);
+           
+            //return image.save();
+            
+          }, function () {
+            //image.rollback();
+            console.log("file upload sucessfully...");
+          });
+          
+        },
+      
+        },
     model(){
         
 
