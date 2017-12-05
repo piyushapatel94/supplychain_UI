@@ -329,24 +329,15 @@ clip: auto;"></div>
     <th>Reorder Quantity</th>
      
   </tr>
+  {{#each mydetails as |item|}}
   <tr id="myTable-inventory-td">
-    <td>Peter</td>
-    <td>005</td>
-    <td>2017</td>
+    <td>{{item.itemname}}</td>
+    <td>{{item.cuquantity}}</td>
+    <td>{{item.requantity}}</td>
     
   </tr>
-  <tr id="myTable-inventory-td" >
-    <td>Peter</td>
-    <td>005</td>
-    <td>157</td>
-    
-  </tr>
-  <tr id="myTable-inventory-td">
-    <td>Peter</td>
-    <td>005</td>
-    <td>1517</td>
-    
-  </tr>
+  {{/each}}
+  
 </table>
 
     </div>

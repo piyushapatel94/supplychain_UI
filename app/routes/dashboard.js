@@ -11,5 +11,31 @@ export default Route.extend({
        var usertype= sessionStorage.getItem('usertype');
        console.log("usertype",usertype);
        this.controllerFor('dashboard').set('usertype', usertype);
+
+       var mycontroller = this;
+      
+                 return $.ajax({
+                       url: CONFIG.GOURL + '/getInventory',
+                       type: 'GET',
+                       contentType: 'application/json',
+                       success: function(data) {
+                           // var message = response.message;
+                           console.log(JSON.stringify(data));
+                           var mydetails = data.message;
+                           console.log("mydetails-----", mydetails);
+                           
+                           mycontroller.controllerFor('dashboard').set('mydetails', mydetails);
+
+                       },
+                       error: function(response) {
+                           console.log('DEBUG: GET Enquiries Failed');
+                           console.log("Error Message: ", data.message);
+
+                       }
+
+
+                   });
+          
+
     }
 });

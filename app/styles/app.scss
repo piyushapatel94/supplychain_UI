@@ -571,6 +571,10 @@ text-align: right
 height: 400px;
 width:450px;
 }
+.QR-container{
+	height: 300px;
+	width:450px;
+	}
 #left { float:left }
 #right { float:right }
 .NR-group{
@@ -681,13 +685,60 @@ margin-top:2cm;
 		margin-left: 0.8cm;
 		height: 2.0cm;
 }
+.vl-details-1{
+	box-sizing: border-box;
+		
+		width: 2px;
+		border: 0.5px solid #C0D0E2;
+		margin-left: 0.8cm;
+		margin-top: 6mm;
+		height: 4.0cm;
+}
+.vl-details-2{
+	box-sizing: border-box;
+		
+		width: 2px;
+		border: 0.5px solid #C0D0E2;
+		margin-left: 0.8cm;
+		margin-top: 6mm;
+		height: 4.0cm;
+}
+.vl-details-3{
+	box-sizing: border-box;
+		
+		width: 2px;
+		border: 0.5px solid #C0D0E2;
+		margin-left: 0.8cm;
+		margin-top: 6mm;
+		height: 4.0cm;
+}
+.vl-details-4{
+	box-sizing: border-box;
+		
+		width: 2px;
+		border: 0.5px solid #C0D0E2;
+		margin-left: 0.8cm;
+		margin-top: 6mm;
+		height: 4.0cm;
+}
+
 .oval-4 {
-	height: 24px;
-	width: 24px;
-	border: 6px solid #499EF6;
+	height: 22px;
+	width: 22px;
+	border: 5px solid #499EF6;
 	background-color: #FFFFFF;
 	border-radius:50%;
 	margin-top:2cm;
+	margin-left: -2.55mm;
+}
+.oval-5{
+	position: relative;
+	height: 22px;
+	width: 22px;
+	border: 5px solid #499EF6;
+	background-color: #FFFFFF;
+	border-radius:50%;
+	margin-top:4.0cm;
 	margin-left: -2.55mm;
 }
 .second-row{
@@ -711,6 +762,24 @@ margin-top:2cm;
 	margin-top: -1cm;
 	margin-left:15cm;
 }
+.third-row{
+	margin-top: 1.0cm;
+	height: 144px;
+	width: 1100.4px;
+	border-radius: 2px;
+	background-color: #FFFFFF;
+	box-shadow: 0 7px 16px 0 rgba(132,152,172,0.1);
+	margin-left: 2.0cm;
+}
+.fourth-row{
+	margin-top: 2.0cm;
+	height: 144px;
+	width: 1100.4px;
+	border-radius: 2px;
+	background-color: #FFFFFF;
+	box-shadow: 0 7px 16px 0 rgba(132,152,172,0.1);
+	margin-left: 2.0cm;
+}
 .in-mytable-details{
 	border-collapse: collapse;
 	width: 100%;
@@ -731,6 +800,17 @@ margin-top:2cm;
 	color:#74808E;
 	font-weight:900;
 	font-family: Avenir;
+}
+#check-image-1{
+	position: relative;
+	background:#68DC83;
+	border-radius: 50%;
+	position: relative;
+	height: 22px;
+	width: 22px;
+	margin-top:4.0cm;
+	margin-left: -2.55mm;
+	
 }
 #mytable-th{
 	font-family: Avenir;	font-size: 13px;	font-weight: 900;	line-height: 18px;
