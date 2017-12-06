@@ -12,8 +12,8 @@ export default Route.extend({
             console.log(JSON.stringify(response));
             var url =response.body.url;
             console.log("url ::",JSON.stringify(url));
-            mycontroller.controllerFor('invoice').set('url',url);
-            mycontroller.controllerFor('invoice').set("isShowingModal",true);
+            mycontroller.controllerFor('dashboard').set('url',url);
+            mycontroller.controllerFor('dashboard').set("isShowingModal",true);
            
             //return image.save();
             

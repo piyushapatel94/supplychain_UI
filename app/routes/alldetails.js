@@ -119,7 +119,9 @@ export default Route.extend({
             if(mystatus === "quotationAccepted"){
                 mycontroller.controllerFor('alldetails').set('isShowManpotbutton', true);
                 }
-            
+                if(mystatus === "quotationAccepted"){
+                    mycontroller.controllerFor('alldetails').set('isShowManpotbutton', true);
+                    }
             
          }
         
