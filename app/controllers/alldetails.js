@@ -29,7 +29,7 @@ var Validations = buildValidations({
 
 export default Ember.Controller.extend(Validations, {
 
-
+banklist:['Cash','NEFT','Cheque'],
     actions: {
         gotoback:function(){
           this.transitionToRoute('userhome');    
@@ -478,6 +478,17 @@ export default Ember.Controller.extend(Validations, {
  this.toggleProperty('isShowingModalssss1');
 // this.set("isShowingModalssss",true)
         },
+        toggleModalssss2:function(){
+           // console.log("in modal func")
+ this.toggleProperty('isShowingModalssss2');
+// this.set("isShowingModalssss",true)
+        },
+        toggleModalssss3:function(){
+           // console.log("in modal func")
+ this.toggleProperty('isShowingModalssss3');
+// this.set("isShowingModalssss",true)
+        },
+        
         gotoshippment:function(){
             console.log("********go to shippment----------");
             var requestid = this.get('requestid')
@@ -841,6 +852,129 @@ export default Ember.Controller.extend(Validations, {
               }
                   
                   });
+
+        },
+       acceptInvoice :function(){
+             console.log("********decline invoice---------");
+            var requestid = this.get('requestid')
+            var usertype = this.get('usertype');
+            console.log('usertype', usertype);
+            var url = this.get('url');
+            console.log('url------>', url);
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+
+            var yyyy = today.getFullYear();
+            if (dd < 10) {
+                dd = '0' + dd;
+            }
+            if (mm < 10) {
+                mm = '0' + mm;
+            }
+            var today = dd + '/' + mm + '/' + yyyy;
+            console.log("today--", today);
+            
+            var mydataString3 = {
+                "status": "invoiceApproved",
+                "InvolvedParties": usertype,
+                "transactionString": {
+                    "updatedby": usertype,
+                    "today": today,
+                  "status": "invoiceApproved"
+                   
+                }
+            }
+            console.log(JSON.stringify(mydataString3));
+             var mycontroller = this;
+
+                   $.ajax({
+                  url:CONFIG.GOURL+'/updateRequest',
+                  type: 'POST',
+                  headers: {
+                  'authorization' : requestid  ,
+                
+                   },
+                  contentType: 'application/json',
+                  data: JSON.stringify(mydataString3),
+                  success: function(response) {
+                      var message = response.message;
+                      console.log("message" +JSON.stringify (response));
+                            
+                  },      
+                      error: function(response) {
+                     console.log('DEBUG: GET Enquiries Failed');
+                     console.log("Error Message: ", response.message);
+                     
+              }
+                  
+                  });
+
+
+
+        },
+        paymentinitiate:function(){
+            console.log("********decline invoice---------");
+            var requestid = this.get('requestid')
+            var usertype = this.get('usertype');
+            console.log('usertype', usertype);
+            var url = this.get('url');
+            console.log('url------>', url);
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+
+            var yyyy = today.getFullYear();
+            if (dd < 10) {
+                dd = '0' + dd;
+            }
+            if (mm < 10) {
+                mm = '0' + mm;
+            }
+            var today = dd + '/' + mm + '/' + yyyy;
+            console.log("today--", today);
+            let{
+                bnkname,paymentmethod
+            }=this.getProperties('bnkname','paymentmethod');
+            
+            var mydataString3 = {
+                "status": "paymentInitiated",
+                "InvolvedParties": usertype,
+                "transactionString": {
+                    "updatedby": usertype,
+                    "paymentmethod":paymentmethod,
+                    "bnkname":bnkname,
+                    "today": today,
+                   
+                    "status": "paymentInitiated"
+                   
+                }
+            }
+            console.log(JSON.stringify(mydataString3));
+             var mycontroller = this;
+
+                   $.ajax({
+                  url:CONFIG.GOURL+'/updateRequest',
+                  type: 'POST',
+                  headers: {
+                  'authorization' : requestid  ,
+                
+                   },
+                  contentType: 'application/json',
+                  data: JSON.stringify(mydataString3),
+                  success: function(response) {
+                      var message = response.message;
+                      console.log("message" +JSON.stringify (response));
+                            
+                  },      
+                      error: function(response) {
+                     console.log('DEBUG: GET Enquiries Failed');
+                     console.log("Error Message: ", response.message);
+                     
+              }
+                  
+                  });
+
 
         }
     }

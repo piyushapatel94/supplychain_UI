@@ -52,6 +52,7 @@
          {{#if isShowInvoice}}<img src="assets/images/invoices.svg" alt="Smiley face" style="background:#499EF6;border-radius: 50%;" height="60" width="60">{{/if}}
       
        {{#if isShowInvoiceDecline}}<img src="assets/images/invoices.svg" alt="Smiley face" style="background: #FF946D;border-radius: 50%;" height="60" width="60">{{/if}}
+      {{#if  isShowInvoiceapproved}}<img src="assets/images/invoices.svg" alt="Smiley face" style="background:#68DC83;border-radius: 50%;" height="60" width="60">{{/if}}
         </div>
         <div class="vl-details">
             {{#if isShowRequestInitaited}}
@@ -82,7 +83,10 @@
     {{#if isShowInvoice}} <div class="oval-4"></div>{{/if}}
     {{#if isShowInvoiceDecline}} <img src="assets/images/close.svg" alt="Smiley face"  id="check-image-2" style="position: relative;
 	background:#FF946D;border-radius: 50%;position: relative;height: 22px;width: 22px;	margin-top:2.0cm;margin-left: -2.55mm;" height="24" width="24">{{/if}}
-        
+        {{#if isShowInvoiceapproved}}
+     <img src="assets/images/tick.svg.png" alt="Smiley face"  id="check-image-2" style="position: relative;
+	background:#68DC83;border-radius: 50%;position: relative;height: 22px;width: 22px;	margin-top:2.0cm;margin-left: -2.55mm;" height="24" width="24">
+    {{/if}}
         </div>
         {{#if isShowshipped}}
  <div class="vl-details-1-map">
@@ -127,6 +131,10 @@
      <img src="assets/images/tick.svg.png" alt="Smiley face"  id="check-image-2" style="position: relative;
 	background:#68DC83;border-radius: 50%;position: relative;height: 22px;width: 22px;	margin-top:4.0cm;margin-left: -2.55mm;" height="24" width="24">
     {{/if}}
+     {{#if isShowInvoiceapproved}}
+     <img src="assets/images/tick.svg.png" alt="Smiley face"  id="check-image-2" style="position: relative;
+	background:#68DC83;border-radius: 50%;position: relative;height: 22px;width: 22px;	margin-top:4.0cm;margin-left: -2.55mm;" height="24" width="24">
+    {{/if}}
     
         </div>
        
@@ -149,6 +157,10 @@
 	background:#68DC83;border-radius: 50%;position: relative;height: 22px;width: 22px;	margin-top:4.0cm;margin-left: -2.55mm;" height="24" width="24">
     {{/if}}
             {{#if isShowInvoiceDecline}}
+     <img src="assets/images/tick.svg.png" alt="Smiley face"  id="check-image-2" style="position: relative;
+	background:#68DC83;border-radius: 50%;position: relative;height: 22px;width: 22px;	margin-top:4.0cm;margin-left: -2.55mm;" height="24" width="24">
+    {{/if}}
+     {{#if isShowInvoiceapproved}}
      <img src="assets/images/tick.svg.png" alt="Smiley face"  id="check-image-2" style="position: relative;
 	background:#68DC83;border-radius: 50%;position: relative;height: 22px;width: 22px;	margin-top:4.0cm;margin-left: -2.55mm;" height="24" width="24">
     {{/if}}
@@ -175,6 +187,10 @@
      <img src="assets/images/tick.svg.png" alt="Smiley face"  id="check-image-2" style="position: relative;
 	background:#68DC83;border-radius: 50%;position: relative;height: 22px;width: 22px;	margin-top:4.0cm;margin-left: -2.55mm;" height="24" width="24">
     {{/if}}
+     {{#if isShowInvoiceapproved}}
+     <img src="assets/images/tick.svg.png" alt="Smiley face"  id="check-image-2" style="position: relative;
+	background:#68DC83;border-radius: 50%;position: relative;height: 22px;width: 22px;	margin-top:4.0cm;margin-left: -2.55mm;" height="24" width="24">
+    {{/if}}
         </div>
         <div class="vl-details-4">
             {{#if isShowInvoice}}
@@ -185,6 +201,11 @@
      <img src="assets/images/tick.svg.png" alt="Smiley face"  id="check-image-2" style="position: relative;
 	background:#68DC83;border-radius: 50%;position: relative;height: 22px;width: 22px;	margin-top:4.0cm;margin-left: -2.55mm;" height="24" width="24">
     {{/if}}
+    {{#if isShowInvoiceapproved}}
+     <img src="assets/images/tick.svg.png" alt="Smiley face"  id="check-image-2" style="position: relative;
+	background:#68DC83;border-radius: 50%;position: relative;height: 22px;width: 22px;	margin-top:4.0cm;margin-left: -2.55mm;" height="24" width="24">
+    {{/if}}
+    
         </div>
     </div>
     <div class="first-row">
@@ -199,6 +220,7 @@
        {{#if isShowDodev}}<p id="detais-status" style="color:#68DC83"><b>{{mystatus}}</b></p>{{/if}}
         {{#if isShowInvoice}}<p id="detais-status"><b>{{mystatus}}</b></p> {{/if}}
          {{#if isShowInvoiceDecline}}<p id="detais-status" style="color:#FF946D"><b>{{mystatus}}</b></p>{{/if}}
+        {{#if  isShowInvoiceapproved}}<p id="detais-status" style="color:#68DC83"><b>{{mystatus}}</b></p>{{/if}}
         <p id="in-detais-status">{{dislapymessage}}.</p>
          </div>
          
@@ -252,8 +274,13 @@
          </div>
          {{/if}}
          {{#if isShowSuop_ReINVobutton}}
-                <div class="first-row-right">
-             <button class="button-right" {{action 'toggleModalssss1'}}>Re-Invioce</button>
+        <div class="first-row-right">
+             <button class="button-right" {{action 'toggleModalssss2'}}>Re-Invioce</button>
+         </div>
+         {{/if}}
+         {{#if isShowBnktpayINTbutton}}
+         <div class="first-row-right">
+             <button class="button-right" {{action 'toggleModalssss3'}}>Start Payment</button>
          </div>
          {{/if}}
     </div>
@@ -1158,6 +1185,147 @@
     </div>
 
     {{/if}}
+    
+    {{#if isShowInvoiceapproved}}
+    <div class="second-row">
+        <div class="in-first-row">
+            <div>
+                <p style="font-size:17px;color:#42709F"><b>Invioce</b></p>
+                <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
+                <div id="in-first-row11-map">
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Raised</b> :{{transactiondetails8.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                
+                </div>
+            </div>
+
+        </div>
+       <div class="in-second-row-1">
+            <table class="in-mytable-details">
+                <tr id="in-th-details">
+                    <th>Material Price</th>
+                    <th><b>Delivery Charge</b></th>
+                    <th><b>Total Price</b></th>
+                    
+
+                </tr>
+                <tr id="in-tr-details">
+                    <td>{{transactiondetails8.materialPrice}}</td>
+                    <td>{{transactiondetails8.devcharge}}</td>
+                    <td>{{transactiondetails8.myTotalPrice}}</td>
+                   
+
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+    <div class="third-row">
+        <div class="in-first-row">
+            <div>
+                <p style="font-size:17px;color:#42709F"><b>Delivery Order</b></p>
+                <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
+                <div id="in-first-row11-map">
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:2cm"><b style="color:#466A8F">Raised</b> :{{transactiondetails5.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Shipped</b> :{{transactiondetails6.expectedDelivery}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Delivered</b> :{{transactiondetails7.expectedDelivery}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                
+                </div>
+            </div>
+
+        </div>
+       <div class="in-second-row-1">
+            <p style="color:#4E5C6B;text-align:left;font-size:12px;	font-family: Avenir; margin-top:3mm"><b>Logistics</b></p>
+            <p style="color: #3B5983;text-align:left;font-size:13px;font-weight: 300;font-family: Avenir;margin-top:-2mm">{{transactiondetails5.logistics}}</p>
+        </div>
+        
+    </div>
+            <div class="third-row">
+        <div class="in-first-row">
+            <div>
+                <p style="font-size:17px;color:#42709F"><b>Purchase Order</b></p>
+                <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
+                <div id="in-first-row11">
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                </div>
+            </div>
+
+        </div>
+        <div class="in-second-row">
+            <p style="color:#4E5C6B;text-align:left;font-size:12px;	font-family: Avenir;"><b>Description</b></p>
+            <p style="color: #3B5983;text-align:left;font-size:13px;font-weight: 300;font-family: Avenir;margin-top:-2mm">{{transactiondetails4.remark}}</p>
+        </div>
+    </div>
+   
+    <div class="third-row">
+        <div class="in-first-row">
+            <div>
+                <p style="font-size:17px;color:#42709F"><b>Quotation</b></p>
+                <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
+                <div id="in-first-row11">
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                </div>
+            </div>
+
+        </div>
+        <div class="in-second-row">
+
+            <table class="in-mytable-details">
+                <tr id="in-th-details">
+                    <th><b>Expected Delivery</b></th>
+                   <th><b>Quantity</b></th>
+                    <th><b>Unit</b></th>
+                    <th><b>Total Price</b></th>
+                 
+                  
+
+                </tr>
+                <tr id="in-tr-details">
+                    <td>{{transactiondetails0.expecteddelivery}}</td>
+                    <td>{{transactiondetails2.Quantity}}</td>
+                    <td>{{transactiondetails2.Quantity}}</td>
+                    <td>{{transactiondetails2.totalprice}}</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+   
+    <div class="third-row">
+        <div class="in-first-row">
+            <div>
+                <p style="font-size:17px;color:#42709F"><b>Request</b></p>
+                <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
+                <div id="in-first-row11">
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                </div>
+            </div>
+
+        </div>
+        <div class="in-second-row">
+
+            <table class="in-mytable-details">
+                <tr id="in-th-details">
+                    <th>Supplier</th>
+                    <th><b>Material Type</b></th>
+                    <th><b>Quantity</b></th>
+                    <th><b>Delivery By</b></th>
+
+                    <th>shipping address</th>
+
+                </tr>
+                <tr id="in-tr-details">
+                    <td>{{transactiondetails0.requestto}}</td>
+                    <td>{{transactiondetails0.materialtype}}</td>
+                    <td>{{transactiondetails0.Quantity}}</td>
+                    <td>{{transactiondetails0.expecteddelivery}}</td>
+                    <td>{{transactiondetails0.address}}</td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    {{/if}}
+    
 </div>
     
     
@@ -1214,6 +1382,24 @@
                   translucentOverlay=true}}
                   
                   {{partial 'invoice'}}
+                
+{{/modal-dialog}}
+{{/if}}
+{{#if isShowingModalssss2}}
+{{#modal-dialog close="toggleModalssss2"
+               targetAttachment="center"
+                  translucentOverlay=true}}
+                  
+                  {{partial 'reinvoice'}}
+                
+{{/modal-dialog}}
+{{/if}}
+{{#if isShowingModalssss3}}
+{{#modal-dialog close="toggleModalssss3"
+               targetAttachment="center"
+                  translucentOverlay=true}}
+                  
+                  {{partial 'payment'}}
                 
 {{/modal-dialog}}
 {{/if}}

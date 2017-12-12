@@ -97,13 +97,45 @@ export default Route.extend({
          console.log("transactiondetails8",JSON.stringify(transactiondetails8));
         mycontroller.controllerFor('alldetails').set('transactiondetails8', transactiondetails8);
         
-        } 
+    } 
+    if(response.message.transactionlist.length > 9){
+         var transactiondetails9 =response.message.transactionlist[9].transactiondetails;
+          var staus9 =response.message.transactionlist[9].transactiondetails.status;
+         /* console.log("staus9",staus9);
+          if(staus9 === 'invoiceDecline'){
+              var my
+          }*/
+         console.log("transactiondetails9",JSON.stringify(transactiondetails9));
+        mycontroller.controllerFor('alldetails').set('transactiondetails9', transactiondetails9);
+        
+        } if(response.message.transactionlist.length > 9){
+            for(var i=0;i< response.message.transactionlist.length;i++){
+               var status =response.message.transactionlist[i].transactiondetails.status;
+               //console.log( status,"status---from after 9th index");
+               if(status === 'invoiceDecline'){
+                var myobj=response.message.transactionlist[i].transactiondetails;
+                console.log( myobj,"myobj--+++-from after 9th index");
+               mycontroller.controllerFor('alldetails').set('myobj', myobj);
+               //break;
+            }
+            if(status === 'invoiceApproved'){
+                var myobj=response.message.transactionlist[i].transactiondetails;
+                console.log( myobj,"myobj--+++%%%%-from after 9th index");
+               mycontroller.controllerFor('alldetails').set('myobj', myobj);
+               break;
+               }
+            }
+        
+    } 
     
         var myshow = (response.message.transactionlist).slice(-1);
         console.log("myshow",myshow);
        var mystatus = myshow[0].transactiondetails.status;
         console.log("mystatus",mystatus);
-         mycontroller.controllerFor('alldetails').set('mystatus', mystatus);
+          mycontroller.controllerFor('alldetails').set('mystatus', mystatus);
+        var mythisStatus =myshow[0].transactiondetails.thisStatus;
+       console.log("mythisStatus----",mythisStatus);
+       
          if(mystatus === "RequestInitiated" &&  usertype==="Supplier" ){
              mycontroller.controllerFor('alldetails').set('isShowSupquotbutton', true);
             mycontroller.controllerFor('alldetails').set('isShowSupplier', false);
@@ -171,7 +203,7 @@ export default Route.extend({
                  mycontroller.controllerFor('alldetails').set('isShowManquotbutton', false);
                 }
 
-if(mystatus === "invoiceRaised"){
+            if(mystatus === "invoiceRaised"){
                 mycontroller.controllerFor('alldetails').set('isShowManpotbutton', false);
                  mycontroller.controllerFor('alldetails').set('isShowManquotbutton', false);
                   mycontroller.controllerFor('alldetails').set('isShowManINVaccpbutton', true);
@@ -187,6 +219,11 @@ if(mystatus === "invoiceRaised"){
              if(mystatus === "shipped"){
                   mycontroller.controllerFor('alldetails').set('isShowlogshiptbutton', false); 
                  mycontroller.controllerFor('alldetails').set('isShowlogdodtbutton', true); 
+             }
+         }
+         if(usertype === 'banker'){
+              if(mystatus === "invoiceApproved"){
+                 mycontroller.controllerFor('alldetails').set('isShowBnktpayINTbutton', true); 
              }
          }
         
@@ -299,6 +336,21 @@ if(mystatus === "invoiceRaised"){
                 mycontroller.controllerFor('alldetails').set('dislapymessage','Invoice is raised and awaited for manfucturers approval');
                 
                 
+            } else if(status === "invoiceApproved"){
+                mycontroller.controllerFor('alldetails').set('isShowRequestAccept', false);
+                mycontroller.controllerFor('alldetails').set('isShowRequestInitaited',false);
+                mycontroller.controllerFor('alldetails').set('isShowQuotationRaised',false);
+                mycontroller.controllerFor('alldetails').set('isShowQuotationAccept',false);
+                mycontroller.controllerFor('alldetails').set('isShowPORaised',false);
+                 mycontroller.controllerFor('alldetails').set('isShowDeleveryOrdered',false);
+                 mycontroller.controllerFor('alldetails').set('isShowshipped',false);
+                  mycontroller.controllerFor('alldetails').set('isShowDodev',false);
+                  mycontroller.controllerFor('alldetails').set('isShowInvoice',false);
+                   mycontroller.controllerFor('alldetails').set('isShowInvoiceDecline',false);
+                   mycontroller.controllerFor('alldetails').set('isShowInvoiceapproved',true);
+                mycontroller.controllerFor('alldetails').set('dislapymessage','Invoice is raised and awaited for manfucturers approval');
+                
+                
             }
             
             else{
@@ -314,26 +366,6 @@ if(mystatus === "invoiceRaised"){
          
         });
         
-       /* var mycontroller =this;
-        return $.ajax({
-                url: CONFIG.GOURL + '/updateRequest',
-                type: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify(location),
-                success: function(response) {
-                    var message = response.message;
-                    console.log("message" + JSON.stringify(response));
-                    //mycontroller.toggleProperty('ShowingModalrequest');
-                    // mycontroller.transitionToRoute('userhome')
-                    // mycontroller.transitionToRoute('home');
-
-                },
-                error: function(response) {
-                    console.log('DEBUG: GET Enquiries Failed');
-                    console.log("Error Message: ", response.message);
-
-                }
-
-            });*/
+       
     }
 });
