@@ -13,7 +13,7 @@ export default Route.extend({
             var url =response.body.url;
             console.log("url ::",JSON.stringify(url));
             mycontroller.controllerFor('alldetails').set('url',url);
-            mycontroller.controllerFor('alldetails').set("isShowingModal",true);
+          //  mycontroller.controllerFor('alldetails').set("isShowingModal",true);
            
             //return image.save();
             
@@ -26,6 +26,9 @@ export default Route.extend({
       
         },
     model(){
+         this.controllerFor('alldetails').set('isShowingModal', false);
+         this.controllerFor('alldetails').set('isShowingModals', false);
+         this.controllerFor('alldetails').set('isShowingModalss', false);
         var requestid = this.controllerFor('userhome').get('requestid');
         console.log("requestid---",requestid);
         this.controllerFor('alldetails').set('requestid', requestid);
@@ -38,7 +41,7 @@ export default Route.extend({
             this.controllerFor('alldetails').set('isShowSupplier', true);
         }
         var mycontroller = this;
-        $.ajax({
+      Ember.$.ajax({
          url:CONFIG.GOURL+'/readRequest',
          type: 'GET',
          contentType: 'application/json', 
@@ -71,7 +74,31 @@ export default Route.extend({
          console.log("transactiondetails4",JSON.stringify(transactiondetails4));
         mycontroller.controllerFor('alldetails').set('transactiondetails4', transactiondetails4);
         
-        }
+    } if(response.message.transactionlist.length > 5){
+         var transactiondetails5 =response.message.transactionlist[5].transactiondetails;
+         console.log("transactiondetails5",JSON.stringify(transactiondetails5));
+        mycontroller.controllerFor('alldetails').set('transactiondetails5', transactiondetails5);
+        
+    }
+    if(response.message.transactionlist.length > 6){
+         var transactiondetails6 =response.message.transactionlist[6].transactiondetails;
+         console.log("transactiondetails6",JSON.stringify(transactiondetails6));
+        mycontroller.controllerFor('alldetails').set('transactiondetails6', transactiondetails6);
+        
+    }
+   if(response.message.transactionlist.length > 7){
+         var transactiondetails7 =response.message.transactionlist[7].transactiondetails;
+         console.log("transactiondetails7",JSON.stringify(transactiondetails7));
+        mycontroller.controllerFor('alldetails').set('transactiondetails7', transactiondetails7);
+        
+    } 
+    if(response.message.transactionlist.length > 8){
+         var transactiondetails8 =response.message.transactionlist[8].transactiondetails;
+         console.log("transactiondetails8",JSON.stringify(transactiondetails8));
+        mycontroller.controllerFor('alldetails').set('transactiondetails8', transactiondetails8);
+        
+        } 
+    
         var myshow = (response.message.transactionlist).slice(-1);
         console.log("myshow",myshow);
        var mystatus = myshow[0].transactiondetails.status;
@@ -110,7 +137,30 @@ export default Route.extend({
                 mycontroller.controllerFor('alldetails').set('isShowSupDotbutton',true);
 
                 }     
-            
+            if(mystatus === 'DoDelievered'){
+                mycontroller.controllerFor('alldetails').set('isShowManquotbutton', false);
+                mycontroller.controllerFor('alldetails').set('isShowSupplier', false);
+                mycontroller.controllerFor('alldetails').set('isShowSupquotbutton',false);
+                mycontroller.controllerFor('alldetails').set('isShowSupDotbutton',false);
+                 mycontroller.controllerFor('alldetails').set('isShowSuopINvobutton',true);
+
+
+            } if(mystatus === "shipped"){
+                   mycontroller.controllerFor('alldetails').set('isShowManquotbutton', false);
+                mycontroller.controllerFor('alldetails').set('isShowSupplier', false);
+                mycontroller.controllerFor('alldetails').set('isShowSupquotbutton',false);
+                mycontroller.controllerFor('alldetails').set('isShowSupDotbutton',false);
+                 mycontroller.controllerFor('alldetails').set('isShowSuopINvobutton',false);
+             }
+             if(mystatus === "invoiceDecline"){
+                   mycontroller.controllerFor('alldetails').set('isShowManquotbutton', false);
+                mycontroller.controllerFor('alldetails').set('isShowSupplier', false);
+                mycontroller.controllerFor('alldetails').set('isShowSupquotbutton',false);
+                mycontroller.controllerFor('alldetails').set('isShowSupDotbutton',false);
+                 mycontroller.controllerFor('alldetails').set('isShowSuopINvobutton',false);
+                 mycontroller.controllerFor('alldetails').set('isShowSuop_ReINVobutton',true);
+             }
+             
          }
          if(usertype === "Manufacturer"){
             if(mystatus === "QuotationRaised"){
@@ -118,11 +168,26 @@ export default Route.extend({
             }
             if(mystatus === "quotationAccepted"){
                 mycontroller.controllerFor('alldetails').set('isShowManpotbutton', true);
+                 mycontroller.controllerFor('alldetails').set('isShowManquotbutton', false);
                 }
-                if(mystatus === "quotationAccepted"){
-                    mycontroller.controllerFor('alldetails').set('isShowManpotbutton', true);
-                    }
+
+if(mystatus === "invoiceRaised"){
+                mycontroller.controllerFor('alldetails').set('isShowManpotbutton', false);
+                 mycontroller.controllerFor('alldetails').set('isShowManquotbutton', false);
+                  mycontroller.controllerFor('alldetails').set('isShowManINVaccpbutton', true);
+                }
+                
             
+         }
+         if(usertype === "logistics"){
+             if(mystatus === "deliveryorderRaised"){
+                 mycontroller.controllerFor('alldetails').set('isShowlogshiptbutton', true); 
+             }
+             
+             if(mystatus === "shipped"){
+                  mycontroller.controllerFor('alldetails').set('isShowlogshiptbutton', false); 
+                 mycontroller.controllerFor('alldetails').set('isShowlogdodtbutton', true); 
+             }
          }
         
          for(var i=0 ;i< transactionlist.length;i++){
@@ -170,6 +235,72 @@ export default Route.extend({
                 
                 
             }
+            else if(status === "deliveryorderRaised"){
+                mycontroller.controllerFor('alldetails').set('isShowRequestAccept', false);
+                mycontroller.controllerFor('alldetails').set('isShowRequestInitaited',false);
+                mycontroller.controllerFor('alldetails').set('isShowQuotationRaised',false);
+                mycontroller.controllerFor('alldetails').set('isShowQuotationAccept',false);
+                mycontroller.controllerFor('alldetails').set('isShowPORaised',false);
+                 mycontroller.controllerFor('alldetails').set('isShowDeleveryOrdered',true);
+                mycontroller.controllerFor('alldetails').set('dislapymessage','The order is expected to  deliver by 27 Aug 2018.');
+                
+                
+            }else if(status === "shipped"){
+                mycontroller.controllerFor('alldetails').set('isShowRequestAccept', false);
+                mycontroller.controllerFor('alldetails').set('isShowRequestInitaited',false);
+                mycontroller.controllerFor('alldetails').set('isShowQuotationRaised',false);
+                mycontroller.controllerFor('alldetails').set('isShowQuotationAccept',false);
+                mycontroller.controllerFor('alldetails').set('isShowPORaised',false);
+                 mycontroller.controllerFor('alldetails').set('isShowDeleveryOrdered',false);
+                 mycontroller.controllerFor('alldetails').set('isShowshipped',true);
+                mycontroller.controllerFor('alldetails').set('dislapymessage','The order is expected to  deliver by 27 Aug 2018');
+                
+                
+            }
+            else if(status === "DoDelievered"){
+                mycontroller.controllerFor('alldetails').set('isShowRequestAccept', false);
+                mycontroller.controllerFor('alldetails').set('isShowRequestInitaited',false);
+                mycontroller.controllerFor('alldetails').set('isShowQuotationRaised',false);
+                mycontroller.controllerFor('alldetails').set('isShowQuotationAccept',false);
+                mycontroller.controllerFor('alldetails').set('isShowPORaised',false);
+                 mycontroller.controllerFor('alldetails').set('isShowDeleveryOrdered',false);
+                 mycontroller.controllerFor('alldetails').set('isShowshipped',false);
+                  mycontroller.controllerFor('alldetails').set('isShowDodev',true);
+                mycontroller.controllerFor('alldetails').set('dislapymessage','Order Has been delivered successfully at manufacturers location');
+                
+                
+            }else if(status === "invoiceRaised"){
+                mycontroller.controllerFor('alldetails').set('isShowRequestAccept', false);
+                mycontroller.controllerFor('alldetails').set('isShowRequestInitaited',false);
+                mycontroller.controllerFor('alldetails').set('isShowQuotationRaised',false);
+                mycontroller.controllerFor('alldetails').set('isShowQuotationAccept',false);
+                mycontroller.controllerFor('alldetails').set('isShowPORaised',false);
+                 mycontroller.controllerFor('alldetails').set('isShowDeleveryOrdered',false);
+                 mycontroller.controllerFor('alldetails').set('isShowshipped',false);
+                  mycontroller.controllerFor('alldetails').set('isShowDodev',false);
+                  mycontroller.controllerFor('alldetails').set('isShowInvoice',true);
+                    mycontroller.controllerFor('alldetails').set('isShowInvoiceDecline',false);
+                mycontroller.controllerFor('alldetails').set('dislapymessage','Invoice is raised and awaited for manfucturers approval');
+                
+                
+            
+               
+            }else if(status === "invoiceDecline"){
+                mycontroller.controllerFor('alldetails').set('isShowRequestAccept', false);
+                mycontroller.controllerFor('alldetails').set('isShowRequestInitaited',false);
+                mycontroller.controllerFor('alldetails').set('isShowQuotationRaised',false);
+                mycontroller.controllerFor('alldetails').set('isShowQuotationAccept',false);
+                mycontroller.controllerFor('alldetails').set('isShowPORaised',false);
+                 mycontroller.controllerFor('alldetails').set('isShowDeleveryOrdered',false);
+                 mycontroller.controllerFor('alldetails').set('isShowshipped',false);
+                  mycontroller.controllerFor('alldetails').set('isShowDodev',false);
+                  mycontroller.controllerFor('alldetails').set('isShowInvoice',false);
+                   mycontroller.controllerFor('alldetails').set('isShowInvoiceDecline',true);
+                mycontroller.controllerFor('alldetails').set('dislapymessage','Invoice is raised and awaited for manfucturers approval');
+                
+                
+            }
+            
             else{
                 
             }
@@ -181,6 +312,28 @@ export default Route.extend({
             
          }
          
-         });
+        });
+        
+       /* var mycontroller =this;
+        return $.ajax({
+                url: CONFIG.GOURL + '/updateRequest',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(location),
+                success: function(response) {
+                    var message = response.message;
+                    console.log("message" + JSON.stringify(response));
+                    //mycontroller.toggleProperty('ShowingModalrequest');
+                    // mycontroller.transitionToRoute('userhome')
+                    // mycontroller.transitionToRoute('home');
+
+                },
+                error: function(response) {
+                    console.log('DEBUG: GET Enquiries Failed');
+                    console.log("Error Message: ", response.message);
+
+                }
+
+            });*/
     }
 });

@@ -37,6 +37,11 @@ export default Ember.Controller.extend(Validations,{
       toggleModal: function() {
         this.toggleProperty('isShowingModal');
       },
+       cancel:function(){
+            this.set("isShowingModalss",false);
+            this.set("isShowingModal_s",false);
+            this.set("isShowingModal",false);
+        },
       submitrequest:function(){
           var usertype =this.get('usertype');
           console.log("usertype--lol",usertype)

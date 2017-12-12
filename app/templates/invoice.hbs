@@ -2,44 +2,33 @@
     <!--<div class="row" style="height:1.5cm">-->
 
   
-    <h5 aign="left"><b>Purchase Order</b></h5>
+    <h5 aign="left"><b>Invoice</b></h5>
     <!-- </div>-->
     
     <div class="row" style="height:2.0cm">
 
         <div id="left">
             <div class="thisgroup-NR">
-                <b>Quantity :</b>
+                <b>Material Price :</b>
             </div>
             <div class="group" style="width:4cm;margin-top:-5mm">
                 
-                 {{validated-input type="text" model=this valuePath='Quantity' placeholder="Enter Quantity" required=""}}
+                 {{validated-input type="text" model=this valuePath='materialPrice' placeholder="Enter Quantity" required=""}}
             </div>
         </div>
 
         <div id="right" style="margin-left:-1cm;width:7cm" >
             <div class="thisgroup-NR">
-                <b >Units:</b>
+                <b >Delivery Charges:</b>
             </div>
             <br/>
             <div class="group" style="width:4cm;margin-top:-1cm">
-               {{validated-input type="text" model=this valuePath='units' placeholder="Enter Quantity" required=""}}
+               {{validated-input type="text" model=this valuePath='devcharge' placeholder="Enter Quantity" required=""}}
             </div>
 
         </div>
     </div>
-
-  
-    <div class="row" style="height:2.0cm">
-        <div class="thisgroup-NR">
-            <b>Description:</b>
-        </div>
-        <div class="group" style="width:10cm; margin-top: -5mm;">
-            {{validated-input type="text" model=this valuePath='remark' placeholder="Enter total Price" required=""}}
-        </div>
-
-    </div>
-    <div id="NR-reactangle">
+     <div id="NR-reactangle">
         {{#pl-uploader  for="upload_file" runtimes="html5 flash silverlight" onfileadd="uploadDoc" as |queue|}}
           <a id="upload_file" style="font-size:18px"> <p style="margin-top:3mm"> <img src="assets/images/upload.svg" alt="Smiley face" width="20" height="20" style="margin-bottom:3mm">&nbsp; Choose File to Upload</p></a>
          {{/pl-uploader}}
@@ -53,7 +42,7 @@
      <button id="NR-button" type="submit" {{action 'cancel'}}>CANCEL</button>
             </div>
          <div class="col-sm-3">
-      <button id="NR-button" type="submit" {{action 'poraised'}}>Raise PO</button>
+      <button id="NR-button" type="submit" {{action 'invoiceraise'}}>Raise</button>
         </div>
     </div>
 </div>

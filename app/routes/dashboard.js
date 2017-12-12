@@ -38,7 +38,7 @@ export default Route.extend({
 
        var mycontroller = this;
       
-                 return $.ajax({
+                 Ember.$.ajax({
                        url: CONFIG.GOURL + '/getInventory',
                        type: 'GET',
                        contentType: 'application/json',
@@ -59,7 +59,25 @@ export default Route.extend({
 
 
                    });
-          
+          Ember.$.ajax({
+                       url: CONFIG.GOURL + '/readStatus',
+                       type: 'GET',
+                       contentType: 'application/json',
+                       success: function(data) {
+                           // var message = response.message;
+                           console.log(JSON.stringify(data));
+                           
+                           
+                           
+                       },
+                       error: function(response) {
+                           console.log('DEBUG: GET Enquiries Failed');
+                           console.log("Error Message: ", data.message);
+
+                       }
+
+
+                   });
 
     }
 });
