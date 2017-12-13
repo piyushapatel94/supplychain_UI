@@ -32,7 +32,7 @@ var Validations = buildValidations({
 export default Ember.Controller.extend(Validations,{
 
     isShowingModal: false,
-    testlist:['Engine block',"Engine Payload",'Fule Hose','fuel tank','Speedometer','Magnetometer','washer'],
+    testlist:['Engine block',"Engine Payload",'Fule Hose','Speedometer','Magnetometer','washer'],
     actions: {
       toggleModal: function() {
         this.toggleProperty('isShowingModal');

@@ -5,13 +5,23 @@ html, body {
 	font-family: Verdana,sans-serif;
 	font-size: 15px;
 	line-height: 1.5;
+	background-color: #F6F9FB;
 }
+/**{
+    box-sizing: inherit;
+	background-color: #F6F9FB;
+}*/
  
  .navbar.navbar-dark{
 	 background-color: #000080 ;
 }
+.navbar-fixed-top {
+    top: 0;
+    border-width: 0 0 1px;
+    height: 70px;
+}
 .mynavbar-right{
-	 padding-top:4mm;
+	 padding-top:6mm;
 	 margin-right:5mm;
 	 color:white;
 	 font-family: Avenir-Black;
@@ -204,13 +214,15 @@ html, body {
 .container{
 	 //padding-left: 15px;
 	 //padding-right:15px;
+	 height: 347px;	width: 1140px;
 	 margin-top:50px;
-	 margin-left: -150px;
-	 margin-right: 200px;
-}
+	 //margin-left: -120px;
+	 //margin-right: 400px;
+	 border-radius: 2px;	background-color: #FFFFFF;	box-shadow: 0 7px 16px 0 rgba(132,152,172,0.1);
+	 }
 .timeline-head{
- margin-top:70px;
-  margin-left: 100px;
+ margin-top:25px;
+  //margin-left: 200px;
   color: #161B21;
   font-family: Avenir;	font-size: 16px;	font-weight: 900;	line-height: 22px;
 }
@@ -222,8 +234,10 @@ html, body {
 
 .mdl-card {
 	 width: 550px;
-	 min-height: 0;
-	 margin: 10px auto;
+	 //min-height: 0;
+//	 margin: 10px auto;
+	margin-left:50px;
+	margin-top:60px;
  }
  
  .mdl-card__supporting-text {
@@ -553,26 +567,29 @@ html, body {
 .last-container{
  margin-left:50px;
  margin-right:50px;
-
+ 	
+border-radius: 2px;
 }  
 
 #left-part{
  position: relative;
  text-align: left;
  font-size:20px;
- 
+ 	background-color: #FFFFFF;
  color: #485676;
  font-family: Avenir;		font-weight: 900;
 }
 .right-part{
-text-align: right
+text-align: right;	background-color: #FFFFFF;
 }
 #myTable-inventory{
  border-collapse: collapse;
  width: 100%;
  /*border: 1px solid #ddd;*/
  font-size: 15px;
+ background-color: #FFFFFF;
  padding:20px 20px 20px 20px;
+ box-shadow: 0 7px 16px 0 rgba(132,152,172,0.1);
 }
 .NR-container{
 height: 400px;
@@ -619,6 +636,8 @@ width:450px;
 }
 .upper-container-r{
 margin-top:2cm;
+	height: 92px;	//width: 1149px;
+	background-color: white;
 }
 .mytable-details{
 	
@@ -735,7 +754,15 @@ box-sizing: border-box;
 		margin-top: 6mm;
 		height: 4.0cm;
 }
-
+.vl-details-5{
+	box-sizing: border-box;
+		
+		width: 2px;
+		border: 0.5px solid #C0D0E2;
+		margin-left: 0.8cm;
+		margin-top: 6mm;
+		height: 4.0cm;
+}
 .oval-4 {
 	height: 22px;
 	width: 22px;
@@ -756,7 +783,7 @@ box-sizing: border-box;
 	margin-left: -2.55mm;
 }
 .second-row{
-		margin-top: 2.0cm;
+		margin-top: 1.8cm;
 		height: 144px;
 		width: 1100.4px;
 		border-radius: 2px;
@@ -776,13 +803,19 @@ margin-top: 2.0cm;
 }
 .in-second-row{
 	margin-top: 4mm;
+	margin-left: 5mm;
 }
 .in-second-row-1{
 margin-top: 7mm;
+margin-left: 5mm;
+}
+.in-third-row{
+margin-left: 5mm;
 }
 .in-first-row{
 	position:relative; 
 	margin-top:1cm;
+	margin-left: 5mm;
 }
 #in-first-row11{
 	margin-top: -1cm;
@@ -891,4 +924,27 @@ border-radius: 2px;	background-color: #FFFFFF;
 .g-map-canvas {
   width: 800px;
   height: 250px;
+}
+.ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 20px;
+    -webkit-margin-end: 20px;
+    -webkit-padding-start: 80px;
+}
+.line-2 {	box-sizing: border-box;	height: 2px;	width: 1059.5px;	border: 0.5px solid #E3E9EC;}
+.line-3 {	box-sizing: border-box;	height: 2px;	width: 1110px;	border: 0.5px solid #E3E9EC;}
+.NR-reactangle-sucess{
+	width: 390px;
+	height: 50px;
+	border-style: dashed;
+	border-color:#499EF6;
+	border-radius: 15px;
+	margin-top: 3mm;
+	margin-left: 0.5cm;
+	text-align: center;
+	color:#68DC83;
+	font-size: 16px;
 }

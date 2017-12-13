@@ -78,6 +78,59 @@ export default Route.extend({
 
 
                    });
+         Ember.$.ajax({
+                       url: CONFIG.GOURL + '/readIndex',
+                       type: 'GET',
+                       contentType: 'application/json',
+                       success: function(data) {
+                           
+                                Ember.$.ajax({
+                                url: CONFIG.GOURL + '/readAllrequest',
+                                type: 'GET',
+                                contentType: 'application/json',
+                                success: function(data) {
+                                
+                                            Ember.$.ajax({
+                                    url: CONFIG.GOURL + '/readtrackingdata',
+                                    type: 'GET',
+                                    contentType: 'application/json',
+                                    success: function(data) {
+                                        console.log("data from tracking",JSON.stringify(data.data))
+                                        var mydata =data.data;
+                                             mycontroller.controllerFor('dashboard').set('mydata', mydata);
+                                             var materialtype ;
+                                             var tracking =[];
+                                           /*  for(var i=0;i<mydata.length;i++){
+                                                 console.log("t");
+                                             }*/
+                                    },
+                                    error: function(response) {
+                                        console.log('DEBUG: GET Enquiries Failed');
+                                        console.log("Error Message: ", data.message);
+
+                                        }
+                                    });      
+                            },
+                            error: function(response) {
+                                console.log('DEBUG: GET Enquiries Failed');
+                                console.log("Error Message: ", data.message);
+
+                            }
+
+
+                        });
+                                
+                           
+                       },
+                       error: function(response) {
+                           console.log('DEBUG: GET Enquiries Failed');
+                           console.log("Error Message: ", data.message);
+
+                       }
+
+
+                   });
+          
 
     }
 });

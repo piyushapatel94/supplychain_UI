@@ -5,8 +5,7 @@
     <h5 aign="left"><b>Shippment Form</b></h5>
     <!-- </div>-->
     <br/>
-    <br>
-    <br/>
+    
     <div class="row" style="height:2.0cm">
 
         <div>
@@ -17,6 +16,29 @@
                 
                  {{bootstrap-datepicker placeholder="Select Date" format="dd/mm/yyyy" class="form-control" value=mydate style="background: url('assets/images/forward.svg') no-repeat right center;"}}
             </div>
+        </div>
+    </div>
+    <div class="row" >
+
+        <div id="left">
+            <div class="thisgroup-NR">
+                <b> Shippment Start From:</b>
+            </div>
+            <div class="group" style="width:4cm;margin-top:-3mm">
+                {{validated-input type="text" model=this valuePath='startAdd' placeholder="Quantity" required=""}}
+
+            </div>
+        </div>
+
+        <div id="right" style="margin-left:-1cm;width:7cm" >
+            <div class="thisgroup-NR">
+                <b>Shippment End To:</b>
+            </div>
+            <br/>
+            <div class="group" style="width:4cm;margin-top:-8mm">
+               {{validated-input type="text" model=this valuePath='endAdd' placeholder="Quantity" required=""}}
+            </div>
+
         </div>
     </div>
     <div class="row">

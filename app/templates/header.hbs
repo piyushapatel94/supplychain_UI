@@ -1,7 +1,7 @@
-<nav class="navbar  navbar-fixed-top" style="background-color:#0198E1">
+<nav class="navbar  navbar-fixed-top" style="background-color:#499EF6">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#" >SMOB</a>
+      <a class="navbar-brand" href="#" ><img src="assets/images/logo.png" alt="Smiley face"  id="check-image-2"  height="40" width="90"></a>
     </div>
     {{#if showUser}}
     <ul class="nav navbar-nav navbar-left">
@@ -19,8 +19,15 @@
       &nbsp; &nbsp;
       <li  class="mynavbar-right">Contact Us</li>
     {{#if showUser}}
-    
-    <li  class="mynavbar-right"{{action 'logout'}}>Log Out</li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Page 1-1</a></li>
+          
+        </ul>
+      </li>
+    <!---<li  class="mynavbar-right"{{action 'logout'}}>Log Out</li>-->
     {{else}}
       <li  class="mynavbar-right"{{action 'toggleModal'}}>Log In</li>
     {{/if}}  

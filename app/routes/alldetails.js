@@ -177,7 +177,16 @@ export default Route.extend({
                  mycontroller.controllerFor('alldetails').set('isShowSuopINvobutton',true);
 
 
-            } if(mystatus === "shipped"){
+            }
+            if(mystatus === 'deliveryorderRaised'){
+                mycontroller.controllerFor('alldetails').set('isShowManquotbutton', false);
+                mycontroller.controllerFor('alldetails').set('isShowSupplier', false);
+                mycontroller.controllerFor('alldetails').set('isShowSupquotbutton',false);
+                mycontroller.controllerFor('alldetails').set('isShowSupDotbutton',false);
+                 mycontroller.controllerFor('alldetails').set('isShowSuopINvobutton',false);
+
+
+            }  if(mystatus === "shipped"){
                    mycontroller.controllerFor('alldetails').set('isShowManquotbutton', false);
                 mycontroller.controllerFor('alldetails').set('isShowSupplier', false);
                 mycontroller.controllerFor('alldetails').set('isShowSupquotbutton',false);
@@ -191,6 +200,22 @@ export default Route.extend({
                 mycontroller.controllerFor('alldetails').set('isShowSupDotbutton',false);
                  mycontroller.controllerFor('alldetails').set('isShowSuopINvobutton',false);
                  mycontroller.controllerFor('alldetails').set('isShowSuop_ReINVobutton',true);
+             }
+             if(mystatus === "invoiceRaised"){
+                   mycontroller.controllerFor('alldetails').set('isShowManquotbutton', false);
+                mycontroller.controllerFor('alldetails').set('isShowSupplier', false);
+                mycontroller.controllerFor('alldetails').set('isShowSupquotbutton',false);
+                mycontroller.controllerFor('alldetails').set('isShowSupDotbutton',false);
+                 mycontroller.controllerFor('alldetails').set('isShowSuopINvobutton',false);
+                 mycontroller.controllerFor('alldetails').set('isShowSuop_ReINVobutton',false);
+             }
+             if(mystatus === "invoiceApproved"){
+                   mycontroller.controllerFor('alldetails').set('isShowManquotbutton', false);
+                mycontroller.controllerFor('alldetails').set('isShowSupplier', false);
+                mycontroller.controllerFor('alldetails').set('isShowSupquotbutton',false);
+                mycontroller.controllerFor('alldetails').set('isShowSupDotbutton',false);
+                 mycontroller.controllerFor('alldetails').set('isShowSuopINvobutton',false);
+                 mycontroller.controllerFor('alldetails').set('isShowSuop_ReINVobutton',false);
              }
              
          }
@@ -208,7 +233,11 @@ export default Route.extend({
                  mycontroller.controllerFor('alldetails').set('isShowManquotbutton', false);
                   mycontroller.controllerFor('alldetails').set('isShowManINVaccpbutton', true);
                 }
-                
+                if(mystatus === "invoiceApproved"){
+                     mycontroller.controllerFor('alldetails').set('isShowManpotbutton', false);
+                 mycontroller.controllerFor('alldetails').set('isShowManquotbutton', false);
+                  mycontroller.controllerFor('alldetails').set('isShowManINVaccpbutton', false);
+                }
             
          }
          if(usertype === "logistics"){
@@ -224,6 +253,8 @@ export default Route.extend({
          if(usertype === 'banker'){
               if(mystatus === "invoiceApproved"){
                  mycontroller.controllerFor('alldetails').set('isShowBnktpayINTbutton', true); 
+             }if(mystatus ==="paymentInitiated"){
+                mycontroller.controllerFor('alldetails').set('isShowBnktpayINTbutton', false); 
              }
          }
         
@@ -348,6 +379,23 @@ export default Route.extend({
                   mycontroller.controllerFor('alldetails').set('isShowInvoice',false);
                    mycontroller.controllerFor('alldetails').set('isShowInvoiceDecline',false);
                    mycontroller.controllerFor('alldetails').set('isShowInvoiceapproved',true);
+                mycontroller.controllerFor('alldetails').set('dislapymessage','Invoice is raised and awaited for manfucturers approval');
+                
+                
+            }
+            else if(status === "paymentInitiated"){
+                mycontroller.controllerFor('alldetails').set('isShowRequestAccept', false);
+                mycontroller.controllerFor('alldetails').set('isShowRequestInitaited',false);
+                mycontroller.controllerFor('alldetails').set('isShowQuotationRaised',false);
+                mycontroller.controllerFor('alldetails').set('isShowQuotationAccept',false);
+                mycontroller.controllerFor('alldetails').set('isShowPORaised',false);
+                 mycontroller.controllerFor('alldetails').set('isShowDeleveryOrdered',false);
+                 mycontroller.controllerFor('alldetails').set('isShowshipped',false);
+                  mycontroller.controllerFor('alldetails').set('isShowDodev',false);
+                  mycontroller.controllerFor('alldetails').set('isShowInvoice',false);
+                   mycontroller.controllerFor('alldetails').set('isShowInvoiceDecline',false);
+                   mycontroller.controllerFor('alldetails').set('isShowInvoiceapproved',false);
+                     mycontroller.controllerFor('alldetails').set('isShowPaymentInit',true);
                 mycontroller.controllerFor('alldetails').set('dislapymessage','Invoice is raised and awaited for manfucturers approval');
                 
                 
