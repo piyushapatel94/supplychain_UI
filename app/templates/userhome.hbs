@@ -1,15 +1,19 @@
 
 <br/>
 <br/>
-<br/>
-<br/>
 
-<div align="right">
-    <span><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"><img src="assets/images/search.svg" alt="Smiley face" width="35" height="35"></span>
+<div class="user-up-container">
+<div class="left-1">
+   <span>Request Received From Retailers</span> 
 </div>
+<div align="right">
+   <span><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for ..." title="Type in a name"><img src="assets/images/search.svg" alt="Smiley face" width="35" height="35"></span>
+</div>
+</div>
+<div class="line-2"></div>
 <div class="userome-container">
 <table id="myTable">
-  <tr id="mytable-th">
+  <tr id="mytable-th"  style="background-color:white">
     <th>Material Type</th>
     <th>Request Id</th>
     <th>Date</th>
@@ -19,7 +23,7 @@
       <th>Status</th>
   </tr>
 {{#each showrecord   as |item|}}
-  <tr id="mytable-td">
+  <tr id="mytable-td" style="background-color:white">
    <td>{{item.myrecord.transactiondetails.materialtype}}</td>
    
     <td><a href=# {{action   'gotorequest' item.key}}>{{item.key}}</a></td>

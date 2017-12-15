@@ -177,7 +177,7 @@ html, body {
 	position: relative;
 	margin-left: 40px;
 	 margin-right: 40px;
-	 margin-top: 30px;
+	// margin-top: 30px;
  }
  #myTable {
 	 position: relative;
@@ -583,6 +583,7 @@ border-radius: 2px;
 text-align: right;	background-color: #FFFFFF;
 }
 #myTable-inventory{
+	//margin-left:5mm;
  border-collapse: collapse;
  width: 100%;
  /*border: 1px solid #ddd;*/
@@ -908,6 +909,7 @@ height: 22px;	width: 133.33px;	color: #161B21;	font-family: Avenir;	font-size: 1
 }
 .in-left-part-table{
 //text-align: right;
+margin-left:5mm;
 }
 .dashboard-track{
 position:relative;
@@ -915,9 +917,9 @@ margin-top:8mm;
 }
 #head-dashboard-track{
 	margin-left:0px;
-	width: 400px;	
+	//width: 400px;	
 border-radius: 2px;	background-color: #FFFFFF;
-	box-shadow: 0 7px 16px 0 rgba(132,152,172,0.1);
+//	box-shadow: 0 7px 16px 0 rgba(132,152,172,0.1);
 	font-weight: 900;
 	font-family: Avenir;
 }
@@ -936,6 +938,7 @@ border-radius: 2px;	background-color: #FFFFFF;
 }
 .line-2 {	box-sizing: border-box;	height: 2px;	width: 1059.5px;	border: 0.5px solid #E3E9EC;}
 .line-3 {	box-sizing: border-box;	height: 2px;	width: 1110px;	border: 0.5px solid #E3E9EC;}
+.line-4{ box-sizing: border-box;	height: 2px;	width: 700px;	border: 0.5px solid #E3E9EC;}
 .NR-reactangle-sucess{
 	width: 390px;
 	height: 50px;
@@ -947,4 +950,30 @@ border-radius: 2px;	background-color: #FFFFFF;
 	text-align: center;
 	color:#68DC83;
 	font-size: 16px;
+}
+.left-1{
+//right :0;
+//left :10cm;
+margin-top: 1cm;
+margin-left: 2cm;
+color: #55615E;
+font-family: Avenir;	font-size: 18px;	font-weight: 900;
+
+background-color: white
+}
+.user-up-container{
+box-shadow: 0 7px 16px 0 rgba(132,152,172,0.1);
+background-color: white;
+width: 100%;
+height: 2cm;
+}
+.source-data{
+	position:relative;
+	margin-top: 3mm;
+	height: 55px;	width: 240px;	border: 1px solid #E4E2E2;	
+	background-color: #FFFFFF;	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.06);
+	float:right;
+}
+.weather-data{
+	float:right;
 }

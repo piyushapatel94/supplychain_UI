@@ -1,7 +1,7 @@
 import Route from '@ember/routing/route';
 import CONFIG from 'supplychain-1/config/environment';
 export default Route.extend({
-    actions:{
+      actions:{
         uploadDoc:function (file) {
             // var mycontroller = this;
             console.log("entering upload FIR 3");
@@ -12,9 +12,12 @@ export default Route.extend({
             console.log(JSON.stringify(response));
             var url =response.body.url;
             console.log("url ::",JSON.stringify(url));
-            mycontroller.controllerFor('alldetails').set('url',url);
-          //  mycontroller.controllerFor('alldetails').set("isShowingModal",true);
-           
+           // mycontroller.controllerFor('deliveryorder').set('url',url);
+          //  alert("Document uploaded sucessfully!!!!");
+             // this.toggleProperty('isShowingModalphoto');
+           //  mycontroller.controllerFor('deliveryorder').set("isShowingModal",true);
+            console.log("saviing file...");
+            console.log("file upload sucessfully. 1..");
             //return image.save();
             
           }, function () {
@@ -217,6 +220,16 @@ export default Route.extend({
                  mycontroller.controllerFor('alldetails').set('isShowSuopINvobutton',false);
                  mycontroller.controllerFor('alldetails').set('isShowSuop_ReINVobutton',false);
              }
+             if(mystatus === "paymentInitiated"){
+                 
+                 mycontroller.controllerFor('alldetails').set('isShowManquotbutton', false);
+                mycontroller.controllerFor('alldetails').set('isShowSupplier', false);
+                mycontroller.controllerFor('alldetails').set('isShowSupquotbutton',false);
+                mycontroller.controllerFor('alldetails').set('isShowSupDotbutton',false);
+                 mycontroller.controllerFor('alldetails').set('isShowSuopINvobutton',false);
+                 mycontroller.controllerFor('alldetails').set('isShowSuop_ReINVobutton',false);
+                 mycontroller.controllerFor('alldetails').set('isShowSUpPaymentInit',true);
+             }
              
          }
          if(usertype === "Manufacturer"){
@@ -227,7 +240,11 @@ export default Route.extend({
                 mycontroller.controllerFor('alldetails').set('isShowManpotbutton', true);
                  mycontroller.controllerFor('alldetails').set('isShowManquotbutton', false);
                 }
-
+                
+                if(mystatus === "purchaseorderRaised"){
+                mycontroller.controllerFor('alldetails').set('isShowManpotbutton', false);
+                 mycontroller.controllerFor('alldetails').set('isShowManquotbutton', false);
+                }
             if(mystatus === "invoiceRaised"){
                 mycontroller.controllerFor('alldetails').set('isShowManpotbutton', false);
                  mycontroller.controllerFor('alldetails').set('isShowManquotbutton', false);
@@ -397,9 +414,29 @@ export default Route.extend({
                    mycontroller.controllerFor('alldetails').set('isShowInvoiceapproved',false);
                      mycontroller.controllerFor('alldetails').set('isShowPaymentInit',true);
                 mycontroller.controllerFor('alldetails').set('dislapymessage','Invoice is raised and awaited for manfucturers approval');
-                
+                var paymentobj = response.message.transactionlist[i];
+                console.log(paymentobj,"----paymentobj");
+                 mycontroller.controllerFor('alldetails').set('paymentobj',paymentobj);
+            }
+            else if(status === "paymentPaid"){
+                mycontroller.controllerFor('alldetails').set('isShowRequestAccept', false);
+                mycontroller.controllerFor('alldetails').set('isShowRequestInitaited',false);
+                mycontroller.controllerFor('alldetails').set('isShowQuotationRaised',false);
+                mycontroller.controllerFor('alldetails').set('isShowQuotationAccept',false);
+                mycontroller.controllerFor('alldetails').set('isShowPORaised',false);
+                 mycontroller.controllerFor('alldetails').set('isShowDeleveryOrdered',false);
+                 mycontroller.controllerFor('alldetails').set('isShowshipped',false);
+                  mycontroller.controllerFor('alldetails').set('isShowDodev',false);
+                  mycontroller.controllerFor('alldetails').set('isShowInvoice',false);
+                   mycontroller.controllerFor('alldetails').set('isShowInvoiceDecline',false);
+                   mycontroller.controllerFor('alldetails').set('isShowInvoiceapproved',false);
+                     mycontroller.controllerFor('alldetails').set('isShowPaymentInit',false);
+                      mycontroller.controllerFor('alldetails').set('isShowPaymentpaid',true);
+                mycontroller.controllerFor('alldetails').set('dislapymessage','Invoice is raised and awaited for manfucturers approval');
                 
             }
+            
+
             
             else{
                 
@@ -413,6 +450,28 @@ export default Route.extend({
          }
          
         });
+                        var location ="Mumbai"
+                        var mydataString3 ={"location":location}
+                         Ember.$.ajax({
+                                    url: CONFIG.GOURL + '/weatherdata',
+                                    type: 'POST',
+                                    contentType: 'application/json',
+                                     data: JSON.stringify(mydataString3),
+                                    success: function(response) {
+                                        console.log("weatherdata",JSON.stringify(response.message.main.temp));
+                                        var temp=response.message.main.temp;
+                                        var temp1 = parseInt(temp) - 273;
+                                        console.log("temp1",temp1);
+                                        mycontroller.controllerFor('alldetails').set('temp1',temp1);
+                                    
+                                    },
+                                    error: function(response) {
+                                        console.log('DEBUG: GET Enquiries Failed');
+                                        console.log("Error Message: ", data.message);
+
+                                        }
+                                    });      
+
         
        
     }

@@ -8,29 +8,29 @@
       <li class="mynavbar-right"{{action 'gotodashboard'}}> Dashboard</li>
       
       &nbsp; &nbsp;
-      <li  class="mynavbar-right">Requests</li>
+      <li  class="mynavbar-right" {{action 'gotorequests'}}>Requests</li>
 
      
     </ul>
     {{/if}}
-    <ul class="nav navbar-nav navbar-right">
+   
+    {{#if showUser}}
+   <ul class="nav navbar-nav navbar-right">
+           <li class="mynavbar-right"> {{usertype}}</li> 
+          <li class="mynavbar-right" {{action 'logout'}}>Logout</li> 
+   </ul>
+       
+    <!---<li  class="mynavbar-right"{{action 'logout'}}>Log Out</li>-->
+    {{else}}
+     <ul class="nav navbar-nav navbar-right">
+      
       <li class="mynavbar-right"> About Us</li>
       
       &nbsp; &nbsp;
       <li  class="mynavbar-right">Contact Us</li>
-    {{#if showUser}}
-    <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Page 1-1</a></li>
-          
-        </ul>
-      </li>
-    <!---<li  class="mynavbar-right"{{action 'logout'}}>Log Out</li>-->
-    {{else}}
-      <li  class="mynavbar-right"{{action 'toggleModal'}}>Log In</li>
+    
+      <li  class="mynavbar-right"{{action 'toggleModal'}}>Log In</li></ul>
     {{/if}}  
-    </ul>
+    
   </div>
 </nav>

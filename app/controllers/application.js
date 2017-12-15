@@ -43,7 +43,15 @@ export default Ember.Controller.extend(Validations,{
          this.set('showlogin',true);
         },
         gotodashboard:function(){
-            this.transitionToRoute('dashboard') ;   
+            var usertype = sessionStorage.getItem('usertype');
+            console.log("usertype",usertype);
+            if(usertype === 'Manufacturer' || usertype === 'retailer'){
+            this.transitionToRoute('dashboard') ; 
+        }  
+    
+        },
+        gotorequests:function(){
+            this.transitionToRoute('userhome') ;   
         },
         login:function(){
             var email = this.get('email');
@@ -83,10 +91,10 @@ export default Ember.Controller.extend(Validations,{
                            
                             mycontroller.set('isShowingModal', false);
                             mycontroller.set('showUser',true);
+                           
+                             mycontroller.set(' notshowuser',false);
                             mycontroller.set('showlogin', false);
                             mycontroller.transitionToRoute('userhome')    
-                        
-                    // mycontroller.transitionToRoute('home');
 
                 },      
                     error: function(response) {
@@ -99,9 +107,7 @@ export default Ember.Controller.extend(Validations,{
 
            
                 }
-              /*  this.set('showUser',true);
-                this.set('showlogin', false);
-                this.transitionToRoute('userhome') */   
+            
 
         },
         logout:function(){

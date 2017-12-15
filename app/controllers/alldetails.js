@@ -30,7 +30,19 @@ var Validations = buildValidations({
 export default Ember.Controller.extend(Validations, {
 
 banklist:['Cash','NEFT','Cheque'],
+citylist:['pune','Mumbai','Chennai','Delhi'],
+myIcon: {
+        url: "assets/images/t1.svg",
+        size: new google.maps.Size(40,40),
+        scaledSize: new google.maps.Size(30,30),
+        anchor: new google.maps.Point(15, 15),
+        origin: new google.maps.Point(0, 0),
+        labelOrigin: new google.maps.Point(30, 15),
+      },
     actions: {
+        okbutton:function(){
+            this.set("my_isShowingModal",false);
+        },
         loadThispage:function(){
            var requestid = this.controllerFor('userhome').get('requestid');
         console.log("requestid---",requestid);
@@ -431,8 +443,11 @@ banklist:['Cash','NEFT','Cheque'],
                 data: JSON.stringify(dataString),
                 success: function(response) {
                     var message = response.message;
+                    var message2 =response.message2;
                     console.log("message" + JSON.stringify(response));
-                    
+                    if( message === {} || message2 === "sucess")  {
+                        mycontroller.toggleProperty('my_isShowingModal');
+                    }                  
 
                 },
                 error: function(response) {
@@ -560,10 +575,14 @@ banklist:['Cash','NEFT','Cheque'],
                 data: JSON.stringify(dataString),
                 success: function(response) {
                     var message = response.message;
+                    
                     console.log("message" + JSON.stringify(response));
-                    //mycontroller.toggleProperty('ShowingModalrequest');
-                    // mycontroller.transitionToRoute('userhome')
-                    // mycontroller.transitionToRoute('home');
+                    if( message === "REQUEST UPDATED")  {
+                        mycontroller.toggleProperty('my_isShowingModal');
+                        mycontroller.set("isShowingModalss",false);
+                        mycontroller.set("isShowingModal_s",false);
+                         mycontroller.set("isShowingModal",false);
+                    }   
 
                 },
                 error: function(response) {
@@ -644,12 +663,17 @@ banklist:['Cash','NEFT','Cheque'],
                 contentType: 'application/json',
                 data: JSON.stringify(dataString),
                 success: function(response) {
-                    var message = response.message;
+
+                        var message = response.message;
                     console.log("message" + JSON.stringify(response));
-                    var myfunc = loadThispage();
-                    if(message ==='sucess'){
-                    mycontroller.toggleProperty('my_isShowingModal');}
-                    
+
+                    if( message === "REQUEST UPDATED")  {
+                        mycontroller.toggleProperty('my_isShowingModal');
+                        mycontroller.set("isShowingModalss",false);
+                        mycontroller.set("isShowingModal_s",false);
+                         mycontroller.set("isShowingModal",false);
+                    }   
+
                 },
                 error: function(response) {
                     console.log('DEBUG: GET Enquiries Failed');
@@ -714,10 +738,15 @@ banklist:['Cash','NEFT','Cheque'],
                 contentType: 'application/json',
                 data: JSON.stringify(dataString1),
                 success: function(response) {
-                    var message = response.message;
+                   var message = response.message;
                     console.log("message" + JSON.stringify(response));
-                     if(message ==='sucess'){
-                    mycontroller.toggleProperty('my_isShowingModal');}
+
+                    if( message === "REQUEST UPDATED")  {
+                        mycontroller.toggleProperty('my_isShowingModal');
+                        mycontroller.set("isShowingModalss",false);
+                        mycontroller.set("isShowingModal_s",false);
+                         mycontroller.set("isShowingModal",false);
+                    }   
 
                 },
                 error: function(response) {
@@ -799,8 +828,16 @@ banklist:['Cash','NEFT','Cheque'],
                   contentType: 'application/json',
                   data: JSON.stringify(mydataString2),
                   success: function(response) {
-                      var message = response.message;
-                      console.log("message" +JSON.stringify (response));
+                     var message = response.message;
+                    console.log("message" + JSON.stringify(response));
+
+                    if( message === "REQUEST UPDATED")  {
+                        mycontroller.toggleProperty('my_isShowingModal');
+                        mycontroller.set("isShowingModalss",false);
+                        mycontroller.set("isShowingModal_s",false);
+                         mycontroller.set("isShowingModal",false);
+                    }   
+
                             
                   },      
                       error: function(response) {
@@ -870,10 +907,10 @@ banklist:['Cash','NEFT','Cheque'],
             console.log("today--", mydate);
 
             let {
-               startAdd,endAdd
+selectedsource,selectedDestination
 
-            } = this.getProperties('startAdd','endAdd');
-            console.log("startAdd",startAdd,endAdd);
+            } = this.getProperties('selectedsource','selectedDestination');
+            console.log("startAdd",selectedsource,selectedDestination);
             var mydataString3 = {
                 "status": "shipped",
                 "InvolvedParties": usertype,
@@ -886,8 +923,8 @@ banklist:['Cash','NEFT','Cheque'],
                     "today": today,
                     "url": "url",
                     "totalprice": "NA",
-                   "startAdd":startAdd,
-                   "endAdd":endAdd,
+                   "selectedsource":selectedsource,
+                   "selectedDestination":selectedDestination,
                     "status": "shipped",
                     "remark": "NA"
                 }
@@ -906,7 +943,16 @@ banklist:['Cash','NEFT','Cheque'],
                   data: JSON.stringify(mydataString3),
                   success: function(response) {
                       var message = response.message;
-                      console.log("message" +JSON.stringify (response));
+                    console.log("message" + JSON.stringify(response));
+
+                    if( message === "REQUEST UPDATED")  {
+                        mycontroller.toggleProperty('my_isShowingModal');
+                        mycontroller.set("isShowingModalss",false);
+                        mycontroller.set("isShowingModal_s",false);
+                         mycontroller.set("isShowingModal",false);
+                         mycontroller.set("isShowingModalsss",false);
+                          mycontroller.set("isShowingModalssss",false);
+                    } 
                             
                   },      
                       error: function(response) {
@@ -984,9 +1030,17 @@ banklist:['Cash','NEFT','Cheque'],
                   contentType: 'application/json',
                   data: JSON.stringify(mydataString3),
                   success: function(response) {
-                      var message = response.message;
-                      console.log("message" +JSON.stringify (response));
-                            
+                     var message = response.message;
+                    console.log("message" + JSON.stringify(response));
+
+                    if( message === "REQUEST UPDATED")  {
+                        mycontroller.toggleProperty('my_isShowingModal');
+                        mycontroller.set("isShowingModalss",false);
+                        mycontroller.set("isShowingModal_s",false);
+                         mycontroller.set("isShowingModal",false);
+                          mycontroller.set("isShowingModalsss",false);
+                           mycontroller.set("isShowingModalsss",false);
+                    } 
                   },      
                       error: function(response) {
                      console.log('DEBUG: GET Enquiries Failed');
@@ -1054,8 +1108,16 @@ banklist:['Cash','NEFT','Cheque'],
                   contentType: 'application/json',
                   data: JSON.stringify(mydataString3),
                   success: function(response) {
-                      var message = response.message;
-                      console.log("message" +JSON.stringify (response));
+                       var message = response.message;
+                    console.log("message" + JSON.stringify(response));
+
+                    if( message === "REQUEST UPDATED")  {
+                        mycontroller.toggleProperty('my_isShowingModal');
+                        mycontroller.set("isShowingModal_s",false);
+                         mycontroller.set("isShowingModal",false);
+                       
+                           mycontroller.set("toggleModalssss1",false);
+                    } 
                             
                   },      
                       error: function(response) {
@@ -1114,8 +1176,17 @@ banklist:['Cash','NEFT','Cheque'],
                   contentType: 'application/json',
                   data: JSON.stringify(mydataString3),
                   success: function(response) {
-                      var message = response.message;
-                      console.log("message" +JSON.stringify (response));
+                       var message = response.message;
+                    console.log("message" + JSON.stringify(response));
+
+                    if( message === "REQUEST UPDATED")  {
+                        mycontroller.toggleProperty('my_isShowingModal');
+                        this.set("isShowingModalss",false);
+                        this.set("isShowingModal_s",false);
+                         this.set("isShowingModal",false);
+                          this.set("isShowingModalsss",false);
+                           this.set("isShowingModalssss",false);
+                    } 
                             
                   },      
                       error: function(response) {
@@ -1186,9 +1257,17 @@ banklist:['Cash','NEFT','Cheque'],
                   contentType: 'application/json',
                   data: JSON.stringify(mydataString3),
                   success: function(response) {
-                      var message = response.message;
-                      console.log("message" +JSON.stringify (response));
-                            
+                       var message = response.message;
+                    console.log("message" + JSON.stringify(response));
+
+                    if( message === "REQUEST UPDATED")  {
+                        mycontroller.toggleProperty('my_isShowingModal');
+                        this.set("isShowingModalss",false);
+                        this.set("isShowingModal_s",false);
+                         this.set("isShowingModal",false);
+                          this.set("isShowingModalsss",false);
+                           this.set("isShowingModalssss",false);
+                    } 
                   },      
                       error: function(response) {
                      console.log('DEBUG: GET Enquiries Failed');
@@ -1244,7 +1323,13 @@ banklist:['Cash','NEFT','Cheque'],
                   data: JSON.stringify(mydataString3),
                   success: function(response) {
                       var message = response.message;
-                      console.log("message" +JSON.stringify (response));
+                    console.log("message" + JSON.stringify(response));
+
+                    if( message === "REQUEST UPDATED")  {
+                        mycontroller.toggleProperty('my_isShowingModal');
+                        
+                           mycontroller.set("isShowingModalssss",false);
+                    } 
                             
                   },      
                       error: function(response) {
@@ -1309,7 +1394,16 @@ banklist:['Cash','NEFT','Cheque'],
                   data: JSON.stringify(mydataString3),
                   success: function(response) {
                       var message = response.message;
-                      console.log("message" +JSON.stringify (response));
+                    console.log("message" + JSON.stringify(response));
+
+                    if( message === "REQUEST UPDATED")  {
+                        mycontroller.toggleProperty('my_isShowingModal');
+                        this.set("isShowingModalss",false);
+                        this.set("isShowingModal_s",false);
+                         this.set("isShowingModal",false);
+                          this.set("isShowingModalsss",false);
+                           this.set("isShowingModalssss",false);
+                    } 
                             
                   },      
                       error: function(response) {
@@ -1320,6 +1414,66 @@ banklist:['Cash','NEFT','Cheque'],
                   
                   });
 
+
+        },
+        paymentpaid:function()
+        {
+            console.log("********decline invoice---------");
+            var requestid = this.get('requestid')
+            var usertype = this.get('usertype');
+            console.log('usertype', usertype);
+            var url = this.get('url');
+            console.log('url------>', url);
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+
+            var yyyy = today.getFullYear();
+            if (dd < 10) {
+                dd = '0' + dd;
+            }
+            if (mm < 10) {
+                mm = '0' + mm;
+            }
+            var today = dd + '/' + mm + '/' + yyyy;
+            console.log("today--", today);
+             var mydataString3 = {
+                "status": "paymentPaid",
+                "InvolvedParties": usertype,
+                "transactionString": {
+                    "updatedby": usertype, 
+                    "today": today,
+                         "status": "paymentPaid"   
+                }
+            }
+            console.log(JSON.stringify(mydataString3));
+             var mycontroller = this;
+
+                   $.ajax({
+                  url:CONFIG.GOURL+'/updateRequest',
+                  type: 'POST',
+                  headers: {
+                  'authorization' : requestid  ,
+                   },
+                  contentType: 'application/json',
+                  data: JSON.stringify(mydataString3),
+                  success: function(response) {
+                       var message = response.message;
+                    console.log("message" + JSON.stringify(response));
+
+                    if( message === "REQUEST UPDATED")  {
+                        mycontroller.toggleProperty('my_isShowingModal');
+                        
+                          mycontroller.set("isShowingModalssss",false);
+                    } 
+                            
+                  },      
+                      error: function(response) {
+                     console.log('DEBUG: GET Enquiries Failed');
+                     console.log("Error Message: ", response.message);
+                     
+              }   
+                  });
 
         }
     }

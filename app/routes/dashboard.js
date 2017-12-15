@@ -1,7 +1,7 @@
 import Route from '@ember/routing/route';
 import CONFIG from 'supplychain-1/config/environment';
 export default Route.extend({
-    actions:{
+      actions:{
         uploadDoc:function (file) {
             // var mycontroller = this;
             console.log("entering upload FIR 3");
@@ -12,9 +12,12 @@ export default Route.extend({
             console.log(JSON.stringify(response));
             var url =response.body.url;
             console.log("url ::",JSON.stringify(url));
-            mycontroller.controllerFor('dashboard').set('url',url);
-            mycontroller.controllerFor('dashboard').set("isShowingModal",true);
-           
+           // mycontroller.controllerFor('deliveryorder').set('url',url);
+          //  alert("Document uploaded sucessfully!!!!");
+             // this.toggleProperty('isShowingModalphoto');
+             //mycontroller.controllerFor('deliveryorder').set("isShowingModal",true);
+            console.log("saviing file...");
+            console.log("file upload sucessfully. 1..");
             //return image.save();
             
           }, function () {
@@ -64,12 +67,134 @@ export default Route.extend({
                        type: 'GET',
                        contentType: 'application/json',
                        success: function(data) {
-                           // var message = response.message;
-                           console.log(JSON.stringify(data));
+                           var statuscount =data.statuscount;
+                            console.log(JSON.stringify(statuscount));
+                            for (var i = 0; i < statuscount.length; i++) {
+
+                            if (statuscount[i].statusname === "claimRaised") {
+                                var isclaimRaisedCount = JSON.stringify(statuscount[i].statuscount);
+                             //   var claimRaisedCount = Count * 10;
+                                console.log(JSON.stringify(statuscount[i].statuscount));
+                                mycontroller.controllerFor('dashboard').set('claimRaisedCount', isclaimRaisedCount * 10);
+                                mycontroller.controllerFor('dashboard').set('isclaimRaisedCount', isclaimRaisedCount);
+                            }
+                                
+                            if (statuscount[i].statusname === "MaterialRequested") {
+                                var IsMaterialRequestedCount = statuscount[i].statuscount;
+                                console.log("IsMaterialRequestedCount ---", typeof(IsMaterialRequestedCount));
+                                var MaterialRequestedcount = 10 * IsMaterialRequestedCount;
+                                console.log("MaterialRequestedcount-------->", MaterialRequestedcount);
+                                mycontroller.controllerFor('dashboard').set('MaterialRequestedcount', IsMaterialRequestedCount * 10);
+                                mycontroller.controllerFor('dashboard').set('IsMaterialRequestedCount', IsMaterialRequestedCount);
+                            }
+                               
+                            if (statuscount[i].statusname === "QuotationRejected") {
+                                var isQuotationRejectedCount = statuscount[i].statuscount;
+                                //var QuotationRejectedcount = Count * 10;
+                                console.log(JSON.stringify(statuscount[i].statuscount));
+                                mycontroller.controllerFor('dashboard').set('QuotationRejectedcount', isQuotationRejectedCount * 10);
+                                mycontroller.controllerFor('dashboard').set('isQuotationRejectedCount', isQuotationRejectedCount);
+                            }
+                               
+                            if (statuscount[i].statusname === "PaymentInitiated") {
+                                var isPaymentInitiatedCount = statuscount[i].statuscount;
+                               // var PaymentInitiatedcount = Count * 10;
+                                console.log(JSON.stringify(statuscount[i].statuscount));
+                                mycontroller.controllerFor('dashboard').set('PaymentInitiatedcount', isPaymentInitiatedCount * 10);
+                                mycontroller.controllerFor('dashboard').set('isPaymentInitiatedCount', isPaymentInitiatedCount);
+                            } 
                            
+
+                            if (statuscount[i].statusname === "POraised") {
+                                var ISPOCount = statuscount[i].statuscount;
+                            //    var POraisedcount = Count * 10;
+                                console.log(JSON.stringify(statuscount[i].statuscount));
+                                mycontroller.controllerFor('dashboard').set('POraisedcount', ISPOCount * 10);
+                                mycontroller.controllerFor('dashboard').set('ISPOCount', ISPOCount);
+                            }
                            
+                            if (statuscount[i].statusname === "PaymentReceived") {
+                                var IsPaymentReceivedCount = statuscount[i].statuscount;
+                             //   var PaymentReceivedcount = Count * 10;
+                                console.log(JSON.stringify(statuscount[i].statuscount));
+                                mycontroller.controllerFor('dashboard').set('PaymentReceivedcount', IsPaymentReceivedCount * 10);
+                                mycontroller.controllerFor('dashboard').set('IsPaymentReceivedCount', IsPaymentReceivedCount);
+                            } 
                            
-                       },
+                            if (statuscount[i].statusname === "InvoiceRaised") {
+                                var isInvoiceRaisedCount = statuscount[i].statuscount;
+                             //   var InvoiceRaisedcount = Count * 10;
+                                console.log("InvoiceRaisedcount-----",isInvoiceRaisedCount *10);
+                                mycontroller.controllerFor('dashboard').set('InvoiceRaisedcount', isInvoiceRaisedCount * 10);
+                                mycontroller.controllerFor('dashboard').set('isInvoiceRaisedCount', isInvoiceRaisedCount);
+                            } 
+                           
+                            if (statuscount[i].statusname === "InvoiceApproved") {
+                                var isInvoiceApprovedCount = statuscount[i].statuscount;
+                             //   var InvoiceApprovedcount = Count * 10;
+                                console.log(JSON.stringify(statuscount[i].statuscount));
+                                mycontroller.controllerFor('dashboard').set('InvoiceApprovedcount', isInvoiceApprovedCount * 10);
+                                mycontroller.controllerFor('dashboard').set('isInvoiceApprovedCount', isInvoiceApprovedCount);
+                            } 
+                            // else {
+                            //     mycontroller.controllerFor('dashboard').set('InvoiceApprovedcount', 0);
+                            //     mycontroller.controllerFor('dashboard').set('isInvoiceApprovedCount', 0);
+                            // }
+                            if (statuscount[i].statusname === "DoDelivered") {
+                                var isDoDeliveredCount = statuscount[i].statuscount;
+                           //     var DoDeliveredcount = Count * 10;
+                                console.log(JSON.stringify(statuscount[i].statuscount));
+                                mycontroller.controllerFor('dashboard').set('DoDeliveredcount', isDoDeliveredCount * 10);
+                                mycontroller.controllerFor('dashboard').set('isDoDeliveredCount', isDoDeliveredCount);
+                            }
+                            //  else {
+                            //     mycontroller.controllerFor('dashboard').set('DoDeliveredcount', 0);
+                            //     mycontroller.controllerFor('dashboard').set('isDoDeliveredCount', 0);
+                            // }
+                            if (statuscount[i].statusname === "NotDelivered") {
+                                var isNotDeliveredCount = statuscount[i].statuscount;
+                            //    var NotDeliveredcount = Count * 10
+                                console.log(JSON.stringify(statuscount[i].statuscount));
+                                mycontroller.controllerFor('dashboard').set('NotDeliveredcount', isNotDeliveredCount * 10);
+                                mycontroller.controllerFor('dashboard').set('isNotDeliveredCount', isNotDeliveredCount);
+                            } 
+                            // else {
+                            //     mycontroller.controllerFor('dashboard').set('NotDeliveredcount', 0);
+                            //     mycontroller.controllerFor('dashboard').set('isNotDeliveredCount', 0);
+                            // }
+                            if (statuscount[i].statusname === "claimRequested") {
+                                var isclaimRequestedCount = statuscount[i].statuscount;
+                             //   var claimRequestedcount = Count * 10;
+                                console.log(JSON.stringify(statuscount[i].statuscount));
+                                mycontroller.controllerFor('dashboard').set('claimRequestedcount', isclaimRequestedCount * 10);
+                                mycontroller.controllerFor('dashboard').set('isclaimRequestedCount', isclaimRequestedCount);
+                            }
+                            //  else {
+                            //     mycontroller.controllerFor('dashboard').set('claimRequestedcount', 0);
+                            //     mycontroller.controllerFor('dashboard').set('isclaimRequestedCount', 0);
+                            // }
+                            if (statuscount[i].statusname === "QuotationRaised") {
+                                var IsQuotationRaisedCount = statuscount[i].statuscount;
+                                console.log("IsQuotationRaisedCount ---", typeof(IsQuotationRaisedCount));
+                                var QuotationRaisedcount = IsQuotationRaisedCount *10 ;
+                                console.log("QuotationRaisedcount-------->", QuotationRaisedcount);
+                                mycontroller.controllerFor('dashboard').set('QuotationRaisedcount', IsQuotationRaisedCount * 10 );
+                                mycontroller.controllerFor('dashboard').set('IsQuotationRaisedCount', IsQuotationRaisedCount);
+                            } 
+                            // else {
+                            //     mycontroller.controllerFor('dashboard').set('QuotationRaisedcount', 0);
+                            //     mycontroller.controllerFor('dashboard').set('IsQuotationRaisedCount', 0);
+                            // }
+                            if (statuscount[i].statusname === "DOraised") {
+                                var isDOraisedCount = statuscount[i].statuscount;
+                                var DOraisedcount = isDOraisedCount * 10;
+                                console.log( "DOraisedcount --->",isDOraisedCount * 10);
+                                mycontroller.controllerFor('dashboard').set('DOraisedcount', isDOraisedCount * 10);
+                                mycontroller.controllerFor('dashboard').set('isDOraisedCount', isDOraisedCount);
+                                
+                            } 
+                            }
+                            },
                        error: function(response) {
                            console.log('DEBUG: GET Enquiries Failed');
                            console.log("Error Message: ", data.message);
@@ -78,7 +203,7 @@ export default Route.extend({
 
 
                    });
-         Ember.$.ajax({
+                Ember.$.ajax({
                        url: CONFIG.GOURL + '/readIndex',
                        type: 'GET',
                        contentType: 'application/json',
@@ -94,15 +219,39 @@ export default Route.extend({
                                     url: CONFIG.GOURL + '/readtrackingdata',
                                     type: 'GET',
                                     contentType: 'application/json',
-                                    success: function(data) {
-                                        console.log("data from tracking",JSON.stringify(data.data))
-                                        var mydata =data.data;
+                                    success: function(response) {
+                                        console.log("data from tracking",JSON.stringify(response.data))
+                                        var mydata =response.data;
                                              mycontroller.controllerFor('dashboard').set('mydata', mydata);
                                              var materialtype ;
                                              var tracking =[];
-                                           /*  for(var i=0;i<mydata.length;i++){
-                                                 console.log("t");
-                                             }*/
+                                             console.log(mydata.length)
+                                             for(var i=0;i<mydata.length;i++){
+                                            var myarray =response.data[i];
+                                             var updatedby =myarray[i].Record.transactionlist[0].transactiondetails.updatedby;
+                                            var materialtype =myarray[i].Record.transactionlist[0].transactiondetails.materialtype;
+                                            var requestto =myarray[i].Record.transactionlist[0].transactiondetails.requestto;
+                                          
+                                            console.log(materialtype);
+                                                    if(updatedby === 'Manufacturer'){
+                                                        tracking.push({
+                                                     "materialtype": materialtype,
+                                                        "updatedby":updatedby,
+                                                        "companyname":requestto,
+                                                         });
+
+                                             
+                                             }else if(updatedby === 'retailer'){
+                                                 tracking.push({
+                                                     "materialtype": materialtype,
+                                                        "updatedby":updatedby,
+                                                        "companyname":myarray[i].Record.transactionlist[0].transactiondetails.companyname
+                                                         });
+
+                                             }
+                                             console.log(tracking,"---tracking");
+                                             mycontroller.controllerFor('dashboard').set('tracking',tracking);
+                                    }
                                     },
                                     error: function(response) {
                                         console.log('DEBUG: GET Enquiries Failed');

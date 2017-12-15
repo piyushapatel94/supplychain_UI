@@ -215,7 +215,7 @@ clip: auto;"></div>
   </div>
   <div class="col-sm-4" style="height:410px;	width: 370px;	margin-left:10px;border-radius: 2px;	background-color: #FFFFFF;	box-shadow: 0 7px 16px 0 rgba(132,152,172,0.1);}">
 <div class="middle-container">
-  <p style="font-size:14px"> <b>Delivery Overvirew</b></p>
+  <p style="font-size:14px "> <b>Delivery Overvirew</b></p>
 
 <div style="width: 200px;position:relative;">
   <div style="position: absolute;
@@ -324,17 +324,20 @@ clip: auto;"></div>
       <div class="col-sm-6" id="left-part">
         <p>Inventory</p>
       </div>
-      <div class="col-sm-6">
-         <span><input type="text" id="myInput" onkeyup="myFunction()"  title="Type in a name"><img src="assets/images/search.svg" alt="Smiley face" width="22" height="22">  &nbsp;&nbsp;&nbsp; <span style="color:#499EF6"{{action 'toggleModal'}}>New Request <img src="assets/images/forward.svg" alt="Smiley face" width="15" height="9" style="margin-bottom:1px"></span> </span>
+      
+      <div class="col-sm-6" style="background-color:white">
+         <span><input type="text" id="myInput" onkeyup="myFunction()"  title="Type in a name"><img src="assets/images/search.svg" alt="Smiley face" width="22" height="22">  &nbsp;&nbsp;&nbsp; <span style="color:#499EF6 ;margin-left:1.5cm"{{action 'toggleModal'}}>New Request <img src="assets/images/forward.svg" alt="Smiley face" width="15" height="9" style="margin-bottom:1px"></span> </span>
      </div>
+       <div class="line-4"></div>
     <div class="in-left-part-table">
       <table id="myTable-inventory">
   <tr  id="myTable-inventory-th" >
     <th>Item Name</th>
     <th>Current Quantity</th>
     <th>Reorder Quantity</th>
-     
+   
   </tr>
+  
   {{#each mydetails as |item|}}
   <tr id="myTable-inventory-td">
     <td>{{item.itemname}}</td>
@@ -352,20 +355,16 @@ clip: auto;"></div>
       <div class="heading-right">
         Track Deliveries
       </div>
+      {{#each tracking as |items|}}
       <div class="dashboard-track">
        <div id="head-dashboard-track">
-         Engine Blocks
+      {{items.materialtype}}
        </div>
-       <p style="color: #536C89;font-family: Avenir;font-size: 13px;font-style: oblique;font-weight: 900;"> Retailer :<span style="font-weight: 300;color: #022351;font-size: 13px;">TVS Clinton Ltd.</span></p>
-      <p style="margin-top:-3mm;color: #677B92;	font-family: Avenir;	font-size: 12px;">Reached Thambaram will be delived on Monday &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #3B89F3;	font-family: Avenir;	font-size: 13px;	font-weight: 900;text-decoration: underline;">Track</span></p>
+       <p style="color: #536C89;font-family: Avenir;font-size: 13px;font-style: oblique;font-weight: 900;">  {{items.updatedby}} :<span style="font-weight: 300;color: #022351;font-size: 13px;"> {{items.companyname}}</span></p>
+      <p style="margin-top:-3mm;color: #677B92;	font-family: Avenir;	font-size: 12px;">Reached Thambaram will be delived on Monday &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #3B89F3;	font-family: Avenir;	font-size: 13px;	font-weight: 900;text-decoration: underline;"{{action 'gotoTracking'}}>Track</span></p>
       </div>
-      <div class="dashboard-track">
-       <div id="head-dashboard-track">
-         Engine Blocks
-       </div>
-       <p style="color: #536C89;font-family: Avenir;font-size: 13px;font-style: oblique;font-weight: 900;"> Retailer :<span style="font-weight: 300;color: #022351;font-size: 13px;">TVS Clinton Ltd.</span></p>
-      <p style="margin-top:-3mm;color: #677B92;	font-family: Avenir;	font-size: 12px;">Reached Thambaram will be delived on Monday &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #3B89F3;	font-family: Avenir;	font-size: 13px;	font-weight: 900;text-decoration: underline;">Track</span></p>
-      </div>
+      {{/each}}
+     
     </div>
   </div>
 </div>
@@ -377,6 +376,17 @@ clip: auto;"></div>
                   translucentOverlay=true}}
                   
                   {{partial 'newrequest'}}
+                
+{{/modal-dialog}}
+{{/if}}
+{{#if ShowingModalrequest}}
+{{#modal-dialog close="toggleModal"
+               targetAttachment="center"
+                  translucentOverlay=true}}
+        <div id="NR-reactangle-sucess">
+           <p style="margin-top:3mm;color:#68DC83"> New Request Created Sucessfully </p>
+           <button class="btn btn-info"{{action 'okbutton'}}>ok</button>
+       </div>   
                 
 {{/modal-dialog}}
 {{/if}}

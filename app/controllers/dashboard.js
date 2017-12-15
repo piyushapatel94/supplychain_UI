@@ -32,10 +32,18 @@ var Validations = buildValidations({
 export default Ember.Controller.extend(Validations,{
 
     isShowingModal: false,
+    ShowingModalrequest:false,
     testlist:['Engine block',"Engine Payload",'Fule Hose','Speedometer','Magnetometer','washer'],
     actions: {
       toggleModal: function() {
         this.toggleProperty('isShowingModal');
+      },
+      okbutton:function(){
+          this.set('isShowingModal',false);
+           this.set('ShowingModalrequest',false);
+      },
+      gotoTracking:function(){
+
       },
        cancel:function(){
             this.set("isShowingModalss",false);
@@ -107,8 +115,10 @@ export default Ember.Controller.extend(Validations,{
         success: function(response) {
         var message = response.message;
         console.log("message" + message);
+        if( message === "resquest send successfully !"){
+            mycontroller.toggleProperty('ShowingModalrequest');
+        }
         
-        mycontroller.toggleProperty('ShowingModalrequest');
         // mycontroller.transitionToRoute('userhome')
         //mycontroller.transitionToRoute('home');
 

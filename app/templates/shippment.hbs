@@ -24,9 +24,9 @@
             <div class="thisgroup-NR">
                 <b> Shippment Start From:</b>
             </div>
-            <div class="group" style="width:4cm;margin-top:-3mm">
-                {{validated-input type="text" model=this valuePath='startAdd' placeholder="Quantity" required=""}}
-
+            <div class="group" style="width:4cm;margin-top:1mm">
+                
+        {{select-component dropdowntype="test" listitem=citylist selecteditemlist=selectedsource}}
             </div>
         </div>
 
@@ -35,8 +35,8 @@
                 <b>Shippment End To:</b>
             </div>
             <br/>
-            <div class="group" style="width:4cm;margin-top:-8mm">
-               {{validated-input type="text" model=this valuePath='endAdd' placeholder="Quantity" required=""}}
+            <div class="group" style="width:4cm;margin-top:-4mm">
+               {{select-component dropdowntype="test" listitem=citylist selecteditemlist=selectedDestination}}
             </div>
 
         </div>
