@@ -89,7 +89,7 @@ export default Ember.Controller.extend(Validations,{
          
           var dataString = {  
             "status":"RequestInitiated",
-            "InvolvedParties":"manufacturer",
+            "InvolvedParties":usertype,
             "transactionString":{
                "updatedby":usertype,
                 "expecteddelivery":mydate,

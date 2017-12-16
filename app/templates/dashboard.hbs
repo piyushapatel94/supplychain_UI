@@ -25,7 +25,7 @@
          <div class="vl"></div>
           <div class="circle" ><div id="request-details">Delayed 152</div></div>
           <div class="vl"></div>
-          <div class="circle"><div id="request-details">Accepted 52</div> </div>
+          <div class="circle"><div id="request-details">Accepted {{IsRequestAcceptedcount}}</div> </div>
           
           <div class="mdl-stepper-bar-left"></div>
           <div class="mdl-stepper-bar-right"></div>
@@ -34,7 +34,7 @@
        <div class="mdl-stepper-step active-step ">
       <div class="upper-line">
         
-          <div class="this-circle2"><div id="request-details">Received 152</div></div>
+          <div class="this-circle2"><div id="request-details">Received {{QuotationRaisedcount}}</div></div>
           <div class="vl2"></div>
           <div class="this-circle2"><div id="request-details">Accepted 152</div></div>
           <div class="vl2"></div>
@@ -314,10 +314,25 @@ clip: auto;"></div>
 </div>
 </div>
   </div>
+ {{#if IsShowretailer}}
   <div class="col-sm-4" style="height:410px;	width: 370px;	margin-left:10px;border-radius: 2px;	background-color: #FFFFFF;	box-shadow: 0 7px 16px 0 rgba(132,152,172,0.1);}">
+        <div class="heading-right">
+        Track Deliveries  &nbsp;&nbsp;&nbsp; <span style="color:#499EF6 ;float:right;margin-left:2cm"{{action 'toggleModal'}}>New Request <img src="assets/images/forward.svg" alt="Smiley face" width="15" height="9" style="margin-bottom:1px"></span> 
+      </div>
+      {{#each tracking as |items|}}
+      <div class="dashboard-track">
+       <div id="head-dashboard-track">
+      {{items.materialtype}}
+       </div>
+       <p style="color: #536C89;font-family: Avenir;font-size: 13px;font-style: oblique;font-weight: 900;">  {{items.updatedby}} :<span style="font-weight: 300;color: #022351;font-size: 13px;"> {{items.companyname}}</span></p>
+      <p style="margin-top:-3mm;color: #677B92;	font-family: Avenir;	font-size: 12px;">Reached Thambaram will be delived on Monday &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #3B89F3;	font-family: Avenir;	font-size: 13px;	font-weight: 900;text-decoration: underline;"{{action 'gotoTracking'}}>Track</span></p>
+      </div>
+      {{/each}}
   </div>
+  {{/if}}
 </div>
 <br/>
+{{#if IsnotShowRetailer}}
 <div class="last-container">
   <div class="row">
     <div class="col-sm-8">
@@ -368,6 +383,16 @@ clip: auto;"></div>
     </div>
   </div>
 </div>
+{{/if}}
+
+{{#if IsShowNewReqretailer}}
+
+{{/if}}
+
+
+
+
+
 
 
 {{#if isShowingModal}}
@@ -390,3 +415,4 @@ clip: auto;"></div>
                 
 {{/modal-dialog}}
 {{/if}}
+

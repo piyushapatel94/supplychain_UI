@@ -42,6 +42,7 @@ myIcon: {
     actions: {
         okbutton:function(){
             this.set("my_isShowingModal",false);
+             this.transitionToRoute('userhome');
         },
         loadThispage:function(){
            var requestid = this.controllerFor('userhome').get('requestid');
@@ -418,7 +419,7 @@ myIcon: {
             var dataString = {
 
                 "status": "RequestAccepted",
-                "InvolvedParties": "retailer",
+                "InvolvedParties": usertype,
                 "transactionString": {
                     "updatedby":usertype,
                     "companyname": "companyname",
@@ -443,12 +444,15 @@ myIcon: {
                 data: JSON.stringify(dataString),
                 success: function(response) {
                     var message = response.message;
-                    var message2 =response.message2;
+                    
                     console.log("message" + JSON.stringify(response));
-                    if( message === {} || message2 === "sucess")  {
+                    if( message === "REQUEST UPDATED")  {
                         mycontroller.toggleProperty('my_isShowingModal');
-                    }                  
-
+                        mycontroller.set("isShowingModalss",false);
+                        mycontroller.set("isShowingModal_s",false);
+                         mycontroller.set("isShowingModal",false);
+                    }                 
+                   
                 },
                 error: function(response) {
                     console.log('DEBUG: GET Enquiries Failed');
@@ -504,10 +508,14 @@ myIcon: {
                 data: JSON.stringify(dataString),
                 success: function(response) {
                     var message = response.message;
-                    console.log("message" + message);
-                    mycontroller.toggleProperty('ShowingModalrequest');
-                    // mycontroller.transitionToRoute('userhome')
-                    // mycontroller.transitionToRoute('home');
+                    
+                    console.log("message" + JSON.stringify(response));
+                    if( message === "REQUEST UPDATED")  {
+                        mycontroller.toggleProperty('my_isShowingModal');
+                        mycontroller.set("isShowingModalss",false);
+                        mycontroller.set("isShowingModal_s",false);
+                         mycontroller.set("isShowingModal",false);
+                    }   
 
                 },
                 error: function(response) {
@@ -641,7 +649,6 @@ myIcon: {
                     "companyname": "companyname",
                     "address": "address",
                     "materialtype": "Speedometer",
-
                     "Quantity": "00",
                     "today": today,
                     "url": "url",

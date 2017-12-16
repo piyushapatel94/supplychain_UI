@@ -30,7 +30,7 @@ export default Route.extend({
         },
     model(){
         
-
+ this.controllerFor('dashboard').set('IsnotShowRetailer', true); 
        var requestid = this.controllerFor('userhome').get('requestid');
        console.log("requestid---",requestid);
        this.controllerFor('dashboard').set('requestid', requestid);
@@ -38,6 +38,10 @@ export default Route.extend({
        var usertype= sessionStorage.getItem('usertype');
        console.log("usertype",usertype);
        this.controllerFor('dashboard').set('usertype', usertype);
+       if(usertype === 'retailer'){
+          this.controllerFor('dashboard').set('IsShowretailer', true);
+           this.controllerFor('dashboard').set('IsnotShowRetailer', false); 
+       }
 
        var mycontroller = this;
       
@@ -71,21 +75,21 @@ export default Route.extend({
                             console.log(JSON.stringify(statuscount));
                             for (var i = 0; i < statuscount.length; i++) {
 
-                            if (statuscount[i].statusname === "claimRaised") {
-                                var isclaimRaisedCount = JSON.stringify(statuscount[i].statuscount);
-                             //   var claimRaisedCount = Count * 10;
+                            if (statuscount[i].statusname === "RequestInitiated") {
+                                var RequestInitiatedCount = JSON.stringify(statuscount[i].statuscount);
+                           
                                 console.log(JSON.stringify(statuscount[i].statuscount));
-                                mycontroller.controllerFor('dashboard').set('claimRaisedCount', isclaimRaisedCount * 10);
-                                mycontroller.controllerFor('dashboard').set('isclaimRaisedCount', isclaimRaisedCount);
+                                mycontroller.controllerFor('dashboard').set('IsRequestInitiatedCount', RequestInitiatedCount * 10);
+                             //   mycontroller.controllerFor('dashboard').set('isclaimRaisedCount', isclaimRaisedCount);
                             }
                                 
-                            if (statuscount[i].statusname === "MaterialRequested") {
-                                var IsMaterialRequestedCount = statuscount[i].statuscount;
-                                console.log("IsMaterialRequestedCount ---", typeof(IsMaterialRequestedCount));
-                                var MaterialRequestedcount = 10 * IsMaterialRequestedCount;
-                                console.log("MaterialRequestedcount-------->", MaterialRequestedcount);
-                                mycontroller.controllerFor('dashboard').set('MaterialRequestedcount', IsMaterialRequestedCount * 10);
-                                mycontroller.controllerFor('dashboard').set('IsMaterialRequestedCount', IsMaterialRequestedCount);
+                            if (statuscount[i].statusname === "RequestAccepted") {
+                                var RequestAcceptedcount = statuscount[i].statuscount;
+                                console.log("RequestAcceptedcount ---", typeof(RequestAcceptedcount));
+                               // var MaterialRequestedcount = 10 * IsMaterialRequestedCount;
+                                //console.log("MaterialRequestedcount-------->", RequestAcceptedcount);
+                                mycontroller.controllerFor('dashboard').set('IsRequestAcceptedcount', RequestAcceptedcount );
+                              
                             }
                                
                             if (statuscount[i].statusname === "QuotationRejected") {
@@ -96,16 +100,16 @@ export default Route.extend({
                                 mycontroller.controllerFor('dashboard').set('isQuotationRejectedCount', isQuotationRejectedCount);
                             }
                                
-                            if (statuscount[i].statusname === "PaymentInitiated") {
+                            if (statuscount[i].statusname === "paymentInitiated") {
                                 var isPaymentInitiatedCount = statuscount[i].statuscount;
-                               // var PaymentInitiatedcount = Count * 10;
+                             
                                 console.log(JSON.stringify(statuscount[i].statuscount));
                                 mycontroller.controllerFor('dashboard').set('PaymentInitiatedcount', isPaymentInitiatedCount * 10);
                                 mycontroller.controllerFor('dashboard').set('isPaymentInitiatedCount', isPaymentInitiatedCount);
                             } 
                            
 
-                            if (statuscount[i].statusname === "POraised") {
+                            if (statuscount[i].statusname === "purchaseorderRaised") {
                                 var ISPOCount = statuscount[i].statuscount;
                             //    var POraisedcount = Count * 10;
                                 console.log(JSON.stringify(statuscount[i].statuscount));
@@ -113,15 +117,15 @@ export default Route.extend({
                                 mycontroller.controllerFor('dashboard').set('ISPOCount', ISPOCount);
                             }
                            
-                            if (statuscount[i].statusname === "PaymentReceived") {
+                            if (statuscount[i].statusname === "paymentPaid") {
                                 var IsPaymentReceivedCount = statuscount[i].statuscount;
                              //   var PaymentReceivedcount = Count * 10;
                                 console.log(JSON.stringify(statuscount[i].statuscount));
-                                mycontroller.controllerFor('dashboard').set('PaymentReceivedcount', IsPaymentReceivedCount * 10);
-                                mycontroller.controllerFor('dashboard').set('IsPaymentReceivedCount', IsPaymentReceivedCount);
+                                mycontroller.controllerFor('dashboard').set('PaymentReceivedcount', IsPaymentReceivedCount );
+                               // mycontroller.controllerFor('dashboard').set('IsPaymentReceivedCount', IsPaymentReceivedCount);
                             } 
                            
-                            if (statuscount[i].statusname === "InvoiceRaised") {
+                            if (statuscount[i].statusname === "invoiceRaised") {
                                 var isInvoiceRaisedCount = statuscount[i].statuscount;
                              //   var InvoiceRaisedcount = Count * 10;
                                 console.log("InvoiceRaisedcount-----",isInvoiceRaisedCount *10);
@@ -136,56 +140,41 @@ export default Route.extend({
                                 mycontroller.controllerFor('dashboard').set('InvoiceApprovedcount', isInvoiceApprovedCount * 10);
                                 mycontroller.controllerFor('dashboard').set('isInvoiceApprovedCount', isInvoiceApprovedCount);
                             } 
-                            // else {
-                            //     mycontroller.controllerFor('dashboard').set('InvoiceApprovedcount', 0);
-                            //     mycontroller.controllerFor('dashboard').set('isInvoiceApprovedCount', 0);
-                            // }
-                            if (statuscount[i].statusname === "DoDelivered") {
+                           
+                            if (statuscount[i].statusname === "DoDelievered") {
                                 var isDoDeliveredCount = statuscount[i].statuscount;
                            //     var DoDeliveredcount = Count * 10;
                                 console.log(JSON.stringify(statuscount[i].statuscount));
                                 mycontroller.controllerFor('dashboard').set('DoDeliveredcount', isDoDeliveredCount * 10);
                                 mycontroller.controllerFor('dashboard').set('isDoDeliveredCount', isDoDeliveredCount);
                             }
-                            //  else {
-                            //     mycontroller.controllerFor('dashboard').set('DoDeliveredcount', 0);
-                            //     mycontroller.controllerFor('dashboard').set('isDoDeliveredCount', 0);
-                            // }
-                            if (statuscount[i].statusname === "NotDelivered") {
-                                var isNotDeliveredCount = statuscount[i].statuscount;
+                            
+                            if (statuscount[i].statusname === "shipped") {
+                                var isShippedCount = statuscount[i].statuscount;
                             //    var NotDeliveredcount = Count * 10
                                 console.log(JSON.stringify(statuscount[i].statuscount));
-                                mycontroller.controllerFor('dashboard').set('NotDeliveredcount', isNotDeliveredCount * 10);
-                                mycontroller.controllerFor('dashboard').set('isNotDeliveredCount', isNotDeliveredCount);
+                                mycontroller.controllerFor('dashboard').set('shippedcount', isShippedCount * 10);
+                                //mycontroller.controllerFor('dashboard').set('isNotDeliveredCount', isNotDeliveredCount);
                             } 
-                            // else {
-                            //     mycontroller.controllerFor('dashboard').set('NotDeliveredcount', 0);
-                            //     mycontroller.controllerFor('dashboard').set('isNotDeliveredCount', 0);
-                            // }
+                            
                             if (statuscount[i].statusname === "claimRequested") {
                                 var isclaimRequestedCount = statuscount[i].statuscount;
-                             //   var claimRequestedcount = Count * 10;
+                            
                                 console.log(JSON.stringify(statuscount[i].statuscount));
                                 mycontroller.controllerFor('dashboard').set('claimRequestedcount', isclaimRequestedCount * 10);
                                 mycontroller.controllerFor('dashboard').set('isclaimRequestedCount', isclaimRequestedCount);
                             }
-                            //  else {
-                            //     mycontroller.controllerFor('dashboard').set('claimRequestedcount', 0);
-                            //     mycontroller.controllerFor('dashboard').set('isclaimRequestedCount', 0);
-                            // }
+                            
                             if (statuscount[i].statusname === "QuotationRaised") {
                                 var IsQuotationRaisedCount = statuscount[i].statuscount;
                                 console.log("IsQuotationRaisedCount ---", typeof(IsQuotationRaisedCount));
                                 var QuotationRaisedcount = IsQuotationRaisedCount *10 ;
                                 console.log("QuotationRaisedcount-------->", QuotationRaisedcount);
-                                mycontroller.controllerFor('dashboard').set('QuotationRaisedcount', IsQuotationRaisedCount * 10 );
-                                mycontroller.controllerFor('dashboard').set('IsQuotationRaisedCount', IsQuotationRaisedCount);
+                                mycontroller.controllerFor('dashboard').set('QuotationRaisedcount', IsQuotationRaisedCount  );
+                               // mycontroller.controllerFor('dashboard').set('IsQuotationRaisedCount', IsQuotationRaisedCount);
                             } 
-                            // else {
-                            //     mycontroller.controllerFor('dashboard').set('QuotationRaisedcount', 0);
-                            //     mycontroller.controllerFor('dashboard').set('IsQuotationRaisedCount', 0);
-                            // }
-                            if (statuscount[i].statusname === "DOraised") {
+                            
+                            if (statuscount[i].statusname === "deliveryorderRaised") {
                                 var isDOraisedCount = statuscount[i].statuscount;
                                 var DOraisedcount = isDOraisedCount * 10;
                                 console.log( "DOraisedcount --->",isDOraisedCount * 10);

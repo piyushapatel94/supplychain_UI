@@ -135,9 +135,12 @@ export default Route.extend({
         console.log("myshow",myshow);
        var mystatus = myshow[0].transactiondetails.status;
         console.log("mystatus",mystatus);
-          mycontroller.controllerFor('alldetails').set('mystatus', mystatus);
-        var mythisStatus =myshow[0].transactiondetails.thisStatus;
-       console.log("mythisStatus----",mythisStatus);
+        mycontroller.controllerFor('alldetails').set('mystatus', mystatus);
+        var myupdatedby = myshow[0].transactiondetails.updatedby;
+        console.log("myupdatedby",myupdatedby);
+          var myupdatedby1 = response.message.transactionlist[0].transactiondetails.updatedby;
+        console.log("myupdatedby1",myupdatedby1);
+       
        
          if(mystatus === "RequestInitiated" &&  usertype==="Supplier" ){
              mycontroller.controllerFor('alldetails').set('isShowSupquotbutton', true);
@@ -233,8 +236,11 @@ export default Route.extend({
              
          }
          if(usertype === "Manufacturer"){
+               if(myupdatedby === 'Supplier'){
             if(mystatus === "QuotationRaised"){
+              
            mycontroller.controllerFor('alldetails').set('isShowManquotbutton', true);
+                
             }
             if(mystatus === "quotationAccepted"){
                 mycontroller.controllerFor('alldetails').set('isShowManpotbutton', true);
@@ -255,7 +261,38 @@ export default Route.extend({
                  mycontroller.controllerFor('alldetails').set('isShowManquotbutton', false);
                   mycontroller.controllerFor('alldetails').set('isShowManINVaccpbutton', false);
                 }
+               }
+                if(myupdatedby1 === 'retailer'){
+             if(mystatus === "RequestInitiated"){
+              
+                     mycontroller.controllerFor('alldetails').set('isShowManReqAccbutton', true);
+               
+             }
+             if(mystatus === "RequestAccepted"){
+               
+                     mycontroller.controllerFor('alldetails').set('isShowManReqAccbutton', false);
+                        mycontroller.controllerFor('alldetails').set('isShowManQuobutton', true);
+             }
+             if(mystatus === "QuotationRaised"){
+                  mycontroller.controllerFor('alldetails').set('isShowManReqAccbutton', false);
+                  mycontroller.controllerFor('alldetails').set('isShowManQuobutton', false);
+                       //  mycontroller.controllerFor('alldetails').set('isShowMan', true);
+               
+             }
+            }
             
+         }
+         if(usertype === "retailer"){
+              if(mystatus === "QuotationRaised"){
+                 mycontroller.controllerFor('alldetails').set('isShowretQuoAcppbutton', true);  
+              }
+              if(mystatus === "quotationAccepted"){
+                    mycontroller.controllerFor('alldetails').set('isShowretQuoAcppbutton', false);  
+                 mycontroller.controllerFor('alldetails').set('isShowretPoraisedpbutton', true);  
+              }if(mystatus === "purchaseorderRaised"){
+                    mycontroller.controllerFor('alldetails').set('isShowretQuoAcppbutton', false);  
+                 mycontroller.controllerFor('alldetails').set('isShowretPoraisedpbutton', false);  
+              }
          }
          if(usertype === "logistics"){
              if(mystatus === "deliveryorderRaised"){
@@ -366,10 +403,8 @@ export default Route.extend({
                   mycontroller.controllerFor('alldetails').set('isShowInvoice',true);
                     mycontroller.controllerFor('alldetails').set('isShowInvoiceDecline',false);
                 mycontroller.controllerFor('alldetails').set('dislapymessage','Invoice is raised and awaited for manfucturers approval');
-                
-                
-            
-               
+                 
+   
             }else if(status === "invoiceDecline"){
                 mycontroller.controllerFor('alldetails').set('isShowRequestAccept', false);
                 mycontroller.controllerFor('alldetails').set('isShowRequestInitaited',false);
