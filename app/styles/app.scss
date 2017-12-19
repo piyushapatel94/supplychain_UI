@@ -494,7 +494,7 @@ html, body {
 .vl {
 
  margin-top: 1px;
- margin-left: 26px;
+ margin-left: 28px;
 
  border-left: 1.5px solid #A7B8C9;
  height: 27px;
@@ -502,7 +502,7 @@ html, body {
 .circle {
  width: 8.9px;
  height: 8.9px;
- margin-left: 22px;
+ margin-left: 25px;
  background: #499EF6;
  -moz-border-radius: 50px;
  -webkit-border-radius: 50px;
@@ -618,6 +618,18 @@ width:450px;
 	margin-left: 0.5cm;
 	text-align: center;
 	color:#499EF6;
+	font-size: 16px;
+}
+#NR-reactangle-ok{
+	width: 390px;
+	height: 50px;
+	border-style: dashed;
+	border-color:#68DC83;
+	border-radius: 15px;
+	margin-top: 3mm;
+	margin-left: 0.5cm;
+	text-align: center;
+	color:#68DC83;
 	font-size: 16px;
 }
 #NR-button{
@@ -939,6 +951,7 @@ border-radius: 2px;	background-color: #FFFFFF;
 .line-2 {	box-sizing: border-box;	height: 2px;	width: 1059.5px;	border: 0.5px solid #E3E9EC;}
 .line-3 {	box-sizing: border-box;	height: 2px;	width: 1110px;	border: 0.5px solid #E3E9EC;}
 .line-4{ box-sizing: border-box;	height: 2px;	width: 700px;	border: 0.5px solid #E3E9EC;}
+.line-5{ box-sizing: border-box;	height: 2px;	width: 350px;	border: 0.5px solid #E3E9EC;}
 .NR-reactangle-sucess{
 	width: 390px;
 	height: 50px;

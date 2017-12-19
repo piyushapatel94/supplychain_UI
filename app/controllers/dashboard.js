@@ -33,6 +33,7 @@ export default Ember.Controller.extend(Validations,{
 
     isShowingModal: false,
     ShowingModalrequest:false,
+    Notshow_fileupload:true,
     testlist:['Engine block',"Engine Payload",'Fule Hose','Speedometer','Magnetometer','washer'],
     actions: {
       toggleModal: function() {
@@ -42,8 +43,11 @@ export default Ember.Controller.extend(Validations,{
           this.set('isShowingModal',false);
            this.set('ShowingModalrequest',false);
       },
-      gotoTracking:function(){
-
+      gotoTracking:function(key){
+          var requestid = key;
+          console.log("reqid",requestid);
+          this.set('requestid',requestid);
+          this.transitionToRoute('alldetails');
       },
        cancel:function(){
             this.set("isShowingModalss",false);
@@ -52,7 +56,10 @@ export default Ember.Controller.extend(Validations,{
         },
       submitrequest:function(){
           var usertype =this.get('usertype');
-          console.log("usertype--lol",usertype)
+          console.log("usertype--lol",usertype);
+
+           var url = this.get('url');
+            console.log('url------>', url);
           var mydate =this.get('mydate');
           var dd = mydate.getDate();
           var mm = mydate.getMonth()+1; //January is 0!
@@ -99,7 +106,7 @@ export default Ember.Controller.extend(Validations,{
                 "today":today,
                 "companyname": companyname,
                 "requestto":requestto,
-               // "url":url,
+                "url":url,
                 "remark":"NA",
                 "status":"RequestInitiated",
             }
@@ -118,10 +125,6 @@ export default Ember.Controller.extend(Validations,{
         if( message === "resquest send successfully !"){
             mycontroller.toggleProperty('ShowingModalrequest');
         }
-        
-        // mycontroller.transitionToRoute('userhome')
-        //mycontroller.transitionToRoute('home');
-
         },      
             error: function(response) {
         console.log('DEBUG: GET Enquiries Failed');

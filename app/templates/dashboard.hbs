@@ -36,7 +36,7 @@
         
           <div class="this-circle2"><div id="request-details">Received {{QuotationRaisedcount}}</div></div>
           <div class="vl2"></div>
-          <div class="this-circle2"><div id="request-details">Accepted 152</div></div>
+          <div class="this-circle2"><div id="request-details">Accepted {{QuotationRejectedcount}}</div></div>
           <div class="vl2"></div>
          </div>
         <div class="mdl-stepper-circle"></div>
@@ -49,7 +49,7 @@
          <div class="mdl-stepper-circle"></div>
          <div class="po-style">
          <div class="vl"></div>
-          <div class="circle"><div id="request-details">Accepted 152</div></div>
+          <div class="circle"><div id="request-details">Accepted {{POraisedcount}}</div></div>
          <!-- <div class="vl"></div>
           <div class="circle"><div id="request-details">Delayed 152</div></div>-->
          
@@ -60,9 +60,9 @@
        <div class="mdl-stepper-step active-step ">
          <div class="upper-line2">
          
-          <div class="this-circle3"><div id="request-details">Delayed 152</div></div>
+          <div class="this-circle3"><div id="request-details">Delayed {{Delayed}}</div></div>
           <div class="vl2"></div>
-          <div class="this-circle3"><div id="request-details">Delivered 152</div></div>
+          <div class="this-circle3"><div id="request-details">Delivered {{DoDeliveredcount}}</div></div>
           <div class="vl2"></div>
          </div>
         <div class="mdl-stepper-circle"></div>
@@ -85,9 +85,9 @@
         <div class="mdl-stepper-step active-step ">
           <div class="upper-line3">
          
-          <div class="this-circle3"><div id="request-details">Iniaited 152</div></div>
+          <div class="this-circle3"><div id="request-details">Iniaited {{PaymentInitiatedcount}}</div></div>
           <div class="vl2"></div>
-          <div class="this-circle3"><div id="request-details">Paid 152</div></div>
+          <div class="this-circle3"><div id="request-details">Paid {{paymentPaidcount}}</div></div>
           <div class="vl2"></div>
          </div>
         <div class="mdl-stepper-circle"></div>
@@ -293,7 +293,7 @@ background:white;
 width: 100px;
 height: 100px;
 display: block;
-clip: auto;"></div>
+clip: auto;"> 400 Delivery</div>
 </div>
 
 <div class="lower-row">
@@ -317,15 +317,17 @@ clip: auto;"></div>
  {{#if IsShowretailer}}
   <div class="col-sm-4" style="height:410px;	width: 370px;	margin-left:10px;border-radius: 2px;	background-color: #FFFFFF;	box-shadow: 0 7px 16px 0 rgba(132,152,172,0.1);}">
         <div class="heading-right">
-        Track Deliveries  &nbsp;&nbsp;&nbsp; <span style="color:#499EF6 ;float:right;margin-left:2cm"{{action 'toggleModal'}}>New Request <img src="assets/images/forward.svg" alt="Smiley face" width="15" height="9" style="margin-bottom:1px"></span> 
+        Track Deliveries  &nbsp;&nbsp;&nbsp; <span style="color:#499EF6 ;float:right;margin-right:-5.5cm;margin-top:4mm"{{action 'toggleModal'}}>New Request <img src="assets/images/forward.svg" alt="Smiley face" width="15" height="9" style="margin-bottom:1px"></span> 
       </div>
+      <br/>
+      <div class="line-5"></div>
       {{#each tracking as |items|}}
       <div class="dashboard-track">
        <div id="head-dashboard-track">
       {{items.materialtype}}
        </div>
        <p style="color: #536C89;font-family: Avenir;font-size: 13px;font-style: oblique;font-weight: 900;">  {{items.updatedby}} :<span style="font-weight: 300;color: #022351;font-size: 13px;"> {{items.companyname}}</span></p>
-      <p style="margin-top:-3mm;color: #677B92;	font-family: Avenir;	font-size: 12px;">Reached Thambaram will be delived on Monday &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #3B89F3;	font-family: Avenir;	font-size: 13px;	font-weight: 900;text-decoration: underline;"{{action 'gotoTracking'}}>Track</span></p>
+      <p style="margin-top:-3mm;color: #677B92;	font-family: Avenir;	font-size: 12px;">Reached Thambaram will be delived on Monday &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #3B89F3;	font-family: Avenir;	font-size: 13px;	font-weight: 900;text-decoration: underline;"{{action 'gotoTracking' items.key}}>Track</span></p>
       </div>
       {{/each}}
   </div>
@@ -376,7 +378,7 @@ clip: auto;"></div>
       {{items.materialtype}}
        </div>
        <p style="color: #536C89;font-family: Avenir;font-size: 13px;font-style: oblique;font-weight: 900;">  {{items.updatedby}} :<span style="font-weight: 300;color: #022351;font-size: 13px;"> {{items.companyname}}</span></p>
-      <p style="margin-top:-3mm;color: #677B92;	font-family: Avenir;	font-size: 12px;">Reached Thambaram will be delived on Monday &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #3B89F3;	font-family: Avenir;	font-size: 13px;	font-weight: 900;text-decoration: underline;"{{action 'gotoTracking'}}>Track</span></p>
+      <p style="margin-top:-3mm;color: #677B92;	font-family: Avenir;	font-size: 12px;">Reached Thambaram will be delived on Monday &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #3B89F3;	font-family: Avenir;	font-size: 13px;	font-weight: 900;text-decoration: underline;"{{action 'gotoTracking' items.Key}}>Track</span></p>
       </div>
       {{/each}}
      

@@ -12,10 +12,9 @@ export default Route.extend({
             console.log(JSON.stringify(response));
             var url =response.body.url;
             console.log("url ::",JSON.stringify(url));
-           // mycontroller.controllerFor('deliveryorder').set('url',url);
-          //  alert("Document uploaded sucessfully!!!!");
-             // this.toggleProperty('isShowingModalphoto');
-           //  mycontroller.controllerFor('deliveryorder').set("isShowingModal",true);
+           
+           mycontroller.controllerFor('alldetails').set("isShow_fileupload",true);
+             mycontroller.controllerFor('alldetails').set("Notshow_fileupload",false);
             console.log("saviing file...");
             console.log("file upload sucessfully. 1..");
             //return image.save();
@@ -35,6 +34,14 @@ export default Route.extend({
         var requestid = this.controllerFor('userhome').get('requestid');
         console.log("requestid---",requestid);
         this.controllerFor('alldetails').set('requestid', requestid);
+        if(requestid == null ||requestid == undefined){
+            var requestid = this.controllerFor('dashboard').get('requestid');
+        console.log("requestid- dashboard--",requestid);
+        this.controllerFor('alldetails').set('requestid', requestid);
+        }
+        /* var requestid = this.controllerFor('dashboard').get('requestid');
+        console.log("requestid- dashboard--",requestid);
+        this.controllerFor('alldetails').set('requestid', requestid);*/
       
         var usertype= sessionStorage.getItem('usertype');
         console.log("usertype",usertype);
@@ -263,22 +270,49 @@ export default Route.extend({
                 }
                }
                 if(myupdatedby1 === 'retailer'){
-             if(mystatus === "RequestInitiated"){
-              
-                     mycontroller.controllerFor('alldetails').set('isShowManReqAccbutton', true);
-               
-             }
-             if(mystatus === "RequestAccepted"){
-               
-                     mycontroller.controllerFor('alldetails').set('isShowManReqAccbutton', false);
-                        mycontroller.controllerFor('alldetails').set('isShowManQuobutton', true);
-             }
-             if(mystatus === "QuotationRaised"){
-                  mycontroller.controllerFor('alldetails').set('isShowManReqAccbutton', false);
-                  mycontroller.controllerFor('alldetails').set('isShowManQuobutton', false);
-                       //  mycontroller.controllerFor('alldetails').set('isShowMan', true);
-               
-             }
+                    if(mystatus === "RequestInitiated"){
+                    
+                        mycontroller.controllerFor('alldetails').set('isShowManReqAccbutton', true);
+                    
+                    }
+                    if(mystatus === "RequestAccepted"){
+                    
+                       mycontroller.controllerFor('alldetails').set('isShowManReqAccbutton', false);
+                      mycontroller.controllerFor('alldetails').set('isShowManQuobutton', true);
+                    }
+                    if(mystatus === "QuotationRaised"){
+                        mycontroller.controllerFor('alldetails').set('isShowManReqAccbutton', false);
+                        mycontroller.controllerFor('alldetails').set('isShowManQuobutton', false);
+                            //  mycontroller.controllerFor('alldetails').set('isShowMan', true);
+                    
+                    }
+                    if(mystatus === "purchaseorderRaised"){
+                        mycontroller.controllerFor('alldetails').set('isShowManReqAccbutton', false);
+                        mycontroller.controllerFor('alldetails').set('isShowManQuobutton', false);
+                        mycontroller.controllerFor('alldetails').set('isShowMandOraisbutton', true);
+                    
+                    }
+                    if(mystatus === "DoDelievered"){
+                        mycontroller.controllerFor('alldetails').set('isShowManReqAccbutton', false);
+                        mycontroller.controllerFor('alldetails').set('isShowManQuobutton', false);
+                        mycontroller.controllerFor('alldetails').set('isShowMandOraisbutton', false);
+                    mycontroller.controllerFor('alldetails').set('isShowManpINvobutton', true);
+                }
+                  if(mystatus === "paymentInitiated"){
+                      
+                      mycontroller.controllerFor('alldetails').set('isShowManReqAccbutton', false);
+                        mycontroller.controllerFor('alldetails').set('isShowManQuobutton', false);
+                        mycontroller.controllerFor('alldetails').set('isShowMandOraisbutton', false);
+                    mycontroller.controllerFor('alldetails').set('isShowManpINvobutton', false);
+                     mycontroller.controllerFor('alldetails').set('isShowManPaymentpaid', true);
+                  }
+                  if(mystatus === "paymentPaid"){
+                      mycontroller.controllerFor('alldetails').set('isShowManReqAccbutton', false);
+                        mycontroller.controllerFor('alldetails').set('isShowManQuobutton', false);
+                        mycontroller.controllerFor('alldetails').set('isShowMandOraisbutton', false);
+                    mycontroller.controllerFor('alldetails').set('isShowManpINvobutton', false);
+                     mycontroller.controllerFor('alldetails').set('isShowManPaymentpaid', false);
+                  }
             }
             
          }
@@ -293,6 +327,11 @@ export default Route.extend({
                     mycontroller.controllerFor('alldetails').set('isShowretQuoAcppbutton', false);  
                  mycontroller.controllerFor('alldetails').set('isShowretPoraisedpbutton', false);  
               }
+          if(mystatus === 'invoiceRaised'){
+                    mycontroller.controllerFor('alldetails').set('isShowretQuoAcppbutton', false);  
+                 mycontroller.controllerFor('alldetails').set('isShowretPoraisedpbutton', false);   
+                  mycontroller.controllerFor('alldetails').set('isShowRetAppInvbutton', true); 
+             }
          }
          if(usertype === "logistics"){
              if(mystatus === "deliveryorderRaised"){
@@ -303,6 +342,8 @@ export default Route.extend({
                   mycontroller.controllerFor('alldetails').set('isShowlogshiptbutton', false); 
                  mycontroller.controllerFor('alldetails').set('isShowlogdodtbutton', true); 
              }
+         
+
          }
          if(usertype === 'banker'){
               if(mystatus === "invoiceApproved"){

@@ -6,16 +6,17 @@ export default Route.extend({
             // var mycontroller = this;
             console.log("entering upload FIR 3");
     var mycontroller = this;
-             console.log(file)
-       
+             console.log("lol--",file)
+       var myfile =file.file;
+       console.log("lol-5555555-",myfile)
           file.upload(CONFIG.GOURL+'/UploadDocs').then(function (response) {
             console.log(JSON.stringify(response));
             var url =response.body.url;
             console.log("url ::",JSON.stringify(url));
-           // mycontroller.controllerFor('deliveryorder').set('url',url);
-          //  alert("Document uploaded sucessfully!!!!");
-             // this.toggleProperty('isShowingModalphoto');
-             //mycontroller.controllerFor('deliveryorder').set("isShowingModal",true);
+         mycontroller.controllerFor('dashboard').set('url',url);
+          
+            mycontroller.controllerFor('dashboard').set("isShow_fileupload",true);
+             mycontroller.controllerFor('dashboard').set("Notshow_fileupload",false);
             console.log("saviing file...");
             console.log("file upload sucessfully. 1..");
             //return image.save();
@@ -29,7 +30,8 @@ export default Route.extend({
       
         },
     model(){
-        
+           
+           this.controllerFor('dashboard').set(' Notshow_fileupload', true); 
  this.controllerFor('dashboard').set('IsnotShowRetailer', true); 
        var requestid = this.controllerFor('userhome').get('requestid');
        console.log("requestid---",requestid);
@@ -99,6 +101,13 @@ export default Route.extend({
                                 mycontroller.controllerFor('dashboard').set('QuotationRejectedcount', isQuotationRejectedCount * 10);
                                 mycontroller.controllerFor('dashboard').set('isQuotationRejectedCount', isQuotationRejectedCount);
                             }
+                             if (statuscount[i].statusname === "quotationAccepted") {
+                                var isquotationAcceptedCount = statuscount[i].statuscount;
+                                //var QuotationRejectedcount = Count * 10;
+                                console.log(JSON.stringify(statuscount[i].statuscount));
+                                mycontroller.controllerFor('dashboard').set('QuotationRejectedcount', isquotationAcceptedCount);
+                                //mycontroller.controllerFor('dashboard').set('isQuotationRejectedCount', isQuotationRejectedCount);
+                            }
                                
                             if (statuscount[i].statusname === "paymentInitiated") {
                                 var isPaymentInitiatedCount = statuscount[i].statuscount;
@@ -114,14 +123,14 @@ export default Route.extend({
                             //    var POraisedcount = Count * 10;
                                 console.log(JSON.stringify(statuscount[i].statuscount));
                                 mycontroller.controllerFor('dashboard').set('POraisedcount', ISPOCount * 10);
-                                mycontroller.controllerFor('dashboard').set('ISPOCount', ISPOCount);
+                               // mycontroller.controllerFor('dashboard').set('ISPOCount', ISPOCount);
                             }
                            
                             if (statuscount[i].statusname === "paymentPaid") {
-                                var IsPaymentReceivedCount = statuscount[i].statuscount;
+                                var IspaymentPaidCount = statuscount[i].statuscount;
                              //   var PaymentReceivedcount = Count * 10;
                                 console.log(JSON.stringify(statuscount[i].statuscount));
-                                mycontroller.controllerFor('dashboard').set('PaymentReceivedcount', IsPaymentReceivedCount );
+                                mycontroller.controllerFor('dashboard').set('paymentPaidcount', IspaymentPaidCount );
                                // mycontroller.controllerFor('dashboard').set('IsPaymentReceivedCount', IsPaymentReceivedCount);
                             } 
                            
@@ -224,6 +233,7 @@ export default Route.extend({
                                             console.log(materialtype);
                                                     if(updatedby === 'Manufacturer'){
                                                         tracking.push({
+                                                            "key":myarray[i].Key,
                                                      "materialtype": materialtype,
                                                         "updatedby":updatedby,
                                                         "companyname":requestto,
@@ -232,13 +242,14 @@ export default Route.extend({
                                              
                                              }else if(updatedby === 'retailer'){
                                                  tracking.push({
+                                                      "key":myarray[i].Key,
                                                      "materialtype": materialtype,
                                                         "updatedby":updatedby,
                                                         "companyname":myarray[i].Record.transactionlist[0].transactiondetails.companyname
                                                          });
 
                                              }
-                                             console.log(tracking,"---tracking");
+                                             console.log(tracking,"---tracking details");
                                              mycontroller.controllerFor('dashboard').set('tracking',tracking);
                                     }
                                     },

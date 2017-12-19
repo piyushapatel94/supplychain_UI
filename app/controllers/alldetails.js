@@ -617,6 +617,7 @@ myIcon: {
             this.set("isShowingModalss",false);
             this.set("isShowingModal_s",false);
             this.set("isShowingModal",false);
+            this.set("isShowingModalsss",false);
         },
 
         acceptquotation: function() {
@@ -1046,7 +1047,8 @@ selectedsource,selectedDestination
                         mycontroller.set("isShowingModal_s",false);
                          mycontroller.set("isShowingModal",false);
                           mycontroller.set("isShowingModalsss",false);
-                           mycontroller.set("isShowingModalsss",false);
+                                   mycontroller.set("isShowingModalssss",false);
+                           //mycontroller.set("isShowingModalsss",false);isShowingModalsss
                     } 
                   },      
                       error: function(response) {
@@ -1123,7 +1125,7 @@ selectedsource,selectedDestination
                         mycontroller.set("isShowingModal_s",false);
                          mycontroller.set("isShowingModal",false);
                        
-                           mycontroller.set("toggleModalssss1",false);
+                           mycontroller.set("toggleModalsss",false);
                     } 
                             
                   },      
@@ -1188,11 +1190,11 @@ selectedsource,selectedDestination
 
                     if( message === "REQUEST UPDATED")  {
                         mycontroller.toggleProperty('my_isShowingModal');
-                        this.set("isShowingModalss",false);
-                        this.set("isShowingModal_s",false);
-                         this.set("isShowingModal",false);
-                          this.set("isShowingModalsss",false);
-                           this.set("isShowingModalssss",false);
+                        mycontroller.set("isShowingModalss",false);
+                        mycontroller.set("isShowingModal_s",false);
+                         mycontroller.set("isShowingModal",false);
+                          mycontroller.set("isShowingModalsss",false);
+                           mycontroller.set("isShowingModalssss",false);
                     } 
                             
                   },      
