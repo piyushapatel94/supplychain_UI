@@ -30,7 +30,8 @@ var Validations = buildValidations({
 });
 
 export default Ember.Controller.extend(Validations,{
-
+    queryParams: ['requestid'],
+    requestid:null,
     isShowingModal: false,
     ShowingModalrequest:false,
     Notshow_fileupload:true,
@@ -43,11 +44,14 @@ export default Ember.Controller.extend(Validations,{
           this.set('isShowingModal',false);
            this.set('ShowingModalrequest',false);
       },
-      gotoTracking:function(key){
+      gotoTracking:function(key1,key){
+          var keydashboard =key1;
+          console.log('keydashboard',keydashboard)
           var requestid = key;
           console.log("reqid",requestid);
+          this.set('keydashboard',keydashboard);
           this.set('requestid',requestid);
-          this.transitionToRoute('alldetails');
+          this.transitionToRoute('alldetails', {queryParams: {requestid: requestid}}); 
       },
        cancel:function(){
             this.set("isShowingModalss",false);

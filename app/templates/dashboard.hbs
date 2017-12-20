@@ -75,9 +75,9 @@
         <div class="mdl-stepper-circle"></div>
             <div class="io-style">
               <div class="vl"></div>
-              <div class="circle"><div id="request-details">Raised 152</div></div>
+              <div class="circle"><div id="request-details">Raised {{InvoiceRaisedcount}}</div></div>
               <div class="vl"></div>
-              <div class="circle"><div id="request-details">Approved 152</div></div>
+              <div class="circle"><div id="request-details">Approved {{InvoiceApprovedcount}}</div></div>
          </div>
         <div class="mdl-stepper-bar-left"></div>
         <div class="mdl-stepper-bar-right"></div>
@@ -112,10 +112,186 @@
 
 <div class="row" >
   <div class="col-sm-4" style="height:410px;	width: 370px;	margin-left:100px;border-radius: 2px;	background-color: #FFFFFF;	box-shadow: 0 7px 16px 0 rgba(132,152,172,0.1);}">
+     <!-- <div id="container">
+		<div class="card chart-wrap bg ring">
+				<h3>Triple Ring Chart</h3>
+				<div class="chart">
+						<div class="ring-chart" data-progress="80">
+								<!--<div class="circle">
+										<div class="mask full">
+												<div class="fill bg"></div>
+										</div>
+										<div class="mask half">
+												<div class="fill bg"></div>
+												<div class="fill bg fix"></div>
+										<!--</div>
+								</div>
+								<div class="ring-fill bg"></div>
+						</div>
+						<div class="small ring-chart" data-progress="60">
+							
+										<div class="mask full">
+												<div class="fill bg"></div>
+										</div>
+										<div class="mask half">
+												<div class="fill bg"></div>
+												<div class="fill bg fix"></div>
+										</div>
+							
+								<div class="ring-fill bg"></div>
+						</div>
+						<div class="mini ring-chart" data-progress="40">
+							
+										<div class="mask full">
+												<div class="fill bg"></div>
+										</div>
+										<div class="mask half">
+												<div class="fill bg"></div>
+												<div class="fill bg fix"></div>
+										</div>
+							
+								<div class="ring-fill bg"></div>
+						</div>
+				</div>
+				
+		</div>
+      </div>-->
+{{!---{{#progress-circle size="100" strokeWidth="3" percentage=model.somePercentage}}
+ {{progress-circle size="50" strokeWidth="3" percentage="50" height="3cm"}}
+    
+  
+{{/progress-circle}}---}}
+<div class="progress-circle-1">
+ 
+{{progress-circle size="100" strokeWidth="3" percentage="50" }}
 
+</div>
+  </div>
+  <div class="col-sm-4" style="height:410px;	width: 370px;	margin-left:10px;border-radius: 2px;	background-color: #FFFFFF;	box-shadow: 0 7px 16px 0 rgba(132,152,172,0.1);}">
 <div class="middle-container">
-  <p style="font-size:14px"> <b>Delivery Overvirew</b></p>
+  <p class="dashboard-middle-head"> <b>Delivery Overvirew</b></p>
+<div class="line-6"></div>
+<br/>
+<div style="width: 200px;position:relative;">
+  <div style="position: absolute;
+top: 0;
+left: 0;
+height: 200px;
+width: 200px;
+border-radius: 50%;
+clip: auto;background: #68DC83;">
+    <div class="pie" style="position: absolute;
+top: 0;
+left: 0;
+width: 200px;
+height: 200px;
+border-radius: 50%;
+clip: rect(0px, 50px, 200px, 0px);"></div>
+  </div>
+  <div id="slice2" style="position: absolute;
+top: 0;
+left: 0;
+width: 200px;
+height: 200px;
+clip: rect(0px, 200px, 200px, 100px);
+-webkit-transform: rotate(216deg);">
+    <div class="pie" style="position: absolute;
+top: 0;
+left: 0;
+width: 200px;
+height: 200px;
+border-radius: 50%;
+-webkit-transform: rotate(90deg);
+clip: rect(0px, 100px, 100px, 0px);
+background-color: #FF923F;;"></div>
+  </div>
+  <div id="slice3" style="position: absolute;
+top: 0;
+left: 0;
+width: 200px;
+height: 200px;
+clip: rect(0px, 200px, 200px, 100px);
+-webkit-transform: rotate(306deg);">
+    <div class="pie" style="position: absolute;
+top: 0;
+left: 0;
+width: 200px;
+height: 200px;
+border-radius: 50%;
+background-color: #499EF6;
+-webkit-transform: rotate(36deg);
+clip: rect(0px, 100px, 100px, 0px);"></div>
+  </div>
+  <div id="slice4" style="position: absolute;
+top: 0;
+left: 0;
+width: 200px;
+height: 200px;
+clip: rect(0px, 200px, 200px, 100px);
+-webkit-transform: rotate(342deg);">
+   
+  </div>
+  <div id="slice5" style="position: absolute;
+top: 0;
+left: 0;
+width: 200px;
+height: 200px;
+clip: rect(0px, 200px, 200px, 100px);
+-webkit-transform: rotate(356.4deg);">
+    
+  </div>
+  <div style="position: absolute;
+border-radius: 50%;
+top: 50px;
+left: 50px;
+background:white;
+width: 100px;
+height: 100px;
+display: block;
+clip: auto;"> <p>400 Delivery</p></div>
+</div>
 
+<div class="lower-row">
+  <div class='is-grouped'>
+  <div class='is-grouped'>
+      <div class='button'><button class="two-dash-btn-circle1"></button></div>
+       <div class='button'> &nbsp;Shipped</div>
+  </div>
+  <div class='is-grouped'>
+      <div class='button'><button class="two-dash-btn-circle2"></button></div>
+       <div class='button' >&nbsp; Delayed</div>
+  </div>
+   <div class='is-grouped'>
+      <div class='button'><button class="two-dash-btn-circle3"></button></div>
+       <div class='button'>&nbsp; Delivered</div>
+  </div>
+</div>
+</div>
+</div>
+  </div>
+ {{#if IsShowretailer}}
+  <div class="col-sm-4" style="height:410px;	width: 370px;	margin-left:10px;border-radius: 2px;	background-color: #FFFFFF;	box-shadow: 0 7px 16px 0 rgba(132,152,172,0.1);}">
+        <div class="heading-right">
+        Track Deliveries  &nbsp;&nbsp;&nbsp; <span style="color:#499EF6 ;float:right;margin-right:-5.5cm;margin-top:4mm"{{action 'toggleModal'}}>New Request <img src="assets/images/forward.svg" alt="Smiley face" width="15" height="9" style="margin-bottom:1px"></span> 
+      </div>
+      <br/>
+      <div class="line-5"></div>
+      {{#each tracking as |items|}}
+      <div class="dashboard-track">
+       <div id="head-dashboard-track">
+      {{items.materialtype}}
+       </div>
+       <p style="color: #536C89;font-family: Avenir;font-size: 13px;font-style: oblique;font-weight: 900;">  {{items.updatedby}} :<span style="font-weight: 300;color: #022351;font-size: 13px;"> {{items.companyname}}</span></p>
+      <p style="margin-top:-3mm;color: #677B92;	font-family: Avenir;	font-size: 12px;">Reached Thambaram will be delived on Monday &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #3B89F3;	font-family: Avenir;	font-size: 13px;	font-weight: 900;text-decoration: underline;"{{action 'gotoTracking' items.key}}>Track</span></p>
+      </div>
+      {{/each}}
+  </div>
+  {{/if}}
+<div class="col-sm-4" style="height:410px;	width: 370px;	margin-left:10px;border-radius: 2px;	background-color: #FFFFFF;	box-shadow: 0 7px 16px 0 rgba(132,152,172,0.1);}">
+<div class="middle-container">
+  <p class="dashboard-middle-head"> <b>Inventory Overvirew</b></p>
+<div class="line-6"></div>
+<br/>
 <div style="width: 200px;position:relative;">
   <div style="position: absolute;
 top: 0;
@@ -198,140 +374,22 @@ clip: auto;"></div>
 <div class="lower-row">
   <div class='is-grouped'>
   <div class='is-grouped'>
-      <div class='button'><button class="two-dash-btn-circle1"></button></div>
-       <div class='button'> &nbsp;Shipped</div>
+      <div class='button'><button class="two-dash-btn-circle1"></button> </div>
+      <div class='button' style="color: #72869C;	font-family: Avenir;"> &nbsp; Available</div>
   </div>
   <div class='is-grouped'>
       <div class='button'><button class="two-dash-btn-circle2"></button></div>
-       <div class='button' >&nbsp; Delayed</div>
+       <div class='button' style="color: #72869C;	font-family: Avenir;">&nbsp; Depleted</div>
   </div>
+
    <div class='is-grouped'>
       <div class='button'><button class="two-dash-btn-circle3"></button></div>
-       <div class='button'>&nbsp; Delivered</div>
+        <div class='button' style="color: #72869C;	font-family: Avenir;">&nbsp; Requested</div>
   </div>
 </div>
 </div>
 </div>
-  </div>
-  <div class="col-sm-4" style="height:410px;	width: 370px;	margin-left:10px;border-radius: 2px;	background-color: #FFFFFF;	box-shadow: 0 7px 16px 0 rgba(132,152,172,0.1);}">
-<div class="middle-container">
-  <p style="font-size:14px "> <b>Delivery Overvirew</b></p>
-
-<div style="width: 200px;position:relative;">
-  <div style="position: absolute;
-top: 0;
-left: 0;
-height: 200px;
-width: 200px;
-border-radius: 50%;
-clip: auto;background: #68DC83;">
-    <div class="pie" style="position: absolute;
-top: 0;
-left: 0;
-width: 200px;
-height: 200px;
-border-radius: 50%;
-clip: rect(0px, 50px, 200px, 0px);"></div>
-  </div>
-  <div id="slice2" style="position: absolute;
-top: 0;
-left: 0;
-width: 200px;
-height: 200px;
-clip: rect(0px, 200px, 200px, 100px);
--webkit-transform: rotate(216deg);">
-    <div class="pie" style="position: absolute;
-top: 0;
-left: 0;
-width: 200px;
-height: 200px;
-border-radius: 50%;
--webkit-transform: rotate(90deg);
-clip: rect(0px, 100px, 100px, 0px);
-background-color: #FF923F;;"></div>
-  </div>
-  <div id="slice3" style="position: absolute;
-top: 0;
-left: 0;
-width: 200px;
-height: 200px;
-clip: rect(0px, 200px, 200px, 100px);
--webkit-transform: rotate(306deg);">
-    <div class="pie" style="position: absolute;
-top: 0;
-left: 0;
-width: 200px;
-height: 200px;
-border-radius: 50%;
-background-color: #499EF6;
--webkit-transform: rotate(36deg);
-clip: rect(0px, 100px, 100px, 0px);"></div>
-  </div>
-  <div id="slice4" style="position: absolute;
-top: 0;
-left: 0;
-width: 200px;
-height: 200px;
-clip: rect(0px, 200px, 200px, 100px);
--webkit-transform: rotate(342deg);">
-   
-  </div>
-  <div id="slice5" style="position: absolute;
-top: 0;
-left: 0;
-width: 200px;
-height: 200px;
-clip: rect(0px, 200px, 200px, 100px);
--webkit-transform: rotate(356.4deg);">
-    
-  </div>
-  <div style="position: absolute;
-border-radius: 50%;
-top: 50px;
-left: 50px;
-background:white;
-width: 100px;
-height: 100px;
-display: block;
-clip: auto;"> 400 Delivery</div>
 </div>
-
-<div class="lower-row">
-  <div class='is-grouped'>
-  <div class='is-grouped'>
-      <div class='button'><button class="two-dash-btn-circle1"></button></div>
-       <div class='button'> &nbsp;Shipped</div>
-  </div>
-  <div class='is-grouped'>
-      <div class='button'><button class="two-dash-btn-circle2"></button></div>
-       <div class='button' >&nbsp; Delayed</div>
-  </div>
-   <div class='is-grouped'>
-      <div class='button'><button class="two-dash-btn-circle3"></button></div>
-       <div class='button'>&nbsp; Delivered</div>
-  </div>
-</div>
-</div>
-</div>
-  </div>
- {{#if IsShowretailer}}
-  <div class="col-sm-4" style="height:410px;	width: 370px;	margin-left:10px;border-radius: 2px;	background-color: #FFFFFF;	box-shadow: 0 7px 16px 0 rgba(132,152,172,0.1);}">
-        <div class="heading-right">
-        Track Deliveries  &nbsp;&nbsp;&nbsp; <span style="color:#499EF6 ;float:right;margin-right:-5.5cm;margin-top:4mm"{{action 'toggleModal'}}>New Request <img src="assets/images/forward.svg" alt="Smiley face" width="15" height="9" style="margin-bottom:1px"></span> 
-      </div>
-      <br/>
-      <div class="line-5"></div>
-      {{#each tracking as |items|}}
-      <div class="dashboard-track">
-       <div id="head-dashboard-track">
-      {{items.materialtype}}
-       </div>
-       <p style="color: #536C89;font-family: Avenir;font-size: 13px;font-style: oblique;font-weight: 900;">  {{items.updatedby}} :<span style="font-weight: 300;color: #022351;font-size: 13px;"> {{items.companyname}}</span></p>
-      <p style="margin-top:-3mm;color: #677B92;	font-family: Avenir;	font-size: 12px;">Reached Thambaram will be delived on Monday &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #3B89F3;	font-family: Avenir;	font-size: 13px;	font-weight: 900;text-decoration: underline;"{{action 'gotoTracking' items.key}}>Track</span></p>
-      </div>
-      {{/each}}
-  </div>
-  {{/if}}
 </div>
 <br/>
 {{#if IsnotShowRetailer}}
@@ -378,7 +436,7 @@ clip: auto;"> 400 Delivery</div>
       {{items.materialtype}}
        </div>
        <p style="color: #536C89;font-family: Avenir;font-size: 13px;font-style: oblique;font-weight: 900;">  {{items.updatedby}} :<span style="font-weight: 300;color: #022351;font-size: 13px;"> {{items.companyname}}</span></p>
-      <p style="margin-top:-3mm;color: #677B92;	font-family: Avenir;	font-size: 12px;">Reached Thambaram will be delived on Monday &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #3B89F3;	font-family: Avenir;	font-size: 13px;	font-weight: 900;text-decoration: underline;"{{action 'gotoTracking' items.Key}}>Track</span></p>
+      <p style="margin-top:-3mm;color: #677B92;	font-family: Avenir;	font-size: 12px;">Reached Thambaram will be delived on Monday &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #3B89F3;	font-family: Avenir;	font-size: 13px;	font-weight: 900;text-decoration: underline;"{{action 'gotoTracking' "keydashboard" items.key}}>Track</span></p>
       </div>
       {{/each}}
      

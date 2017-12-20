@@ -16,7 +16,10 @@ export default Route.extend({
          mycontroller.controllerFor('dashboard').set('url',url);
           
             mycontroller.controllerFor('dashboard').set("isShow_fileupload",true);
-             mycontroller.controllerFor('dashboard').set("Notshow_fileupload",false);
+            
+            if(mycontroller.controllerFor('dashboard').set("isShow_fileupload",true)){
+                    mycontroller.controllerFor('dashboard').set("Notshow_fileupload",false);
+            } 
             console.log("saviing file...");
             console.log("file upload sucessfully. 1..");
             //return image.save();
@@ -31,7 +34,13 @@ export default Route.extend({
         },
     model(){
            
-           this.controllerFor('dashboard').set(' Notshow_fileupload', true); 
+
+
+
+           this.controllerFor('dashboard').set('Notshow_fileupload', true); 
+         if(this.controllerFor('dashboard').set('Notshow_fileupload', true)){
+this.controllerFor('dashboard').set(' isShow_fileupload', false); 
+         }  
  this.controllerFor('dashboard').set('IsnotShowRetailer', true); 
        var requestid = this.controllerFor('userhome').get('requestid');
        console.log("requestid---",requestid);
@@ -138,15 +147,15 @@ export default Route.extend({
                                 var isInvoiceRaisedCount = statuscount[i].statuscount;
                              //   var InvoiceRaisedcount = Count * 10;
                                 console.log("InvoiceRaisedcount-----",isInvoiceRaisedCount *10);
-                                mycontroller.controllerFor('dashboard').set('InvoiceRaisedcount', isInvoiceRaisedCount * 10);
+                                mycontroller.controllerFor('dashboard').set('InvoiceRaisedcount', isInvoiceRaisedCount );
                                 mycontroller.controllerFor('dashboard').set('isInvoiceRaisedCount', isInvoiceRaisedCount);
                             } 
                            
-                            if (statuscount[i].statusname === "InvoiceApproved") {
+                            if (statuscount[i].statusname === "invoiceApproved") {
                                 var isInvoiceApprovedCount = statuscount[i].statuscount;
                              //   var InvoiceApprovedcount = Count * 10;
                                 console.log(JSON.stringify(statuscount[i].statuscount));
-                                mycontroller.controllerFor('dashboard').set('InvoiceApprovedcount', isInvoiceApprovedCount * 10);
+                                mycontroller.controllerFor('dashboard').set('InvoiceApprovedcount', isInvoiceApprovedCount );
                                 mycontroller.controllerFor('dashboard').set('isInvoiceApprovedCount', isInvoiceApprovedCount);
                             } 
                            
@@ -154,23 +163,23 @@ export default Route.extend({
                                 var isDoDeliveredCount = statuscount[i].statuscount;
                            //     var DoDeliveredcount = Count * 10;
                                 console.log(JSON.stringify(statuscount[i].statuscount));
-                                mycontroller.controllerFor('dashboard').set('DoDeliveredcount', isDoDeliveredCount * 10);
-                                mycontroller.controllerFor('dashboard').set('isDoDeliveredCount', isDoDeliveredCount);
+                                mycontroller.controllerFor('dashboard').set('DoDeliveredcount', isDoDeliveredCount );
+                                mycontroller.controllerFor('dashboard').set('isDoDeliveredCount', isDoDeliveredCount *10);
                             }
                             
                             if (statuscount[i].statusname === "shipped") {
                                 var isShippedCount = statuscount[i].statuscount;
                             //    var NotDeliveredcount = Count * 10
                                 console.log(JSON.stringify(statuscount[i].statuscount));
-                                mycontroller.controllerFor('dashboard').set('shippedcount', isShippedCount * 10);
-                                //mycontroller.controllerFor('dashboard').set('isNotDeliveredCount', isNotDeliveredCount);
+                                mycontroller.controllerFor('dashboard').set('shippedcount', isShippedCount );
+                                mycontroller.controllerFor('dashboard').set('isshippedcount', isShippedCount*10);
                             } 
                             
                             if (statuscount[i].statusname === "claimRequested") {
                                 var isclaimRequestedCount = statuscount[i].statuscount;
                             
                                 console.log(JSON.stringify(statuscount[i].statuscount));
-                                mycontroller.controllerFor('dashboard').set('claimRequestedcount', isclaimRequestedCount * 10);
+                                mycontroller.controllerFor('dashboard').set('claimRequestedcount', isclaimRequestedCount );
                                 mycontroller.controllerFor('dashboard').set('isclaimRequestedCount', isclaimRequestedCount);
                             }
                             
@@ -187,8 +196,8 @@ export default Route.extend({
                                 var isDOraisedCount = statuscount[i].statuscount;
                                 var DOraisedcount = isDOraisedCount * 10;
                                 console.log( "DOraisedcount --->",isDOraisedCount * 10);
-                                mycontroller.controllerFor('dashboard').set('DOraisedcount', isDOraisedCount * 10);
-                                mycontroller.controllerFor('dashboard').set('isDOraisedCount', isDOraisedCount);
+                                mycontroller.controllerFor('dashboard').set('DOraisedcount', isDOraisedCount );
+                                mycontroller.controllerFor('dashboard').set('isDOraisedCount', isDOraisedCount * 10);
                                 
                             } 
                             }

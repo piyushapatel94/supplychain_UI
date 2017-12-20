@@ -1,0 +1,311 @@
+{{#if showmaterialrequest}}
+<div class="rectangle-15">
+    <div class="rectangle-15-head"><p style="margin-top:4mm"> Material Request &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/close.svg" alt="Smiley face" style="margin-top:-6mm" height="30" width="30"{{action 'closedetails'}}></p></div>
+    <div class="line-7"></div>
+    <br>
+    <div class="row" style="height:1cm">
+        <div id="left">
+            <div class="thisgroup-NR" style="color:#4E5C6B">
+                <b>Date:</b>
+            </div>
+            <div class="group" style="width:4cm;">
+            {{transactiondetails0.today}}  
+            </div>
+        </div>
+        <div id="right" style="margin-left:-1cm;" >
+            <div class="thisgroup-NR" style="color:#4E5C6B">
+                <b >Request Number:</b>
+            </div>
+            <br/>
+            <div class="group" style="width:4cm ;margin-top:-5mm;color:#3B5983">
+               {{requestid}}
+            </div>
+
+        </div>
+    </div>
+    <br/>
+    <div class="row" style="height:1cm">
+        <div id="left">
+            <div class="thisgroup-NR" style="color:#4E5C6B">
+                <b>Company Name:</b>
+            </div>
+            <div class="group" style="width:4cm;color:#3B5983">
+            {{transactiondetails0.requestto}}  
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="row" style="height:1cm">
+        <div id="left">
+            <div class="thisgroup-NR" style="color:#4E5C6B">
+                <b>Material Type:</b>
+            </div>
+            <div class="group" style="width:4cm;color:#3B5983;">
+            {{transactiondetails0.materialtype}}  
+            </div>
+        </div>
+    </div>
+    <br/>
+     <div class="row" style="height:1cm">
+        <div id="left">
+            <div class="thisgroup-NR" style="color:#4E5C6B">
+                <b>Quantity:</b>
+            </div>
+            <div class="group" style="width:4cm;color:#3B5983">
+            {{transactiondetails0.Quantity}}  
+            </div>
+        </div>
+        <div id="right" style="margin-left:-1cm;" >
+            <div class="thisgroup-NR" style="color:#4E5C6B">
+                <b >Delivery By:</b>
+            </div>
+            <br/>
+            <div class="group" style="width:4cm ;margin-top:-5mm;color:#3B5983">
+               {{transactiondetails0.expecteddelivery}}
+            </div>
+
+        </div>
+    </div>
+    <br/>
+    <div class="row" style="height:1cm">
+        <div id="left">
+            <div class="thisgroup-NR" style="color:#4E5C6B">
+                <b>Shipping address:</b>
+            </div>
+            <div class="group" style="width:4cm;color:#3B5983">
+            {{transactiondetails0.address}} 
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div align="right">
+             <button id="NR-button" type="submit" > <a href={{transactiondetails2.url}} download>Download</a></button>
+        </div>
+    </div>
+</div>
+{{/if}}
+{{#if showDorequest}}
+
+{{/if}}
+{{#if showPOrequest}}
+<div class="rectangle-15-qt">
+    <div class="rectangle-15-head"><p style="margin-top:4mm"> Purchase Order &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/close.svg" alt="Smiley face" style="margin-top:-6mm" height="30" width="30"{{action 'closedetails'}}></p></div>
+    <div class="line-7"></div>
+    <br>
+    <div class="row" style="height:1cm">
+        <div id="left">
+            <div class="thisgroup-NR" style="color:#4E5C6B">
+                <b>Date:</b>
+            </div>
+            <div class="group" style="width:4cm;">
+            {{transactiondetails0.today}}  
+            </div>
+        </div>
+        <div id="right" style="margin-left:-1cm;" >
+            <div class="thisgroup-NR" style="color:#4E5C6B">
+                <b >Request Number:</b>
+            </div>
+            <br/>
+            <div class="group" style="width:4cm ;margin-top:-5mm;color:#3B5983">
+               {{requestid}}
+            </div>
+
+        </div>
+    </div>
+    <br/><div class="row" style="height:1cm">
+        <div id="left">
+            <div class="thisgroup-NR" style="color:#4E5C6B">
+                <b>Supplier:</b>
+            </div>
+            <div class="group" style="width:4cm;color:#3B5983">
+            {{transactiondetails0.requestto}}  
+            </div>
+        </div>
+    </div><br/>
+    <div class="row" style="height:1cm">
+        <div id="left">
+            <div class="thisgroup-NR" style="color:#4E5C6B">
+                <b>Company Name:</b>
+            </div>
+            <div class="group" style="width:4cm;color:#3B5983">
+            {{transactiondetails0.requestto}}  
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="row" style="height:1cm">
+        <div id="left">
+            <div class="thisgroup-NR" style="color:#4E5C6B">
+                <b>Material Type:</b>
+            </div>
+            <div class="group" style="width:4cm;color:#3B5983;">
+            {{transactiondetails0.materialtype}}  
+            </div>
+        </div>
+    </div>
+    <br/>
+    
+    <div class="row" style="height:1cm">
+        <div id="left">
+            <div class="thisgroup-NR" style="color:#4E5C6B">
+                <b>Units:</b>
+            </div>
+            <div class="group" style="width:4cm;color:#3B5983">
+            {{transactiondetails2.unit}}  
+            </div>
+        </div>
+        <div id="right" style="margin-left:-1cm;" >
+            <div class="thisgroup-NR" style="color:#4E5C6B">
+                <b >Total Price:</b>
+            </div>
+            <br/>
+            <div class="group" style="width:4cm ;margin-top:-5mm;color:#3B5983">
+               {{transactiondetails2.totalprice}}
+            </div>
+
+        </div>
+    </div>
+    <br/>
+     <div class="row" style="height:1cm">
+        <div id="left">
+            <div class="thisgroup-NR" style="color:#4E5C6B">
+                <b>Description:</b>
+            </div>
+            <div class="group" style="color:#3B5983">
+            {{transactiondetails4.remark}}
+            </div>
+        </div>
+     </div><br/>
+    <div class="row" style="height:1cm">
+        <div id="left">
+            <div class="thisgroup-NR" style="color:#4E5C6B">
+                <b>Shipping address:</b>
+            </div>
+            <div class="group" style="width:4cm;color:#3B5983">
+            {{transactiondetails0.address}} 
+            </div>
+        </div>
+         <div align="right">
+             <button id="NR-button" type="submit" style="margin-top:-6mm" > <a href={{transactiondetails2.url}} download>Download</a></button>
+        </div>
+    </div>
+   
+</div>
+{{/if}}
+{{#if showQuotationrequest}}
+<div class="rectangle-15-qt">
+    <div class="rectangle-15-head"><p style="margin-top:4mm"> Quotation &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/close.svg" alt="Smiley face" style="margin-top:-6mm" height="30" width="30"{{action 'closedetails'}}></p></div>
+    <div class="line-7"></div>
+    <br>
+    <div class="row" style="height:1cm">
+        <div id="left">
+            <div class="thisgroup-NR" style="color:#4E5C6B">
+                <b>Date:</b>
+            </div>
+            <div class="group" style="width:4cm;">
+            {{transactiondetails0.today}}  
+            </div>
+        </div>
+        <div id="right" style="margin-left:-1cm;" >
+            <div class="thisgroup-NR" style="color:#4E5C6B">
+                <b >Request Number:</b>
+            </div>
+            <br/>
+            <div class="group" style="width:4cm ;margin-top:-5mm;color:#3B5983">
+               {{requestid}}
+            </div>
+
+        </div>
+    </div>
+    <br/><div class="row" style="height:1cm">
+        <div id="left">
+            <div class="thisgroup-NR" style="color:#4E5C6B">
+                <b>Supplier:</b>
+            </div>
+            <div class="group" style="width:4cm;color:#3B5983">
+            {{transactiondetails0.requestto}}  
+            </div>
+        </div>
+    </div><br/>
+    <div class="row" style="height:1cm">
+        <div id="left">
+            <div class="thisgroup-NR" style="color:#4E5C6B">
+                <b>Company Name:</b>
+            </div>
+            <div class="group" style="width:4cm;color:#3B5983">
+            {{transactiondetails0.requestto}}  
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="row" style="height:1cm">
+        <div id="left">
+            <div class="thisgroup-NR" style="color:#4E5C6B">
+                <b>Material Type:</b>
+            </div>
+            <div class="group" style="width:4cm;color:#3B5983;">
+            {{transactiondetails0.materialtype}}  
+            </div>
+        </div>
+    </div>
+    <br/>
+     <div class="row" style="height:1cm">
+        <div id="left">
+            <div class="thisgroup-NR" style="color:#4E5C6B">
+                <b>Quantity:</b>
+            </div>
+            <div class="group" style="width:4cm;color:#3B5983">
+            {{transactiondetails0.Quantity}}  
+            </div>
+        </div>
+        <div id="right" style="margin-left:-1cm;" >
+            <div class="thisgroup-NR" style="color:#4E5C6B">
+                <b >Delivery By:</b>
+            </div>
+            <br/>
+            <div class="group" style="width:4cm ;margin-top:-5mm;color:#3B5983">
+               {{transactiondetails0.expecteddelivery}}
+            </div>
+
+        </div>
+    </div>
+    <div class="row" style="height:1cm">
+        <div id="left">
+            <div class="thisgroup-NR" style="color:#4E5C6B">
+                <b>Units:</b>
+            </div>
+            <div class="group" style="width:4cm;color:#3B5983">
+            {{transactiondetails2.unit}}  
+            </div>
+        </div>
+        <div id="right" style="margin-left:-1cm;" >
+            <div class="thisgroup-NR" style="color:#4E5C6B">
+                <b >Total Price:</b>
+            </div>
+            <br/>
+            <div class="group" style="width:4cm ;margin-top:-5mm;color:#3B5983">
+               {{transactiondetails2.totalprice}}
+            </div>
+
+        </div>
+    </div>
+    <br/>
+    <div class="row" style="height:1cm">
+        <div id="left">
+            <div class="thisgroup-NR" style="color:#4E5C6B">
+                <b>Shipping address:</b>
+            </div>
+            <div class="group" style="width:4cm;color:#3B5983">
+            {{transactiondetails0.address}} 
+            </div>
+        </div>
+         <div align="right">
+             <button id="NR-button" type="submit" > <a href={{transactiondetails2.url}} download>Download</a></button>
+        </div>
+    </div>
+   
+</div>
+{{/if}}

@@ -35,6 +35,9 @@
           {{#if isShowRequestAccept}}
             <img src="assets/images/requests.svg" alt="Smiley face" style="background:#68DC83;border-radius: 50%;" height="60" width="60">
         {{/if}}
+        {{#if isShowRequestRejected}}
+            <img src="assets/images/requests.svg" alt="Smiley face" style="background:#FF946D;border-radius: 50%;" height="60" width="60">
+        {{/if}}
         {{#if isShowQuotationRaised}}
          <img src="assets/images/quotation.svg" alt="Smiley face" style="background:#499EF6;border-radius: 50%;" height="60" width="60">
         {{/if}}
@@ -63,6 +66,8 @@
             {{#if isShowRequestAccept}}
              <img src="assets/images/tick.svg.png" alt="Smiley face"style="background:#68DC83;border-radius: 50%;margin-top:2cm;	margin-left: -2.55mm;"height="20" width="20">
         {{/if}}
+        {{#if isShowRequestRejected}} <img src="assets/images/close.svg" alt="Smiley face"  id="check-image-2" style="position: relative;
+	background:#FF946D;border-radius: 50%;position: relative;height: 22px;width: 22px;	margin-top:2.0cm;margin-left: -2.55mm;" height="24" width="24">{{/if}}
         {{#if isShowQuotationRaised}}
             <div class="oval-4"></div>
             {{/if}}
@@ -248,6 +253,7 @@
         <div class="first-row-left">
         {{#if isShowRequestInitaited}}<p id="detais-status"><b>{{mystatus}}</b></p>{{/if}}
         {{#if isShowRequestAccept}}<p id="detais-status" style="color:#68DC83"><b>{{mystatus}}</b></p>{{/if}}
+          {{#if isShowRequestRejected}}<p id="detais-status" style="color:#FF946D"><b>{{mystatus}}</b></p>{{/if}}
        {{#if isShowQuotationRaised}}<p id="detais-status"><b>{{mystatus}}</b></p>{{/if}}
        {{#if isShowQuotationAccept}}<p id="detais-status" style="color:#68DC83"><b>{{mystatus}}</b></p>{{/if}}
        {{#if isShowPORaised}}<p id="detais-status"><b>{{mystatus}}</b></p>{{/if}}
@@ -381,7 +387,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Quotation</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{transactiondetails2.url}} download><img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></a></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "quotation"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{transactiondetails2.url}} download><img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></a></p>
                 </div>
             </div>
 
@@ -416,7 +422,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Request</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{transactiondetails0.url}} download><img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></a></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "newrequest"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{transactiondetails0.url}} download><img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></a></p>
                 </div>
             </div>
 
@@ -452,7 +458,43 @@
                 <p style="font-size:17px;color:#42709F"><b>Request</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:3cm"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{transactiondetails0.url}} download><img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></a></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:3cm"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "newrequest"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{transactiondetails0.url}} download><img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></a></p>
+                </div>
+            </div>
+
+        </div>
+        <div class="line-2"></div>
+        <div class="in-second-row">
+
+            <table class="in-mytable-details">
+                <tr id="in-th-details">
+                    <th>Supplier</th>
+                    <th><b>Material Type</b></th>
+                    <th><b>Quantity</b></th>
+                    <th><b>Delivery By</b></th>
+                    <th>shipping address</th>
+
+                </tr>
+                <tr id="in-tr-details">
+                    <td>{{transactiondetails0.requestto}}</td>
+                    <td>{{transactiondetails0.materialtype}}</td>
+                    <td>{{transactiondetails0.Quantity}}</td>
+                    <td>{{transactiondetails0.expecteddelivery}}</td>
+                    <td>{{transactiondetails0.address}}</td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+    {{/if}}
+    {{#if isShowRequestRejected}}
+    <div class="fourth-row">
+        <div class="in-first-row">
+            <div>
+                <p style="font-size:17px;color:#42709F"><b>Request</b></p>
+                <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
+                <div id="in-first-row11">
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:3cm"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "newrequest"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{transactiondetails0.url}} download><img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></a></p>
                 </div>
             </div>
 
@@ -488,7 +530,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Request</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:3ssscm"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:3ssscm"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "newrequest"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 </div>
             </div>
 
@@ -523,7 +565,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Quotation</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:4cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{transactiondetails2.url}} download><img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></a></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:4cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26" {{action 'showrequestdetails' "quotation"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{transactiondetails2.url}} download><img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></a></p>
                 </div>
             </div>
 
@@ -542,8 +584,8 @@
                 </tr>
                 <tr id="in-tr-details">
                     <td>{{transactiondetails0.expecteddelivery}}</td>
-                    <td>{{transactiondetails2.Quantity}}</td>
-                    <td>{{transactiondetails2.Quantity}}</td>
+                    <td>{{transactiondetails0.Quantity}}</td>
+                    <td>{{transactiondetails2.unit}}</td>
                     <td>{{transactiondetails2.totalprice}}</td>
                     <td></td>
                     <td></td>
@@ -558,7 +600,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Request</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{transactiondetails0.url}} download><img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></a></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "newrequest"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{transactiondetails0.url}} download><img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></a></p>
                 </div>
             </div>
 
@@ -594,7 +636,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Purchase Order</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:3cm"><b style="color:#466A8F">Received</b> :{{transactiondetails4.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{transactiondetails4.url}} download><img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></a></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:4cm"><b style="color:#466A8F">Received</b> :{{transactiondetails4.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "purchaseorder"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{transactiondetails4.url}} download><img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></a></p>
                 </div>
             </div>
 
@@ -611,7 +653,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Quotation</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:3cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{transactiondetails2.url}} download><img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></a></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:4cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26" {{action 'showrequestdetails' "quotation"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{transactiondetails2.url}} download><img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></a></p>
                 </div>
             </div>
 
@@ -643,7 +685,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Request</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{transactiondetails0.url}} download><img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></a></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:4cm"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26" {{action 'showrequestdetails' "newrequest"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{transactiondetails0.url}} download><img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></a></p>
                 </div>
             </div>
 
@@ -679,7 +721,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Delivery Order</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:0cm"><b style="color:#466A8F">Received</b>:{{transactiondetails5.today}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Shipped</b> :{{transactiondetails5.expectedDelivery}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{transactiondetails5.url}} download><img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></a></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:0cm"><b style="color:#466A8F">Received</b>:{{transactiondetails5.today}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Shipped</b> :{{transactiondetails5.expectedDelivery}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "deliverorder"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{transactiondetails5.url}} download><img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></a></p>
                 </div>
             </div>
 
@@ -695,7 +737,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Purchase Order</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:3cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{transactiondetails4.url}} download><img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></a></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:3cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "purchaseorder"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{transactiondetails4.url}} download><img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></a></p>
                 </div>
             </div>
 
@@ -712,7 +754,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Quotation</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:3cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{transactiondetails2.url}} download><img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></a></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:3cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "quotation"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{transactiondetails2.url}} download><img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></a></p>
                 </div>
             </div>
 
@@ -747,7 +789,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Request</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:3cm"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{transactiondetails0.url}} download><img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></a></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:3cm"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "newrequest"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{transactiondetails0.url}} download><img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></a></p>
                 </div>
             </div>
 
@@ -784,7 +826,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Delivery Order</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11-map">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:4cm"><b style="color:#466A8F">Received</b> :{{transactiondetails5.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Shipped</b> :{{transactiondetails6.expectedDelivery}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:4cm"><b style="color:#466A8F">Received</b> :{{transactiondetails5.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Shipped</b> :{{transactiondetails6.expectedDelivery}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "deliverorder"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={{transactiondetails2.url}} download><img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></a></p>
                 
                 </div>
             </div>
@@ -834,7 +876,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Purchase Order</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:3cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:3cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "purchaseorder"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 </div>
             </div>
 
@@ -851,7 +893,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Quotation</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:3cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:3cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "quotation"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 </div>
             </div>
 
@@ -886,7 +928,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Request</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:3cm"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:3cm"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "newrequest"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 </div>
             </div>
 
@@ -922,7 +964,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Delivery Order</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11-map">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:2cm"><b style="color:#466A8F">Raised</b> :{{transactiondetails5.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Shipped</b> :{{transactiondetails6.expectedDelivery}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Delivered</b> :{{transactiondetails7.expectedDelivery}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:2cm"><b style="color:#466A8F">Raised</b> :{{transactiondetails5.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Shipped</b> :{{transactiondetails6.expectedDelivery}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Delivered</b> :{{transactiondetails7.expectedDelivery}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "deliverorder"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 
                 </div>
             </div>
@@ -940,7 +982,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Purchase Order</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:3cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:3cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "purchaseorder"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 </div>
             </div>
 
@@ -957,7 +999,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Quotation</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:3cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:3cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "quotation"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 </div>
             </div>
 
@@ -992,7 +1034,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Request</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:3cm"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:3cm"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "newrequest"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 </div>
             </div>
 
@@ -1026,7 +1068,7 @@
     <div class="second-row">
         <div class="in-first-row">
             <div>
-                <p style="font-size:17px;color:#42709F"><b>Invioce</b></p>
+                <p style="font-size:17px;color:#42709F"><b>Invoice</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11-map">
                     <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Raised</b> :{{transactiondetails8.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
@@ -1061,7 +1103,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Delivery Order</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11-map">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:2cm"><b style="color:#466A8F">Raised</b> :{{transactiondetails5.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Shipped</b> :{{transactiondetails6.expectedDelivery}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Delivered</b> :{{transactiondetails7.expectedDelivery}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:2cm"><b style="color:#466A8F">Raised</b> :{{transactiondetails5.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Shipped</b> :{{transactiondetails6.expectedDelivery}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Delivered</b> :{{transactiondetails7.expectedDelivery}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "deliverorder"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 
                 </div>
             </div>
@@ -1079,7 +1121,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Purchase Order</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "purchaseorder"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 </div>
             </div>
 
@@ -1096,7 +1138,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Quotation</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "quotation"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 </div>
             </div>
 
@@ -1131,7 +1173,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Request</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "newrequest"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 </div>
             </div>
 
@@ -1165,7 +1207,7 @@
     <div class="second-row">
         <div class="in-first-row">
             <div>
-                <p style="font-size:17px;color:#42709F"><b>Invioce</b></p>
+                <p style="font-size:17px;color:#42709F"><b>Invoice</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11-map">
                     <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Raised</b> :{{transactiondetails8.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
@@ -1200,7 +1242,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Delivery Order</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11-map">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:2cm"><b style="color:#466A8F">Raised</b> :{{transactiondetails5.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Shipped</b> :{{transactiondetails6.expectedDelivery}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Delivered</b> :{{transactiondetails7.expectedDelivery}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:2cm"><b style="color:#466A8F">Raised</b> :{{transactiondetails5.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Shipped</b> :{{transactiondetails6.expectedDelivery}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Delivered</b> :{{transactiondetails7.expectedDelivery}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "deliverorder"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 
                 </div>
             </div>
@@ -1218,7 +1260,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Purchase Order</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "purchaseorder"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 </div>
             </div>
 
@@ -1235,7 +1277,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Quotation</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "quotation"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 </div>
             </div>
 
@@ -1270,7 +1312,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Request</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "newrequest"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 </div>
             </div>
 
@@ -1305,7 +1347,7 @@
     <div class="second-row">
         <div class="in-first-row">
             <div>
-                <p style="font-size:17px;color:#42709F"><b>Invioce</b></p>
+                <p style="font-size:17px;color:#42709F"><b>Invoice</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11-map">
                     <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Raised</b> :{{transactiondetails8.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
@@ -1340,7 +1382,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Delivery Order</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11-map">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:2cm"><b style="color:#466A8F">Raised</b> :{{transactiondetails5.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Shipped</b> :{{transactiondetails6.expectedDelivery}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Delivered</b> :{{transactiondetails7.expectedDelivery}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:2cm"><b style="color:#466A8F">Raised</b> :{{transactiondetails5.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Shipped</b> :{{transactiondetails6.expectedDelivery}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Delivered</b> :{{transactiondetails7.expectedDelivery}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "deliverorder"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 
                 </div>
             </div>
@@ -1358,7 +1400,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Purchase Order</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "purchaseorder"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 </div>
             </div>
 
@@ -1375,7 +1417,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Quotation</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "quotation"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 </div>
             </div>
 
@@ -1410,7 +1452,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Request</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "newrequest"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 </div>
             </div>
 
@@ -1470,7 +1512,7 @@
     <div class="third-row">
         <div class="in-first-row">
             <div>
-                <p style="font-size:17px;color:#42709F"><b>Invioce</b></p>
+                <p style="font-size:17px;color:#42709F"><b>Invoice</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11-map">
                     <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Raised</b> :{{transactiondetails8.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
@@ -1505,7 +1547,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Delivery Order</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11-map">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:2cm"><b style="color:#466A8F">Raised</b> :{{transactiondetails5.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Shipped</b> :{{transactiondetails6.expectedDelivery}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Delivered</b> :{{transactiondetails7.expectedDelivery}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:2cm"><b style="color:#466A8F">Raised</b> :{{transactiondetails5.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Shipped</b> :{{transactiondetails6.expectedDelivery}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Delivered</b> :{{transactiondetails7.expectedDelivery}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "deliverorder"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 
                 </div>
             </div>
@@ -1523,7 +1565,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Purchase Order</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "purchaseorder"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 </div>
             </div>
 
@@ -1540,7 +1582,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Quotation</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "quotation"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 </div>
             </div>
 
@@ -1575,7 +1617,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Request</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "newrequest"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 </div>
             </div>
 
@@ -1635,7 +1677,7 @@
     <div class="third-row">
         <div class="in-first-row">
             <div>
-                <p style="font-size:17px;color:#42709F"><b>Invioce</b></p>
+                <p style="font-size:17px;color:#42709F"><b>Invoice</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11-map">
                     <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Raised</b> :{{transactiondetails8.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
@@ -1670,7 +1712,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Delivery Order</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11-map">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:2cm"><b style="color:#466A8F">Raised</b> :{{transactiondetails5.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Shipped</b> :{{transactiondetails6.expectedDelivery}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Delivered</b> :{{transactiondetails7.expectedDelivery}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:2cm"><b style="color:#466A8F">Raised</b> :{{transactiondetails5.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Shipped</b> :{{transactiondetails6.expectedDelivery}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#466A8F">Delivered</b> :{{transactiondetails7.expectedDelivery}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "deliverorder"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 
                 </div>
             </div>
@@ -1688,7 +1730,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Purchase Order</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "purchaseorder"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 </div>
             </div>
 
@@ -1705,7 +1747,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Quotation</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "quotation"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 </div>
             </div>
 
@@ -1740,7 +1782,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Request</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "newrequest"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 </div>
             </div>
 
@@ -1754,7 +1796,7 @@
                     <th><b>Quantity</b></th>
                     <th><b>Delivery By</b></th>
 
-                    <th>shipping address</th>
+                    <th><b>shipping address</b></th>
 
                 </tr>
                 <tr id="in-tr-details">
@@ -1859,6 +1901,15 @@
            <p style="margin-top:3mm;color:#68DC83"> Request Updated Sucessfully </p>
            <button class="btn btn-info"{{action 'okbutton'}}>ok</button>
        </div>         
+                
+{{/modal-dialog}}
+{{/if}}
+{{#if isshowingmodel_details}}
+{{#modal-dialog close="toggleModalssss3"
+               targetAttachment="center"
+                  translucentOverlay=true}}
+                  
+                  {{partial 'requestdetails'}}
                 
 {{/modal-dialog}}
 {{/if}}

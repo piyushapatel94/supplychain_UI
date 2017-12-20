@@ -28,6 +28,7 @@ var Validations = buildValidations({
 });
 
 export default Ember.Controller.extend(Validations, {
+  
 
 banklist:['Cash','NEFT','Cheque'],
 citylist:['pune','Mumbai','Chennai','Delhi'],
@@ -466,31 +467,29 @@ myIcon: {
             var requestid = this.get('requestid')
             var usertype = this.get('usertype');
             console.log('usertype', usertype);
-            /* var url =this.get('url');
-             console.log('url------>',url);*/
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
 
-            let {
-                companyname,
-                address,
-                item,
-                Quantity
+            var yyyy = today.getFullYear();
+            if (dd < 10) {
+                dd = '0' + dd;
+            }
+            if (mm < 10) {
+                mm = '0' + mm;
+            }
+            var today = dd + '/' + mm + '/' + yyyy;
+            console.log("today--", today);
 
-            } = this.getProperties('companyname', 'address', 'item', 'Quantity', 'pono');
-
+            
             var dataString = {
                 "requestid": requestid,
                 "status": "RequestRejected",
                 "InvolvedParties": usertype,
                 "transactionString": {
                     "updatedBy": usertype,
-                    "companyname": companyname,
-                    "address": address,
-                    "item": item,
-                    "Quantity": Quantity,
-                    "formdate": formdate1,
-                    "url": url,
-                    "totalamount": "NA",
-                    "status": "DOraised",
+                    
+                    "today":today,
                     "remark": "NA",
                     "status": "RequestRejected",
                 }
@@ -549,9 +548,9 @@ myIcon: {
             let {
                 totalprice,
 
-                Quantity
+                unit
 
-            } = this.getProperties('totalprice', 'Quantity');
+            } = this.getProperties('totalprice', 'unit');
 
             var dataString = {
 
@@ -561,7 +560,7 @@ myIcon: {
                     "updatedby": usertype,
                     "companyname": "companyname",
                     "address": "address",
-                    "Quantity": Quantity,
+                    "unit": unit,
                     "today": today,
                     "url": url,
                     "totalprice": totalprice,
@@ -1484,6 +1483,34 @@ selectedsource,selectedDestination
               }   
                   });
 
+        },
+        showrequestdetails:function(objstring){
+            console.log(objstring)
+            if (objstring === 'newrequest'){
+                this.set('showmaterialrequest',true);
+                this.toggleProperty('isshowingmodel_details');
+            }
+           else if (objstring === 'deliverorder'){
+               this.set('showDorequest',true);
+                this.set('showmaterialrequest',false);
+                this.toggleProperty('isshowingmodel_details');
+            }
+            else if (objstring === 'purchaseorder'){
+               this.set('showPOrequest',true);
+                this.set('showmaterialrequest',false);
+                this.set('showDorequest',false);
+                this.toggleProperty('isshowingmodel_details');
+            }
+            else if (objstring === 'quotation'){
+               this.set('showQuotationrequest',true);
+                this.set('showmaterialrequest',false);
+                this.set('showDorequest',false);
+                 this.set('showPOrequest',false);
+                this.toggleProperty('isshowingmodel_details');
+            }
+        },
+        closedetails:function(){
+            this.set('isshowingmodel_details',false);
         }
     }
 });

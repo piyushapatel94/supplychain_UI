@@ -30,13 +30,22 @@ var Validations = buildValidations({
 });
 
 export default Ember.Controller.extend(Validations,{
+      queryParams: ['requestid'],
+    requestid:null,
     actions:{
-        gotorequest:function(Key){
+        gotorequest:function(Key,key2){
             
-            var requestid = Key;
+            var requestid = key2;
             console.log("requestid---",requestid);
+         
+            var keyUserhome =Key
+            console.log("key2--userhome",keyUserhome)
+             this.set("keyUserhome",keyUserhome);
+            
             this.set("requestid",requestid);
-            this.transitionToRoute('alldetails');    
+            //this.controllerFor('alldetails').set('requestid',requestid);
+            //this.transitionToRoute('alldetails');   
+            this.transitionToRoute('alldetails', {queryParams: {requestid: requestid}}); 
         }
     }
 });

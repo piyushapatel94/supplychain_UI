@@ -1,7 +1,11 @@
 import Route from '@ember/routing/route';
 import CONFIG from 'supplychain-1/config/environment';
 export default Route.extend({
+    queryParams: {"requestid":null},
+      //requestid : null,      
+
       actions:{
+           
         uploadDoc:function (file) {
             // var mycontroller = this;
             console.log("entering upload FIR 3");
@@ -27,25 +31,39 @@ export default Route.extend({
         },
       
         },
-    model(){
+    model(params){
+
+        var requestid = params.requestid
+       console.log("requestid--all details",requestid)
+       this.controllerFor('alldetails').set('requestid', requestid);
+       
          this.controllerFor('alldetails').set('isShowingModal', false);
          this.controllerFor('alldetails').set('isShowingModals', false);
          this.controllerFor('alldetails').set('isShowingModalss', false);
+         
+        /* var keyUserhome =this.controllerFor('userhome').get('keyUserhome');
+         console.log("keyUserhome---alldeatils",keyUserhome);
+
+         var keydashboard =this.controllerFor('dashboard').get('keydashboard');
+        console.log("keydashboard---alldeatils",keydashboard);
+
+     
+         if("keyUserhome"===keyUserhome){
+        console.log("from userhome");     
         var requestid = this.controllerFor('userhome').get('requestid');
-        console.log("requestid---",requestid);
+        console.log("requestid--userhome-",requestid);
         this.controllerFor('alldetails').set('requestid', requestid);
-        if(requestid == null ||requestid == undefined){
-            var requestid = this.controllerFor('dashboard').get('requestid');
+         } if (keydashboard === "keydashboard"){
+        console.log("from dashboard"); 
+        var requestid = this.controllerFor('dashboard').get('requestid');
         console.log("requestid- dashboard--",requestid);
         this.controllerFor('alldetails').set('requestid', requestid);
-        }
-        /* var requestid = this.controllerFor('dashboard').get('requestid');
-        console.log("requestid- dashboard--",requestid);
-        this.controllerFor('alldetails').set('requestid', requestid);*/
-      
+       }*/
+         
         var usertype= sessionStorage.getItem('usertype');
         console.log("usertype",usertype);
         this.controllerFor('alldetails').set('usertype', usertype);
+         
         
         if(usertype === "Supplier"){
             this.controllerFor('alldetails').set('isShowSupplier', true);
@@ -243,7 +261,7 @@ export default Route.extend({
              
          }
          if(usertype === "Manufacturer"){
-               if(myupdatedby === 'Supplier'){
+               if(myupdatedby === 'Manufacturer'){
             if(mystatus === "QuotationRaised"){
               
            mycontroller.controllerFor('alldetails').set('isShowManquotbutton', true);
@@ -371,7 +389,18 @@ export default Route.extend({
                 
                 
             }
+            else if(status === "RequestRejected"){
+                 mycontroller.controllerFor('alldetails').set('isShowQuotationRaised',false);
+                mycontroller.controllerFor('alldetails').set('isShowRequestAccept', false);
+                mycontroller.controllerFor('alldetails').set('isShowRequestInitaited',false);
+                mycontroller.controllerFor('alldetails').set('isShowRequestRejected',true);
+                   mycontroller.controllerFor('alldetails').set('isShowPORaised',false);
+                mycontroller.controllerFor('alldetails').set('dislapymessage','Supplier accepted material request, Awaited for quotation.');
+                
+                
+            }
             else if(status === "QuotationRaised"){
+                  mycontroller.controllerFor('alldetails').set('isShowRequestRejected',false);
                 mycontroller.controllerFor('alldetails').set('isShowRequestAccept', false);
                 mycontroller.controllerFor('alldetails').set('isShowRequestInitaited',false);
                 mycontroller.controllerFor('alldetails').set('isShowQuotationRaised',true);
@@ -380,6 +409,7 @@ export default Route.extend({
                 
             }
             else if(status === "quotationAccepted"){
+                   mycontroller.controllerFor('alldetails').set('isShowRequestRejected',false);
                 mycontroller.controllerFor('alldetails').set('isShowRequestAccept', false);
                 mycontroller.controllerFor('alldetails').set('isShowRequestInitaited',false);
                 mycontroller.controllerFor('alldetails').set('isShowQuotationRaised',false);
@@ -389,6 +419,7 @@ export default Route.extend({
                 
             }
             else if(status === "purchaseorderRaised"){
+                   mycontroller.controllerFor('alldetails').set('isShowRequestRejected',false);
                 mycontroller.controllerFor('alldetails').set('isShowRequestAccept', false);
                 mycontroller.controllerFor('alldetails').set('isShowRequestInitaited',false);
                 mycontroller.controllerFor('alldetails').set('isShowQuotationRaised',false);
@@ -399,6 +430,7 @@ export default Route.extend({
                 
             }
             else if(status === "deliveryorderRaised"){
+                   mycontroller.controllerFor('alldetails').set('isShowRequestRejected',false);
                 mycontroller.controllerFor('alldetails').set('isShowRequestAccept', false);
                 mycontroller.controllerFor('alldetails').set('isShowRequestInitaited',false);
                 mycontroller.controllerFor('alldetails').set('isShowQuotationRaised',false);
@@ -409,6 +441,7 @@ export default Route.extend({
                 
                 
             }else if(status === "shipped"){
+                   mycontroller.controllerFor('alldetails').set('isShowRequestRejected',false);
                 mycontroller.controllerFor('alldetails').set('isShowRequestAccept', false);
                 mycontroller.controllerFor('alldetails').set('isShowRequestInitaited',false);
                 mycontroller.controllerFor('alldetails').set('isShowQuotationRaised',false);
@@ -421,6 +454,7 @@ export default Route.extend({
                 
             }
             else if(status === "DoDelievered"){
+                   mycontroller.controllerFor('alldetails').set('isShowRequestRejected',false);
                 mycontroller.controllerFor('alldetails').set('isShowRequestAccept', false);
                 mycontroller.controllerFor('alldetails').set('isShowRequestInitaited',false);
                 mycontroller.controllerFor('alldetails').set('isShowQuotationRaised',false);
@@ -433,6 +467,7 @@ export default Route.extend({
                 
                 
             }else if(status === "invoiceRaised"){
+                   mycontroller.controllerFor('alldetails').set('isShowRequestRejected',false);
                 mycontroller.controllerFor('alldetails').set('isShowRequestAccept', false);
                 mycontroller.controllerFor('alldetails').set('isShowRequestInitaited',false);
                 mycontroller.controllerFor('alldetails').set('isShowQuotationRaised',false);
@@ -447,6 +482,7 @@ export default Route.extend({
                  
    
             }else if(status === "invoiceDecline"){
+                   mycontroller.controllerFor('alldetails').set('isShowRequestRejected',false);
                 mycontroller.controllerFor('alldetails').set('isShowRequestAccept', false);
                 mycontroller.controllerFor('alldetails').set('isShowRequestInitaited',false);
                 mycontroller.controllerFor('alldetails').set('isShowQuotationRaised',false);
@@ -461,6 +497,7 @@ export default Route.extend({
                 
                 
             } else if(status === "invoiceApproved"){
+                   mycontroller.controllerFor('alldetails').set('isShowRequestRejected',false);
                 mycontroller.controllerFor('alldetails').set('isShowRequestAccept', false);
                 mycontroller.controllerFor('alldetails').set('isShowRequestInitaited',false);
                 mycontroller.controllerFor('alldetails').set('isShowQuotationRaised',false);
@@ -477,6 +514,7 @@ export default Route.extend({
                 
             }
             else if(status === "paymentInitiated"){
+                   mycontroller.controllerFor('alldetails').set('isShowRequestRejected',false);
                 mycontroller.controllerFor('alldetails').set('isShowRequestAccept', false);
                 mycontroller.controllerFor('alldetails').set('isShowRequestInitaited',false);
                 mycontroller.controllerFor('alldetails').set('isShowQuotationRaised',false);
@@ -495,6 +533,7 @@ export default Route.extend({
                  mycontroller.controllerFor('alldetails').set('paymentobj',paymentobj);
             }
             else if(status === "paymentPaid"){
+                   mycontroller.controllerFor('alldetails').set('isShowRequestRejected',false);
                 mycontroller.controllerFor('alldetails').set('isShowRequestAccept', false);
                 mycontroller.controllerFor('alldetails').set('isShowRequestInitaited',false);
                 mycontroller.controllerFor('alldetails').set('isShowQuotationRaised',false);
