@@ -1,5 +1,6 @@
 import Route from '@ember/routing/route';
 import CONFIG from 'supplychain-1/config/environment';
+var shippedcnt,dodelivredcnt,doraisedcnt;
 export default Route.extend({
       actions:{
         uploadDoc:function (file) {
@@ -131,7 +132,7 @@ this.controllerFor('dashboard').set(' isShow_fileupload', false);
                                 var ISPOCount = statuscount[i].statuscount;
                             //    var POraisedcount = Count * 10;
                                 console.log(JSON.stringify(statuscount[i].statuscount));
-                                mycontroller.controllerFor('dashboard').set('POraisedcount', ISPOCount * 10);
+                                mycontroller.controllerFor('dashboard').set('POraisedcount', ISPOCount );
                                // mycontroller.controllerFor('dashboard').set('ISPOCount', ISPOCount);
                             }
                            
@@ -162,6 +163,7 @@ this.controllerFor('dashboard').set(' isShow_fileupload', false);
                             if (statuscount[i].statusname === "DoDelievered") {
                                 var isDoDeliveredCount = statuscount[i].statuscount;
                            //     var DoDeliveredcount = Count * 10;
+                           dodelivredcnt = statuscount[i].statuscount;
                                 console.log(JSON.stringify(statuscount[i].statuscount));
                                 mycontroller.controllerFor('dashboard').set('DoDeliveredcount', isDoDeliveredCount );
                                 mycontroller.controllerFor('dashboard').set('isDoDeliveredCount', isDoDeliveredCount *10);
@@ -170,6 +172,7 @@ this.controllerFor('dashboard').set(' isShow_fileupload', false);
                             if (statuscount[i].statusname === "shipped") {
                                 var isShippedCount = statuscount[i].statuscount;
                             //    var NotDeliveredcount = Count * 10
+                            shippedcnt=statuscount[i].statuscount;
                                 console.log(JSON.stringify(statuscount[i].statuscount));
                                 mycontroller.controllerFor('dashboard').set('shippedcount', isShippedCount );
                                 mycontroller.controllerFor('dashboard').set('isshippedcount', isShippedCount*10);
@@ -194,13 +197,26 @@ this.controllerFor('dashboard').set(' isShow_fileupload', false);
                             
                             if (statuscount[i].statusname === "deliveryorderRaised") {
                                 var isDOraisedCount = statuscount[i].statuscount;
-                                var DOraisedcount = isDOraisedCount * 10;
+                               // var DOraisedcount = isDOraisedCount * 10;
+                               doraisedcnt = statuscount[i].statuscount;
                                 console.log( "DOraisedcount --->",isDOraisedCount * 10);
                                 mycontroller.controllerFor('dashboard').set('DOraisedcount', isDOraisedCount );
                                 mycontroller.controllerFor('dashboard').set('isDOraisedCount', isDOraisedCount * 10);
                                 
                             } 
-                            }
+                        }
+                            console.log("doraisedcnt",dodelivredcnt);
+                            console.log("shippedcnt",shippedcnt);
+                            var total = dodelivredcnt+shippedcnt+doraisedcnt
+                            var dodelivredcntIndegree = (360 * dodelivredcnt) /(total);
+                            console.log("dodelivredcntIndegree",dodelivredcntIndegree);
+                            mycontroller.controllerFor('dashboard').set('dodelivredcntIndegree', dodelivredcntIndegree );
+                            var shippedcntIndegree = (360 * shippedcnt) /(total);
+                            console.log("shippedcntIndegree",shippedcntIndegree);
+                            mycontroller.controllerFor('dashboard').set('dodelivredcntIndegree', dodelivredcntIndegree );
+                            var doraisedcntIndegree = (360 * doraisedcnt) /(total);
+                            console.log("doraisedcntIndegree",doraisedcntIndegree);
+                            mycontroller.controllerFor('dashboard').set('doraisedcntIndegree', doraisedcntIndegree );
                             },
                        error: function(response) {
                            console.log('DEBUG: GET Enquiries Failed');
@@ -235,14 +251,15 @@ this.controllerFor('dashboard').set(' isShow_fileupload', false);
                                              console.log(mydata.length)
                                              for(var i=0;i<mydata.length;i++){
                                             var myarray =response.data[i];
-                                             var updatedby =myarray[i].Record.transactionlist[0].transactiondetails.updatedby;
-                                            var materialtype =myarray[i].Record.transactionlist[0].transactiondetails.materialtype;
-                                            var requestto =myarray[i].Record.transactionlist[0].transactiondetails.requestto;
+                                            console.log("myarray",myarray);
+                                             var updatedby =myarray.Record.transactionlist[0].transactiondetails.updatedby;
+                                            var materialtype =myarray.Record.transactionlist[0].transactiondetails.materialtype;
+                                            var requestto =myarray.Record.transactionlist[0].transactiondetails.requestto;
                                           
                                             console.log(materialtype);
                                                     if(updatedby === 'Manufacturer'){
                                                         tracking.push({
-                                                            "key":myarray[i].Key,
+                                                            "key":myarray.Key,
                                                      "materialtype": materialtype,
                                                         "updatedby":updatedby,
                                                         "companyname":requestto,
@@ -251,7 +268,7 @@ this.controllerFor('dashboard').set(' isShow_fileupload', false);
                                              
                                              }else if(updatedby === 'retailer'){
                                                  tracking.push({
-                                                      "key":myarray[i].Key,
+                                                      "key":myarray.Key,
                                                      "materialtype": materialtype,
                                                         "updatedby":updatedby,
                                                         "companyname":myarray[i].Record.transactionlist[0].transactiondetails.companyname
@@ -267,7 +284,11 @@ this.controllerFor('dashboard').set(' isShow_fileupload', false);
                                         console.log("Error Message: ", data.message);
 
                                         }
-                                    });      
+                                    });  
+                                    
+                                   
+
+
                             },
                             error: function(response) {
                                 console.log('DEBUG: GET Enquiries Failed');

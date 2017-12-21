@@ -688,6 +688,70 @@ myIcon: {
                 }
             });
         },
+        declinequotation:function(){
+            var requestid = this.get('requestid')
+            var requestid1 = JSON.stringify(requestid)
+            var usertype = this.get('usertype');
+            console.log('usertype', usertype);
+           
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+
+            var yyyy = today.getFullYear();
+            if (dd < 10) {
+                dd = '0' + dd;
+            }
+            if (mm < 10) {
+                mm = '0' + mm;
+            }
+            var today = dd + '/' + mm + '/' + yyyy;
+            console.log("today--", today);
+
+            var dataString = {
+
+                "status": "quotationRejected",
+                "InvolvedParties": usertype,
+                "transactionString": {
+                    "updatedby": usertype,
+                    "today": today,
+                     "status": "quotationRejected",
+                    "remark": "NA"
+                }
+            }
+            console.log(JSON.stringify(dataString));
+            var mycontroller = this;
+
+            return $.ajax({
+                url: CONFIG.GOURL + '/updateRequest',
+                type: 'POST',
+                headers: {
+                    'authorization': requestid,
+
+                },
+                contentType: 'application/json',
+                data: JSON.stringify(dataString),
+                success: function(response) {
+
+                        var message = response.message;
+                    console.log("message" + JSON.stringify(response));
+
+                    if( message === "REQUEST UPDATED")  {
+                        mycontroller.toggleProperty('my_isShowingModal');
+                        mycontroller.set("isShowingModalss",false);
+                        mycontroller.set("isShowingModal_s",false);
+                         mycontroller.set("isShowingModal",false);
+                    }   
+
+                },
+                error: function(response) {
+                    console.log('DEBUG: GET Enquiries Failed');
+                    console.log("Error Message: ", response.message);
+                }
+            });
+
+
+        },
         poraised: function() {
             var requestid = this.get('requestid')
             var usertype = this.get('usertype');
@@ -1503,6 +1567,14 @@ selectedsource,selectedDestination
             }
             else if (objstring === 'quotation'){
                this.set('showQuotationrequest',true);
+                this.set('showmaterialrequest',false);
+                this.set('showDorequest',false);
+                 this.set('showPOrequest',false);
+                this.toggleProperty('isshowingmodel_details');
+            }
+             else if (objstring === 'invoice'){
+               this.set('showInvorequest',true);   
+               this.set('showQuotationrequest',false);
                 this.set('showmaterialrequest',false);
                 this.set('showDorequest',false);
                  this.set('showPOrequest',false);

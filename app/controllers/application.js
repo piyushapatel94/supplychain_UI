@@ -113,34 +113,6 @@ export default Ember.Controller.extend(Validations,{
         logout:function(){
             console.log("in logout");
             window.location.reload(true);
-
-            //this.transitionToRoute('home');
-         
-         /*   var mycontroller = this;
-                return $.ajax({
-                url:'http://localhost:3000/mock/Logout',
-                type: 'GET',
-                contentType: 'application/json',
-                success: function(response) {
-                var message = response.message;
-                console.log("message" + message);
-                mycontroller.set('showUser',true);
-                window.location.reload(true);
-   
-                mycontroller.transitionToRoute('home');
-
-                },      
-                error: function(response) {
-                   console.log('DEBUG: GET Enquiries Failed');
-                   console.log("Error Message: ", response.message);
-                   
-            }
-                
-                });*/
-
-
-
-
         },
         //goto to on registration
         signup:function(){
