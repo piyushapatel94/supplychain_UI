@@ -1,6 +1,7 @@
 import Route from '@ember/routing/route';
 import CONFIG from 'supplychain-1/config/environment';
 var shippedcnt,dodelivredcnt,doraisedcnt;
+  var availableQty =0,requestQty =0;
 export default Route.extend({
       actions:{
         uploadDoc:function (file) {
@@ -36,13 +37,14 @@ export default Route.extend({
     model(){
            
 
-
+this.controllerFor('dashboard').set('IsnotShowRetailer', true); 
 
            this.controllerFor('dashboard').set('Notshow_fileupload', true); 
+         //  this.controllerFor('dashboard').set(' isShow_fileupload', false); 
          if(this.controllerFor('dashboard').set('Notshow_fileupload', true)){
 this.controllerFor('dashboard').set(' isShow_fileupload', false); 
          }  
- this.controllerFor('dashboard').set('IsnotShowRetailer', true); 
+ 
        var requestid = this.controllerFor('userhome').get('requestid');
        console.log("requestid---",requestid);
        this.controllerFor('dashboard').set('requestid', requestid);
@@ -68,7 +70,15 @@ this.controllerFor('dashboard').set(' isShow_fileupload', false);
                            console.log("mydetails-----", mydetails);
                            
                            mycontroller.controllerFor('dashboard').set('mydetails', mydetails);
+                         
+                           for(var i=0;i<mydetails.length;i++)
+                           {
+                               availableQty = availableQty +mydetails[i].cuquantity;
+                             console.log(mydetails[i].cuquantity);
+                         
 
+                           }
+                                 console.log(availableQty);
                        },
                        error: function(response) {
                            console.log('DEBUG: GET Enquiries Failed');
@@ -220,7 +230,7 @@ this.controllerFor('dashboard').set(' isShow_fileupload', false);
                             },
                        error: function(response) {
                            console.log('DEBUG: GET Enquiries Failed');
-                           console.log("Error Message: ", data.message);
+                           //console.log("Error Message: ", data.message);
 
                        }
 
@@ -237,6 +247,7 @@ this.controllerFor('dashboard').set(' isShow_fileupload', false);
                                 type: 'GET',
                                 contentType: 'application/json',
                                 success: function(data) {
+                                    console.log("data",data)
                                 
                                             Ember.$.ajax({
                                     url: CONFIG.GOURL + '/readtrackingdata',

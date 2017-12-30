@@ -1,5 +1,8 @@
-
-  .navbar.navbar-dark{
+html {
+    background-color:#F6F9FB;
+    font-family: "Roboto";
+}
+ /* .navbar.navbar-dark{
     background-color: #000080 ;
 }
 .mynavbar-right{
@@ -50,7 +53,7 @@
   /*background: #009688;
   //position: relative;
   //height: 60px;
- // width: 100%;*/
+ width: 100%;
   margin-bottom: 30px;
 }
 
@@ -133,7 +136,7 @@
 
   .thisgroup{
     position:relative; 
-/*margin-bottom: 35px;*/ 
+/*margin-bottom: 35px;
     margin-left: 40px;
     font-size: 18px;
   }
@@ -148,7 +151,7 @@
   #myTable {
     border-collapse: collapse;
     width: 100%;
-    /*border: 1px solid #ddd;*/
+    /*border: 1px solid #ddd;
     font-size: 15px;
     padding:20px 20px 20px 20px;
   }
@@ -169,7 +172,7 @@
     background-repeat: no-repeat;
     width: 30%;
     font-size: 16px;
-  /*  padding: 12px 20px 12px 40px;*/
+  /*  padding: 12px 20px 12px 40px;
     border: 1px solid white;
     margin-bottom: 12px;
     margin-right: 18px
@@ -184,8 +187,14 @@
 .upper-title{
   margin-bottom: 8px;
 }
+*/
 
-  /* Simple setup for this demo */
+
+
+
+
+
+Simple setup for this demo 
 
 .mdl-card {
     width: 550px;
@@ -204,7 +213,7 @@
   }
   
   
-  /* Begin actual mdl-stepper css styles */
+  Begin actual mdl-stepper css styles 
   
   .mdl-stepper-horizontal-alternative {
     display: table;

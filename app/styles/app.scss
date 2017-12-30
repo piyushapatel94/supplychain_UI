@@ -12,7 +12,10 @@ html, body {
     box-sizing: inherit;
 	background-color: #F6F9FB;
 }*/
- 
+ html {
+    background-color:#F6F9FB;
+    //font-family: "Roboto";
+}
  .navbar.navbar-dark{
 	 background-color: #000080 ;
 }
@@ -956,6 +959,7 @@ border-radius: 2px;	background-color: #FFFFFF;
 .line-5{ box-sizing: border-box;	height: 2px;	width: 350px;	border: 0.5px solid #E3E9EC;}
 .line-6{ position: relative;box-sizing: border-box;	height: 2px;	width: 368px; border: 0.5px solid #E3E9EC;margin-left:-1.5cm}
 .line-7{ position: relative;box-sizing: border-box;	margin-left:-3mm;height: 2px;	width: 440px; border: 0.5px solid #E3E9EC;}
+.line-8{ position: relative;box-sizing: border-box;	margin-left:-4mm;height: 2px;	width: 370px; border: 0.5px solid #E3E9EC;}
 .NR-reactangle-sucess{
 	width: 390px;
 	height: 50px;
@@ -978,6 +982,17 @@ font-family: Avenir;	font-size: 18px;	font-weight: 900;
 
 background-color: white
 }
+.left-2{
+//right :0;
+//left :10cm;
+margin-top: 1cm;
+//margin-left: 2cm;
+color: #55615E;
+font-family: Avenir;	font-size: 18px;	font-weight: 900;
+height: 2cm;
+width: 100%;
+background-color: white
+}
 .user-up-container{
 box-shadow: 0 7px 16px 0 rgba(132,152,172,0.1);
 background-color: white;
@@ -996,6 +1011,10 @@ height: 2cm;
 }
 .dashboard-middle-head{
 	position: relative;font-size:14px;margin-top:-8mm;margin-left:-8mm;
+	
+}
+.dashboard-middle-head-1{
+	position: relative;font-size:14px;margin-top:-8mm;margin-left:8mm;
 	
 }#container {
 		position: relative;
@@ -1192,4 +1211,139 @@ height: 2cm;
 .rectangle-15-head {
 	height: 1.2cm;color: #161B21;	font-family: Avenir;	font-size: 16px;	font-weight: 900;
 }
+#new-row-manfc{
+	position:relative;
+	margin-top: 1cm;
+}
+/*.progress-circle__indicator, 
+.progress-circle__indicator--filled,
+.progress-circle__indicator--empty, 
+.progress-circle__indicator--invalid {
+stroke:red ;
+  //  transition: stroke-dashoffset .7s linear, stroke .7s linear;
+}*/
 
+ 
+.progress-circle-1 {
+	//border: 0.5px  ;
+	border-radius: 50%;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+	filter: alpha(opacity=60);
+	opacity: 0.6;
+
+	-webkit-box-shadow: 0 0 1px 0px rgb( 255, 255, 255);
+	box-shadow: 0 0 1px 0px rgb( 255, 255, 255);
+	width: 300px;
+	height: 300px;
+	z-index: 86;
+
+	
+}
+.progress-circle-2 {
+	position: relative;
+	//border: 0.5px  ;
+	border-radius: 50%;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+	filter: alpha(opacity=60);
+	opacity: 0.6;
+
+	-webkit-box-shadow: 0 0 1px 0px rgb( 255, 255, 255);
+	box-shadow: 0 0 1px 0px rgb( 255, 255, 255);
+	width: 240px;
+	height: 240px;
+	z-index: 70;
+	padding-top: 2.5mm;
+	padding-bottom: 2mm;
+	padding-left: 2mm;
+	margin-top: -6.0cm;
+	margin-left: 0mm;
+	margin-right: 3mm;	
+}
+.progress-circle-3 {
+	position: relative;
+	//border: 1px solid white;
+	border-radius: 50%;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+	filter: alpha(opacity=60);
+	opacity: 0.6;
+
+	-webkit-box-shadow: 0 0 1px 0px rgb( 255, 255, 255);
+	box-shadow: 0 0 1px 0px rgb( 255, 255, 255);
+	width: 220px;
+	height: 220px;
+	z-index: 70;
+	padding-top:2.5mm;
+	padding-left: -10mm;
+	padding-bottom: 2mm;
+	padding-right: 3mm;
+	margin-top: -4.9cm;
+	//margin-left: -2mm;
+	margin-right: 2mm;	
+}
+.progress-circle-4 {
+	position: relative;
+	//border: 1px solid white;
+	border-radius: 50%;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+	filter: alpha(opacity=60);
+	opacity: 0.6;
+
+	-webkit-box-shadow: 0 0 1px 0px rgb( 255, 255, 255);
+	box-shadow: 0 0 1px 0px rgb( 255, 255, 255);
+	width: 220px;
+	height: 220px;
+	z-index: 70;
+	padding-top: 2.5mm;
+	padding-left: 10mm;
+	margin-top: -3.9cm;
+	margin-left: 1mm;
+	margin-right: -7mm;	
+}
+
+.progress-circle {
+  transform: rotate(-90deg);
+  display: inline-block;
+
+  &__svg {
+
+  }
+
+  &__circle {
+    stroke: #cccccc;
+  }
+
+  &__indicator-1 {
+      stroke:red;
+      transition: stroke-dashoffset .7s linear, stroke .7s linear;
+  
+    &--filled {
+      @extend .progress-circle__indicator-1;
+    }
+	 &--empty, &--invalid {
+      stroke: transparent;
+      @extend .progress-circle__indicator-1;
+    }
+  }
+
+
+	 &__indicator-2 {
+      stroke:green;
+      transition: stroke-dashoffset .7s linear, stroke .7s linear;
+	 
+    &--filled-2 {
+     // @extend .progress-circle__indicator-2;
+    }
+
+    &--empty, &--invalid {
+      stroke: transparent;
+      @extend .progress-circle__indicator-2;
+    }
+  }
+}
+.progress-circle__indicator, 
+.progress-circle__indicator--filled,
+.progress-circle__indicator--empty, 
+.progress-circle__indicator--invalid {
+stroke:rebeccapurple ;
+  //  transition: stroke-dashoffset .7s linear, stroke .7s linear;
+}

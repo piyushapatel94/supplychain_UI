@@ -161,9 +161,22 @@
     
   
 {{/progress-circle}}---}}
+<br/>
+<br/>
+  <p class="dashboard-middle-head-1"> <b>Requests Overview</b></p>
+<div class="line-8"></div>
 <div class="progress-circle-1">
+ {{progress-circle size="230" strokeWidth="10" percentage="90"  }}
+<div class="progress-circle-2">
+ <span style="position:relative;margin-left:3mm;margin-top:8mm;margin-right:3mm;padding-top:1cm;">{{progress-circle size="190" strokeWidth="10" percentage="90" }}</span> 
+<div class="progress-circle-3">
+<span style="margin-left:3mm;margin-bottom:-8mm"><span style="position:relative;margin-left:5mm;margin-top:10mm;margin-right:5mm">{{progress-circle size="150" strokeWidth="10" percentage="90"}}</span> </span> 
+<div class="progress-circle-4">
+ <span style="position:relative;margin-left:3mm;margin-top:5mm;margin-right:3mm;padding-top:1cm" >{{progress-circle size="110" strokeWidth="10" percentage="90" }}</span> 
  
-{{progress-circle size="100" strokeWidth="3" percentage="50" }}
+</div>
+</div>
+</div>
 
 </div>
   </div>
@@ -287,6 +300,7 @@ clip: auto;"> <p>400 Delivery</p></div>
       {{/each}}
   </div>
   {{/if}}
+  {{#if IsnotShowRetailer}}
 <div class="col-sm-4" style="height:410px;	width: 370px;	margin-left:10px;border-radius: 2px;	background-color: #FFFFFF;	box-shadow: 0 7px 16px 0 rgba(132,152,172,0.1);}">
 <div class="middle-container">
   <p class="dashboard-middle-head"> <b>Inventory Overvirew</b></p>
@@ -390,6 +404,7 @@ clip: auto;"></div>
 </div>
 </div>
 </div>
+{{/if}}
 </div>
 <br/>
 {{#if IsnotShowRetailer}}
