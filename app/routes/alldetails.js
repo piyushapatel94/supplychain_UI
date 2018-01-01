@@ -292,7 +292,19 @@ this.controllerFor('alldetails').set(' isShow_fileupload', false);
                    if(mystatus === "QuotationRaised"){
                         mycontroller.controllerFor('alldetails').set('isShowManquotbutton', true);
                 }
+                 if(mystatus === "invoiceRaised"){
+                mycontroller.controllerFor('alldetails').set('isShowManpotbutton', false);
+                 mycontroller.controllerFor('alldetails').set('isShowManquotbutton', false);
+                  mycontroller.controllerFor('alldetails').set('isShowManINVaccpbutton', true);
+                }
                }
+               if(myupdatedby1 === 'Manufacturer'){
+                   if(mystatus === "invoiceRaised"){
+                mycontroller.controllerFor('alldetails').set('isShowManpotbutton', false);
+                 mycontroller.controllerFor('alldetails').set('isShowManquotbutton', false);
+                  mycontroller.controllerFor('alldetails').set('isShowManINVaccpbutton', true);
+                }
+            }
                 if(myupdatedby1 === 'retailer'){
                     if(mystatus === "RequestInitiated"){
                     
