@@ -54,8 +54,19 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
   }
 
-  if (environment === 'production') {
-    // here you can enable a production-specific feature
+   if (environment === 'production') {
+    ENV.GOURL='http://119.81.59.59:3002/smob';
+    ENV.locationType = 'hash';
+     ENV['g-map'] = {
+      exclude: true,
+      libraries: ['places', 'geometry'],
+      key: 'AIzaSyCG2bRgDCNZahksdgOykBqjYfihYdd0M1U',
+      client: 'gme-your-unique-google-client-id',
+      channel: 'my-google-map-api-channel',
+      version: '3.26',
+      language: 'ru',
+      protocol: 'https'
+    }
   }
 
   return ENV;

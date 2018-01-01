@@ -1,7 +1,8 @@
 <br/>
 <br/>
 <br/>
- 
+ <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="jQuery-plugin-progressbar.js"></script>
 <div class="container">
   <div class="timeline-head">Timeline</div>
   <br/>
@@ -23,7 +24,7 @@
         <div class="mdl-stepper-title2">Requests</div>
        <div class="mdl-stepper-circle"></div>
          <div class="vl"></div>
-          <div class="circle" ><div id="request-details">Delayed 152</div></div>
+          <div class="circle" ><div id="request-details">Rejected {{RequestRejectedcpunt}}</div></div>
           <div class="vl"></div>
           <div class="circle"><div id="request-details">Accepted {{IsRequestAcceptedcount}}</div> </div>
           
@@ -179,6 +180,24 @@
 </div>
 
 </div>
+<!--script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="jQuery-plugin-progressbar.js"></script>
+<div class="progress-bar" data-percent="60" data-duration="1000" data-color="#ccc,yellow"></div>
+<div id="container"></div>
+<script>
+  var bar = new ProgressBar.Circle(container, {
+  strokeWidth: 6,
+  easing: 'easeInOut',
+  duration: 1400,
+  color: '#FFEA82',
+  trailColor: '#eee',
+  trailWidth: 1,
+  svgStyle: null
+});
+
+bar.animate(1.0);
+</script>
+{{ember-progress-bar shape="Circle" progress=50 options=(hash strokeWidth=10 duration=1000)}}-->
   </div>
   <div class="col-sm-4" style="height:410px;	width: 370px;	margin-left:10px;border-radius: 2px;	background-color: #FFFFFF;	box-shadow: 0 7px 16px 0 rgba(132,152,172,0.1);}">
 <div class="middle-container">
@@ -261,7 +280,7 @@ background:white;
 width: 100px;
 height: 100px;
 display: block;
-clip: auto;"> <p>400 Delivery</p></div>
+clip: auto;"> <p style="margin-top:20px;margin-left:3mm">{{total}} Delivery</p></div>
 </div>
 
 <div class="lower-row">

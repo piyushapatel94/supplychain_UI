@@ -48,6 +48,7 @@
     "ember-load-initializers": "^1.0.0",
     "ember-modal-dialog": "^2.4.0",
     "ember-plupload": "^1.13.19",
+    "ember-progress-bar": "0.0.7",
     "ember-prop-types": "^5.0.2",
     "ember-resolver": "^4.0.0",
     "ember-source": "~2.16.0",
@@ -63,6 +64,7 @@
   },
   "dependencies": {
     "flatpickr": "^4.1.2",
+    "progressbar.js": "^1.0.1",
     "radial-progress-chart": "0.0.4"
   }
 }

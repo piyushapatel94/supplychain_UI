@@ -214,10 +214,21 @@ this.controllerFor('dashboard').set(' isShow_fileupload', false);
                                 mycontroller.controllerFor('dashboard').set('isDOraisedCount', isDOraisedCount * 10);
                                 
                             } 
+
+                            if (statuscount[i].statusname === "RequestRejected") {
+                                var RequestRejectedcpunt = statuscount[i].statuscount;
+                               // var DOraisedcount = isDOraisedCount * 10;
+                               //doraisedcnt = statuscount[i].statuscount;
+                               // console.log( "DOraisedcount --->",isDOraisedCount * 10);
+                                mycontroller.controllerFor('dashboard').set('RequestRejectedcpunt', RequestRejectedcpunt );
+                              //  mycontroller.controllerFor('dashboard').set('isDOraisedCount', isDOraisedCount * 10);
+                                
+                            } 
                         }
                             console.log("doraisedcnt",dodelivredcnt);
                             console.log("shippedcnt",shippedcnt);
-                            var total = dodelivredcnt+shippedcnt+doraisedcnt
+                            var total = dodelivredcnt+shippedcnt+doraisedcnt;
+                           mycontroller.controllerFor('dashboard').set('total', total ); 
                             var dodelivredcntIndegree = (360 * dodelivredcnt) /(total);
                             console.log("dodelivredcntIndegree",dodelivredcntIndegree);
                             mycontroller.controllerFor('dashboard').set('dodelivredcntIndegree', dodelivredcntIndegree );
