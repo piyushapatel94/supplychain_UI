@@ -18,7 +18,7 @@ export default Route.extend({
        }else if(usertype === 'Supplier'){
             this.controllerFor('userhome').set('thisShowRetailer', false);
              this.controllerFor('userhome').set('thisShowManfacturer', false);
-              this.controllerFor('userhome').set('thisShowRemainAll', true);
+              this.controllerFor('userhome').set('thisShowRemainAll', false);
               this.controllerFor('userhome').set('thisShowSupplier', true);
        }
        

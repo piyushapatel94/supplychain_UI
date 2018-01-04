@@ -161,7 +161,7 @@ this.controllerFor('alldetails').set(' isShow_fileupload', false);
             mycontroller.controllerFor('alldetails').set('isShowSupplier', false);
          }
          if( usertype === "Supplier") {
-            
+            if(myupdatedby1 === "Manufacturer"){
              if(mystatus === "RequestInitiated"){
                 
                 mycontroller.controllerFor('alldetails').set('isShowSupplier', true);
@@ -247,7 +247,7 @@ this.controllerFor('alldetails').set(' isShow_fileupload', false);
                  mycontroller.controllerFor('alldetails').set('isShowSuop_ReINVobutton',false);
                  mycontroller.controllerFor('alldetails').set('isShowSUpPaymentInit',true);
              }
-             
+            }
          }
          if(usertype === "Manufacturer"){
                if(myupdatedby === 'Manufacturer'){
@@ -590,8 +590,11 @@ this.controllerFor('alldetails').set(' isShow_fileupload', false);
          }
          
         });
-                        var location ="Mumbai"
-                        var mydataString3 ={"location":location}
+                       
+                       var location1 =this.controllerFor('alldetails').get('selectedsource');
+                       console.log("location1"+location1);
+                        this.controllerFor('alldetails').set('location1',location1);
+                        var mydataString3 ={"location":location1}
                          Ember.$.ajax({
                                     url: CONFIG.GOURL + '/weatherdata',
                                     type: 'POST',
@@ -612,7 +615,29 @@ this.controllerFor('alldetails').set(' isShow_fileupload', false);
                                         }
                                     });      
 
-        
+          var location2 =this.controllerFor('alldetails').get('selectedsource');
+          console.log("location2"+location2);
+          this.controllerFor('alldetails').set('location2',location2);
+                        var mydataString3 ={"location":location2}
+                         Ember.$.ajax({
+                                    url: CONFIG.GOURL + '/weatherdata',
+                                    type: 'POST',
+                                    contentType: 'application/json',
+                                     data: JSON.stringify(mydataString3),
+                                    success: function(response) {
+                                        console.log("weatherdata",JSON.stringify(response.message.main.temp));
+                                        var temp=response.message.main.temp;
+                                        var temp2 = parseInt(temp) - 273;
+                                        console.log("temp2",temp2);
+                                        mycontroller.controllerFor('alldetails').set('temp2',temp2);
+                                    
+                                    },
+                                    error: function(response) {
+                                        console.log('DEBUG: GET Enquiries Failed');
+                                        console.log("Error Message: ", data.message);
+
+                                        }
+                                    });      
        
     }
 });

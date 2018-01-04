@@ -62,6 +62,24 @@
   </tr>
   {{/each}}
   {{/if}}
+  {{#if thisShowSupplier}}
+  {{#each showrecord   as |item|}}
+  <tr id="mytable-td" style="background-color:white">
+   <td>{{item.myrecord.transactiondetails.materialtype}}</td>
+   
+    <td><a href=# {{action   'gotorequest'  "keyUserhome" item.key }}>{{item.key}}</a></td>
+   
+    <td>{{item.myrecord.transactiondetails.today}}</td>
+    <td>{{item.myrecord.transactiondetails.Quantity}}</td>
+    <td>{{item.myrecord.transactiondetails.expecteddelivery}}</td>
+    <td>{{item.myrecord.transactiondetails.address}}</td>
+  
+    <td>{{item.mystatus}}</td>
+  
+    
+  </tr>
+  {{/each}}
+  {{/if}}
   {{#if thisShowRetailer}}
   {{#each showrecordRetails   as |item|}}
   <tr id="mytable-td" style="background-color:white">

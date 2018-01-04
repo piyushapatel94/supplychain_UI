@@ -5,7 +5,7 @@ import {
     buildValidations
 }
 from 'ember-cp-validations';
-//var myTotalPrice;
+var selectedsource ,selectedDestination;
 var Validations = buildValidations({
     email: [
         validator('presence', true),
@@ -985,11 +985,12 @@ myIcon: {
             var mydate = dd + '/' + mm + '/' + yyyy;
             console.log("today--", mydate);
 
-            let {
-selectedsource,selectedDestination
-
-            } = this.getProperties('selectedsource','selectedDestination');
+           
+selectedsource =this.get('selectedsource');
+selectedDestination =this.get('selectedDestination');
             console.log("startAdd",selectedsource,selectedDestination);
+            this.set("selectedDestination",selectedDestination);
+             this.set("selectedsource",selectedsource);
             var mydataString3 = {
                 "status": "shipped",
                 "InvolvedParties": usertype,

@@ -36,7 +36,12 @@ export default Route.extend({
       
         },
     model(){
-           
+           var data = [
+  {"value": 1, "color": "red"},
+  {"value": 4.5, "color": "blue"},
+  {"value": 2, "color": "yellow"},
+  {"value": 3, "color": "green"}
+];
 
 this.controllerFor('dashboard').set('IsnotShowRetailer', true); 
 
@@ -91,11 +96,11 @@ this.controllerFor('dashboard').set(' isShow_fileupload', false);
                           console.log("invenAvaQty--",invenAvaQty);
                            mycontroller.controllerFor('dashboard').set('invenAvaQty', invenAvaQty);
                            // hardcoded value added into qty to show inventory pie chart properly
-                           var invenReqstQty = (360 * (parseInt(requestQty)+1000)) /(totalinventory);
+                           var invenReqstQty = (360 * (parseInt(requestQty)*150)) /(totalinventory);
                           console.log("invenReqstQty--",invenReqstQty);
                            mycontroller.controllerFor('dashboard').set('invenReqstQty', invenReqstQty);
 
-                           var invenDepletedQty = (360 *(depletedQty+500)) /(totalinventory);
+                           var invenDepletedQty = (360 *(depletedQty*90)) /(totalinventory);
                           console.log("invenDepletedQty--",invenDepletedQty);
                            mycontroller.controllerFor('dashboard').set('invenDepletedQty', invenDepletedQty);
 

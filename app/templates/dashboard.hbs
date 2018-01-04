@@ -41,7 +41,7 @@
           <div class="vl2"></div>
          </div>
         <div class="mdl-stepper-circle"></div>
-         <div class="mdl-stepper-title">Quoatation</div>
+         <div class="mdl-stepper-title">Quotation</div>
         <div class="mdl-stepper-bar-left"></div>
         <div class="mdl-stepper-bar-right"></div>
       </div>
@@ -180,6 +180,13 @@
 </div>
 
 </div>
+<!--<ul>
+  {{#each (array 'foo' 'bar' 'baz') as |item|}}
+    <li>{{item}}</li>
+  {{/each}}
+</ul>
+{{pie-chart data=model height=100 width=100}}-->
+
 <!--script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="jQuery-plugin-progressbar.js"></script>
 <div class="progress-bar" data-percent="60" data-duration="1000" data-color="#ccc,yellow"></div>
@@ -356,7 +363,7 @@ height: 200px;
 border-radius: 50%;
 -webkit-transform: rotate({{invenDepletedQty}}deg);
 clip: rect(0px, 100px, 100px, 0px);
-background-color: #FF923F;;">{{invenDepletedQty}}</div>
+background-color: #FF923F;;"><b style="font-size:2mm;color:white">{{invenDepletedQty}}</b></div>
   </div>
   <div id="slice3" style="position: absolute;
 top: 0;
@@ -381,7 +388,7 @@ left: 0;
 width: 200px;
 height: 200px;
 clip: rect(0px, 200px, 200px, 100px);
--webkit-transform: rotate(342deg);">
+-webkit-transform: rotate({{invenReqstQty}}deg);">
    
   </div>
   <div id="slice5" style="position: absolute;
@@ -401,7 +408,7 @@ background:white;
 width: 100px;
 height: 100px;
 display: block;
-clip: auto;"><span style="margin-top:1cm">{{totalinventory}} Material Types</span></div>
+clip: auto;"><p style="margin-top:25px;margin-left:3mm">{{totalinventory}} <p>Material Types</p></p></div>
 </div>
 
 <div class="lower-row">
