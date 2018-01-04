@@ -45,25 +45,7 @@ export default Route.extend({
          if(this.controllerFor('alldetails').set('Notshow_fileupload', true)){
 this.controllerFor('alldetails').set(' isShow_fileupload', false); 
          }  
-         
-        /* var keyUserhome =this.controllerFor('userhome').get('keyUserhome');
-         console.log("keyUserhome---alldeatils",keyUserhome);
-
-         var keydashboard =this.controllerFor('dashboard').get('keydashboard');
-        console.log("keydashboard---alldeatils",keydashboard);
-
-     
-         if("keyUserhome"===keyUserhome){
-        console.log("from userhome");     
-        var requestid = this.controllerFor('userhome').get('requestid');
-        console.log("requestid--userhome-",requestid);
-        this.controllerFor('alldetails').set('requestid', requestid);
-         } if (keydashboard === "keydashboard"){
-        console.log("from dashboard"); 
-        var requestid = this.controllerFor('dashboard').get('requestid');
-        console.log("requestid- dashboard--",requestid);
-        this.controllerFor('alldetails').set('requestid', requestid);
-       }*/
+        
          
         var usertype= sessionStorage.getItem('usertype');
         console.log("usertype",usertype);
@@ -73,6 +55,7 @@ this.controllerFor('alldetails').set(' isShow_fileupload', false);
         if(usertype === "Supplier"){
             this.controllerFor('alldetails').set('isShowSupplier', true);
         }
+        
         var mycontroller = this;
       Ember.$.ajax({
          url:CONFIG.GOURL+'/readRequest',
@@ -88,6 +71,7 @@ this.controllerFor('alldetails').set(' isShow_fileupload', false);
          mycontroller.controllerFor('alldetails').set('transactionlist', transactionlist);
 
          var transactiondetails0 =response.message.transactionlist[0].transactiondetails;
+         
          console.log("transactiondetails0",JSON.stringify(transactiondetails0));
          mycontroller.controllerFor('alldetails').set('transactiondetails0', transactiondetails0);
          if(response.message.transactionlist.length > 2){

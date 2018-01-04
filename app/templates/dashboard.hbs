@@ -235,7 +235,7 @@ height: 200px;
 border-radius: 50%;
 -webkit-transform: rotate({{dodelivredcntIndegree}}deg);
 clip: rect(0px, 100px, 100px, 0px);
-background-color: #FF923F;;"></div>
+background-color: #FF923F;;">{{dodelivredcntIndegree}}</div>
   </div>
   <div id="slice3" style="position: absolute;
 top: 0;
@@ -291,7 +291,7 @@ clip: auto;"> <p style="margin-top:20px;margin-left:3mm">{{total}} Delivery</p><
   </div>
   <div class='is-grouped'>
       <div class='button'><button class="two-dash-btn-circle2"></button></div>
-       <div class='button' >&nbsp; Delayed</div>
+       <div class='button' >&nbsp; Delayed{{doraisedcntIndegree}}</div>
   </div>
    <div class='is-grouped'>
       <div class='button'><button class="two-dash-btn-circle3"></button></div>
@@ -347,16 +347,16 @@ left: 0;
 width: 200px;
 height: 200px;
 clip: rect(0px, 200px, 200px, 100px);
--webkit-transform: rotate(216deg);">
+-webkit-transform: rotate({{invenAvaQty}}deg);">
     <div class="pie" style="position: absolute;
 top: 0;
 left: 0;
 width: 200px;
 height: 200px;
 border-radius: 50%;
--webkit-transform: rotate(90deg);
+-webkit-transform: rotate({{invenDepletedQty}}deg);
 clip: rect(0px, 100px, 100px, 0px);
-background-color: #FF923F;;"></div>
+background-color: #FF923F;;">{{invenDepletedQty}}</div>
   </div>
   <div id="slice3" style="position: absolute;
 top: 0;
@@ -372,7 +372,7 @@ width: 200px;
 height: 200px;
 border-radius: 50%;
 background-color: #499EF6;
--webkit-transform: rotate(36deg);
+-webkit-transform: rotate({{invenReqstQty}}deg);
 clip: rect(0px, 100px, 100px, 0px);"></div>
   </div>
   <div id="slice4" style="position: absolute;
@@ -401,7 +401,7 @@ background:white;
 width: 100px;
 height: 100px;
 display: block;
-clip: auto;"></div>
+clip: auto;"><span style="margin-top:1cm">{{totalinventory}} Material Types</span></div>
 </div>
 
 <div class="lower-row">

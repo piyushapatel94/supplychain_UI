@@ -40,6 +40,14 @@ myIcon: {
         origin: new google.maps.Point(0, 0),
         labelOrigin: new google.maps.Point(30, 15),
       },
+      myIcon2: {
+        url: "assets/images/p3.svg",
+        size: new google.maps.Size(40,40),
+        scaledSize: new google.maps.Size(30,30),
+        anchor: new google.maps.Point(15, 15),
+        origin: new google.maps.Point(0, 0),
+        labelOrigin: new google.maps.Point(30, 15),
+      },
     actions: {
         okbutton:function(){
             this.set("my_isShowingModal",false);

@@ -1,7 +1,8 @@
 import Route from '@ember/routing/route';
 import CONFIG from 'supplychain-1/config/environment';
 var shippedcnt,dodelivredcnt,doraisedcnt;
-  var availableQty =0,requestQty =0;
+  var availableQty =0,requestQty =0,depletedQty=70;
+
 export default Route.extend({
       actions:{
         uploadDoc:function (file) {
@@ -56,6 +57,9 @@ this.controllerFor('dashboard').set(' isShow_fileupload', false);
           this.controllerFor('dashboard').set('IsShowretailer', true);
            this.controllerFor('dashboard').set('IsnotShowRetailer', false); 
        }
+       var requestQty = this.controllerFor('userhome').get('reqstQty');
+       console.log("requestQty---",requestQty);
+       this.controllerFor('dashboard').set('requestQty', requestQty);
 
        var mycontroller = this;
       
@@ -74,11 +78,27 @@ this.controllerFor('dashboard').set(' isShow_fileupload', false);
                            for(var i=0;i<mydetails.length;i++)
                            {
                                availableQty = availableQty +mydetails[i].cuquantity;
-                             console.log(mydetails[i].cuquantity);
-                         
+                           //  console.log(availableQty,"availableQty");
+                            mycontroller.controllerFor('dashboard').set('availableQty', availableQty);
 
                            }
                                  console.log(availableQty);
+                          var totalinventory =   availableQty+  parseInt(requestQty) +  depletedQty;
+                          console.log("totalinventory",totalinventory);
+                           mycontroller.controllerFor('dashboard').set('totalinventory', totalinventory);
+
+                          var invenAvaQty = (360 * availableQty) /(totalinventory);
+                          console.log("invenAvaQty--",invenAvaQty);
+                           mycontroller.controllerFor('dashboard').set('invenAvaQty', invenAvaQty);
+                           // hardcoded value added into qty to show inventory pie chart properly
+                           var invenReqstQty = (360 * (parseInt(requestQty)+1000)) /(totalinventory);
+                          console.log("invenReqstQty--",invenReqstQty);
+                           mycontroller.controllerFor('dashboard').set('invenReqstQty', invenReqstQty);
+
+                           var invenDepletedQty = (360 *(depletedQty+500)) /(totalinventory);
+                          console.log("invenDepletedQty--",invenDepletedQty);
+                           mycontroller.controllerFor('dashboard').set('invenDepletedQty', invenDepletedQty);
+
                        },
                        error: function(response) {
                            console.log('DEBUG: GET Enquiries Failed');
@@ -99,7 +119,8 @@ this.controllerFor('dashboard').set(' isShow_fileupload', false);
 
                             if (statuscount[i].statusname === "RequestInitiated") {
                                 var RequestInitiatedCount = JSON.stringify(statuscount[i].statuscount);
-                           
+                              
+                                
                                 console.log(JSON.stringify(statuscount[i].statuscount));
                                 mycontroller.controllerFor('dashboard').set('IsRequestInitiatedCount', RequestInitiatedCount * 10);
                              //   mycontroller.controllerFor('dashboard').set('isclaimRaisedCount', isclaimRaisedCount);

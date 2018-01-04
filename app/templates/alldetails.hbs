@@ -930,6 +930,7 @@
   {{g-map-marker context lat=Dlat lng=Dlan icon=myIcon}}
   
 {{/g-map}}
+
         </div>
         </div>
         <div class="col-sm-2">
@@ -1811,7 +1812,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Purchase Order</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "purchaseorder"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:3cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "purchaseorder"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 </div>
             </div>
 
@@ -1828,7 +1829,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Quotation</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "quotation"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:3cm"><b style="color:#466A8F">Received</b> :{{transactiondetails2.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "quotation"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 </div>
             </div>
 
@@ -1847,8 +1848,8 @@
                 </tr>
                 <tr id="in-tr-details">
                     <td>{{transactiondetails0.expecteddelivery}}</td>
-                    <td>{{transactiondetails2.Quantity}}</td>
-                    <td>{{transactiondetails2.Quantity}}</td>
+                    <td>{{transactiondetails0.Quantity}}</td>
+                    <td>  {{transactiondetails2.unit}}  </td>
                     <td>{{transactiondetails2.totalprice}}</td>
                     <td></td>
                     <td></td>
@@ -1863,7 +1864,7 @@
                 <p style="font-size:17px;color:#42709F"><b>Request</b></p>
                 <p style="font-size:12px;margin-top:-3mm;font-style:oblique;color:#A8B6C4;wight:300">{{requestid}}</p>
                 <div id="in-first-row11">
-                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:7cm"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "newrequest"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
+                    <p style="font-size:13px;font-style:oblique;color:#466A8F;margin-left:3cm"><b style="color:#466A8F">Received</b> :{{transactiondetails0.today}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/view.svg" alt="Smiley face" height="22" width="26"{{action 'showrequestdetails' "newrequest"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/images/download.svg" alt="Smiley face" height="22" width="26"></p>
                 </div>
             </div>
 

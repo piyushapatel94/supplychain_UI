@@ -60,6 +60,7 @@ export default Route.extend({
                                  var showrecordRetails = [];
                                    var showrecordToAll = [];
                             var mystatus;
+                            var reqstQty=0;
                             for (var i = 0; i < mydetails.length; i++) {
 
                                 for (var j = 0; j < mydetails[i].Record.transactionlist.length; j++) {
@@ -98,7 +99,13 @@ export default Route.extend({
                                 mycontroller.controllerFor('userhome').set("showrecordRetails", showrecordRetails);
                                 console.log("showrecordToAll----", showrecordToAll);
                                 mycontroller.controllerFor('userhome').set("showrecordToAll", showrecordToAll);
-                            }
+                          
+                          reqstQty = reqstQty +parseInt (mydetails[i].Record.transactionlist[0].transactiondetails.Quantity);
+                        console.log("reqstQty---**",reqstQty);
+                        mycontroller.controllerFor('userhome').set("reqstQty", reqstQty);
+                    
+                
+                  }
 
 
 

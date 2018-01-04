@@ -55,7 +55,7 @@ module.exports = function(environment) {
   }
 
    if (environment === 'production') {
-    ENV.GOURL='http://119.81.59.59:3002/smob';
+    ENV.GOURL='http://119.81.59.59:3008';
     ENV.locationType = 'hash';
      ENV['g-map'] = {
       exclude: true,
