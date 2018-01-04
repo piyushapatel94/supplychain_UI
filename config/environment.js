@@ -63,9 +63,8 @@ module.exports = function(environment) {
       key: 'AIzaSyCG2bRgDCNZahksdgOykBqjYfihYdd0M1U',
       client: 'gme-your-unique-google-client-id',
       channel: 'my-google-map-api-channel',
-      version: '3.26',
-      language: 'ru',
-      protocol: 'https'
+      version: '3.26'
+     
     }
   }
 
