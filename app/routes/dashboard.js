@@ -36,12 +36,7 @@ export default Route.extend({
       
         },
     model(){
-           var data = [
-  {"value": 1, "color": "red"},
-  {"value": 4.5, "color": "blue"},
-  {"value": 2, "color": "yellow"},
-  {"value": 3, "color": "green"}
-];
+          
 
 this.controllerFor('dashboard').set('IsnotShowRetailer', true); 
 
@@ -334,6 +329,23 @@ this.controllerFor('dashboard').set(' isShow_fileupload', false);
                                         }
                                     });  
                                     
+                                            Ember.$.ajax({
+                                    url: CONFIG.GOURL + '/readCycle',
+                                    type: 'GET',
+                                    contentType: 'application/json',
+                                    success: function(response) {
+                                        console.log("data readCycle",JSON.stringify(response))
+                                        var openStatus =response.openStatus;
+
+                                        var closedStatus =response.closedStatus;
+                                             var totalStatus =openStatus+ closedStatus
+                                    },
+                                    error: function(response) {
+                                        console.log('DEBUG: GET Enquiries Failed');
+                                        console.log("Error Message: ", data.message);
+
+                                        }
+                                    }); 
                                    
 
 
@@ -357,6 +369,13 @@ this.controllerFor('dashboard').set(' isShow_fileupload', false);
 
 
                    });
+                   var data=[];
+               return      data = [
+  {"value": 1, "color": "red"},
+  {"value": 4.5, "color": "blue"},
+  {"value": 2, "color": "yellow"},
+  {"value": 3, "color": "green"}
+];
           
 
     }

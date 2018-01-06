@@ -166,7 +166,7 @@
 <br/>
   <p class="dashboard-middle-head-1"> <b>Requests Overview</b></p>
 <div class="line-8"></div>
-<div class="progress-circle-1">
+<!--<div class="progress-circle-1">
  {{progress-circle size="230" strokeWidth="10" percentage="90"  }}
 <div class="progress-circle-2">
  <span style="position:relative;margin-left:3mm;margin-top:8mm;margin-right:3mm;padding-top:1cm;">{{progress-circle size="190" strokeWidth="10" percentage="90" }}</span> 
@@ -179,13 +179,191 @@
 </div>
 </div>
 
-</div>
+</div>-->
 <!--<ul>
   {{#each (array 'foo' 'bar' 'baz') as |item|}}
     <li>{{item}}</li>
   {{/each}}
-</ul>
-{{pie-chart data=model height=100 width=100}}-->
+</ul>-->
+
+<div class="progress-circle-1">
+<div class="zomg" >
+  {{svg-pie
+    data=(hash value=63 color="#F5A623")
+    total=100
+    size="220"
+   strokeWidth="10"
+  }}
+</div>
+
+<style>
+  .zomg {
+    position: relative;
+    display:  table;
+    
+      background-size: 100%;
+          background-color: transparent;
+  }
+  .zomg:after {
+    content:       '';
+    position:      absolute;
+    top:           50%;
+    left:          50%;
+    width:         75%;
+    height:        75%;
+    transform:     translate(-50%, -50%);
+  /*  margin-top: 10px;*/
+    border-radius: 50%;
+    border-width:10%;
+   background: white;
+    background-size: 100%
+  }.zomg::before {
+    background-color: transparent;
+  }
+  .zomg svg {
+    display: block;
+      
+     background-size: 100%
+    
+  }
+</style>
+
+<div class="progress-circle-2">
+  <div class="zomg" >
+  {{svg-pie
+    data=(hash value=96 color="#87D7FF")
+    total=100
+    size="150"
+   
+  }}
+</div>
+
+<style>
+  .zomg {
+    position: relative;
+    display:  table;
+      background-size: 100%;
+      background-color: transparent;
+  }
+  .zomg:after {
+    content:       '';
+    position:      absolute;
+    top:           50%;
+    left:          50%;
+    width:         75%;
+    height:        75%;
+    transform:     translate(-50%, -50%);
+  /*  margin-top: 10px;*/
+    border-radius: 50%;
+   background: white;
+    background-size: 100%
+  }
+  .zomg svg {
+    display: block;
+     background-size: 100%;
+     background-color: transparent;
+  }
+</style>
+
+<div class="progress-circle-3">
+ <div class="zomg" >
+  {{svg-pie
+    data=(hash value=70 color="#00AA77")
+    total=100
+    size="100"
+    }}
+</div>
+
+<style>
+  .zomg {
+    position: relative;
+    display:  table;
+      background-size: 100%
+  }
+  .zomg:after {
+    content:       '';
+    position:      absolute;
+    top:           50%;
+    left:          50%;
+    width:         75%;
+    height:        75%;
+    transform:     translate(-50%, -50%);
+  /*  margin-top: 10px;*/
+    border-radius: 50%;
+   background: white
+    
+  }
+  .zomg svg {
+    display: block;
+     background-size: 100%
+  }
+</style>
+ <div class="progress-circle-4">
+   <div class="zomg" >
+  {{svg-pie
+    data=(hash value=45 color="#FCFF00")
+    total=100
+    size="65"
+   
+  }}
+</div>
+
+<style>
+  .zomg {
+    position: relative;
+    display:  table;
+
+  }
+  .zomg:after {
+    content:       '';
+    position:      absolute;
+    top:           50%;
+    left:          50%;
+    width:         75%;
+    height:        75%;
+    transform:     translate(-50%, -50%);
+  /*  margin-top: 10px;*/
+    border-radius: 50%;
+   /* background:    white;*/
+    background-size: 100%
+  }
+  .zomg svg {
+    display: block;
+     background-size: 100%
+  }
+</style>
+ </div>
+</div>
+
+</div>
+</div>
+
+<div class="lower-row-1">
+  <div class='is-grouped'>
+  <div class='is-grouped'>
+   
+      <div class='button'><button class="two-dash-btn-circle1-1"></button></div>
+        <div class='button'> &nbsp;Open</div>
+  </div>
+  <div class='is-grouped'>
+    
+      <div class='button'><button class="two-dash-btn-circle2-2"></button></div>
+       <div class='button' > On Process</div>
+    
+  </div>
+   <div class='is-grouped'>
+   
+      <div class='button'><button class="two-dash-btn-circle2-3"></button></div>
+         <div class='button'> Delayed</div>
+  </div>
+    <div class='is-grouped'>
+ 
+      <div class='button'><button class="two-dash-btn-circle2-4"></button></div>
+          <div class='button'>&nbsp; Completed</div>
+      </div>  
+
+</div>
+</div>
 
 <!--script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="jQuery-plugin-progressbar.js"></script>
@@ -242,7 +420,7 @@ height: 200px;
 border-radius: 50%;
 -webkit-transform: rotate({{dodelivredcntIndegree}}deg);
 clip: rect(0px, 100px, 100px, 0px);
-background-color: #FF923F;;">{{dodelivredcntIndegree}}</div>
+background-color: #FF923F;">{{dodelivredcntIndegree}}</div>
   </div>
   <div id="slice3" style="position: absolute;
 top: 0;

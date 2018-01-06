@@ -485,7 +485,11 @@ html, body {
  margin-left: -5mm;
  
 }
-
+.lower-row-1{
+ margin-top:-1cm;
+ margin-left: 5mm;
+ 
+}
 .is-grouped {   
  display: inline-block;
 
@@ -1226,7 +1230,7 @@ stroke:red ;
 }*/
 
  
-.progress-circle-1 {
+/*.progress-circle-1 {
 	//border: 0.5px  ;
 	border-radius: 50%;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
@@ -1235,6 +1239,7 @@ stroke:red ;
 
 	-webkit-box-shadow: 0 0 1px 0px rgb( 255, 255, 255);
 	box-shadow: 0 0 1px 0px rgb( 255, 255, 255);
+
 	width: 300px;
 	height: 300px;
 	z-index: 86;
@@ -1301,118 +1306,137 @@ stroke:red ;
 	margin-left: 1mm;
 	margin-right: -7mm;	
 }
+*/
 
+.progress-circle-1 {
+	//border: 0.5px  ;
+	border-radius: 50%;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+	filter: alpha(opacity=60);
+	opacity: 0.6;
 
-.progress-bar {
+//	-webkit-box-shadow: 0 0 1px 0px ;
+//	box-shadow: 0 0 1px 0px ;
+//	width: 300px;
+//	height: 300px;
+	width: 300px;
+	height: 300px;
+	z-index: 86;
+	margin-top:9mm;
 
-  position: relative;
+	
+}
+.progress-circle-2 {
+	position: relative;
+	//border: 0.5px  ;
+	border-radius: 50%;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+	filter: alpha(opacity=60);
+	opacity: 0.6;
 
-  height: 100px;
+	//-webkit-box-shadow: 0 0 1px 0px ;
+	//box-shadow: 0 0 1px 0px ;
+	width: 240px;
+	height: 240px;
+	z-index: 70;
+	padding-top: 9mm;
+	padding-bottom: -2mm;
+	padding-left: 5.7mm;
+	margin-top: -5.850cm;
+	margin-left: 3.8mm;
+	margin-right: 3mm;
+	margin-bottom: -5mm;	
+}
+.progress-circle-3 {
+	position: relative;
+	//border: 1px solid white;
+	border-radius: 50%;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+	filter: alpha(opacity=60);
+	opacity: 0.6;
 
-  width: 100px;
+	//-webkit-box-shadow: 0 0 1px 0px ;
+	//box-shadow: 0 0 1px 0px ;
+	width: 220px;
+	height: 220px;
+	z-index: 70;
+	padding-top:1.94cm;
+	padding-left: 4mm;
+	//padding-bottom: 2mm;
+	padding-right: 5mm;
+	margin-top: -5.3cm;
+	margin-left: 2.5mm;
+	margin-right: 2mm;	
+}
+.progress-circle-4 {
+	position: relative;
+	//border: 1px solid white;
+	border-radius: 50%;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+	filter: alpha(opacity=60);
+	opacity: 0.6;
 
+	-webkit-box-shadow: 0 0 1px 0px ;
+	box-shadow: 0 0 1px 0px ;
+	width: 220px;
+	height: 220px;
+	z-index: 70;
+	    padding-top: 1.7cm;
+	padding-left: 10mm;
+	margin-top: -3.9cm;
+	margin-left: -5mm;
+	margin-right: 3mm;	
 }
 
- 
-
-.progress-bar div {
-
-  position: absolute;
-
-  height: 100px;
-
-  width: 100px;
-
-  border-radius: 50%;
-
-}
-
- 
-
-.progress-bar div span {
-
-  position: absolute;
-
-  font-family: Arial;
-
-  font-size: 25px;
-
-  line-height: 75px;
-
-  height: 75px;
-  width: 75px;
-
-  left: 12.5px;
-
-  top: 12.5px;
-
-  text-align: center;
-
-  border-radius: 50%;
-
-  background-color: white;
-
-}
-
- 
-
-.progress-bar .background { background-color: #b3cef6; }
-
- 
-
-.progress-bar .rotate {
-
-  clip: rect(0 50px 100px 0);
-
-  background-color: #4b86db;
-
-}
-
- 
-
-.progress-bar .left {
-
-  clip: rect(0 50px 100px 0);
-
-  opacity: 1;
-
-  background-color: #b3cef6;
-
-}
-
- 
-
-.progress-bar .right {
-
-  clip: rect(0 50px 100px 0);
-
-  transform: rotate(180deg);
-
-  opacity: 0;
-
-  background-color: #4b86db;
-
-}
-
- 
-
-@keyframes
-
-toggle {  0% {
-
- opacity: 0;
-
-}
-
- 100% {
-
- opacity: 1;
-
-}
-
-}
 #container {
   margin: 20px;
   width: 200px;
   height: 200px;
+}
+.two-dash-btn-circle1-1 {
+ width: 5px;
+ height: 5px;
+ text-align: center;
+ padding: 6px 6px;
+ font-size: 10px;
+ /*line-height: 1.428571429;*/
+ border-radius: 50%;
+ background-color: #F5A623;
+ border: black;
+}
+.two-dash-btn-circle2-2{
+	
+ width: 5px;
+ height: 5px;
+ text-align: center;
+ padding: 6px 6px;
+ font-size: 10px;
+ /*line-height: 1.428571429;*/
+ border-radius: 50%;
+ background-color: #87D7FF;
+ border: black;
+}
+.two-dash-btn-circle2-3{
+	
+ width: 5px;
+ height: 5px;
+ text-align: center;
+ padding: 6px 6px;
+ font-size: 10px;
+ /*line-height: 1.428571429;*/
+ border-radius: 50%;
+ background-color: #00AA77;
+ border: black;
+}
+.two-dash-btn-circle2-4{
+	
+ width: 5px;
+ height: 5px;
+ text-align: center;
+ padding: 6px 6px;
+ font-size: 10px;
+ /*line-height: 1.428571429;*/
+ border-radius: 50%;
+ background-color: #FCFF00;
+ border: black;
 }

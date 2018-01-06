@@ -45,7 +45,6 @@
     "ember-export-application-global": "^2.0.0",
     "ember-flatpickr": "^2.1.0",
     "ember-g-map": "0.0.25",
-    "ember-hash-helper-polyfill": "^0.2.0",
     "ember-hook": "^1.4.2",
     "ember-load-initializers": "^1.0.0",
     "ember-modal-dialog": "^2.4.0",
