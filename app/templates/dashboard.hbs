@@ -86,7 +86,7 @@
         <div class="mdl-stepper-step active-step ">
           <div class="upper-line3">
          
-          <div class="this-circle3"><div id="request-details">Iniaited {{PaymentInitiatedcount}}</div></div>
+          <div class="this-circle3"><div id="request-details">Iniaited {{isPaymentInitiatedCount}}</div></div>
           <div class="vl2"></div>
           <div class="this-circle3"><div id="request-details">Paid {{paymentPaidcount}}</div></div>
           <div class="vl2"></div>
@@ -189,7 +189,7 @@
 <div class="progress-circle-1">
 <div class="zomg" >
   {{svg-pie
-    data=(hash value=63 color="#F5A623")
+    data=(hash value=isShowOpenStatus color="#F5A623")
     total=100
     size="220"
    strokeWidth="10"
@@ -231,7 +231,7 @@
 <div class="progress-circle-2">
   <div class="zomg" >
   {{svg-pie
-    data=(hash value=96 color="#87D7FF")
+    data=(hash value=isShowOpenStatus color="#87D7FF")
     total=100
     size="150"
    
@@ -301,7 +301,7 @@
  <div class="progress-circle-4">
    <div class="zomg" >
   {{svg-pie
-    data=(hash value=45 color="#FCFF00")
+    data=(hash value=isShowCloseStatus color="#FCFF00")
     total=100
     size="65"
    

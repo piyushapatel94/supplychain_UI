@@ -182,7 +182,7 @@ myIcon: {
                 mycontroller.controllerFor('alldetails').set('isShowSupplier', false);
                 mycontroller.controllerFor('alldetails').set('isShowSupquotbutton',false);
             }
-            if(mystatus === "quotationAccepted"){
+            if(mystatus === "QuotationAccepted"){
                 mycontroller.controllerFor('alldetails').set('isShowManquotbutton', false);
                 mycontroller.controllerFor('alldetails').set('isShowSupplier', false);
                 mycontroller.controllerFor('alldetails').set('isShowSupquotbutton',false);
@@ -194,7 +194,7 @@ myIcon: {
                 mycontroller.controllerFor('alldetails').set('isShowSupDotbutton',true);
 
                 }     
-            if(mystatus === 'DoDelievered'){
+            if(mystatus === 'DeliveryOrderDelievered'){
                 mycontroller.controllerFor('alldetails').set('isShowManquotbutton', false);
                 mycontroller.controllerFor('alldetails').set('isShowSupplier', false);
                 mycontroller.controllerFor('alldetails').set('isShowSupquotbutton',false);
@@ -232,7 +232,7 @@ myIcon: {
             if(mystatus === "QuotationRaised"){
            mycontroller.controllerFor('alldetails').set('isShowManquotbutton', true);
             }
-            if(mystatus === "quotationAccepted"){
+            if(mystatus === "QuotationAccepted"){
                 mycontroller.controllerFor('alldetails').set('isShowManpotbutton', true);
                  mycontroller.controllerFor('alldetails').set('isShowManquotbutton', false);
                 }
@@ -287,7 +287,7 @@ myIcon: {
                 
                 
             }
-            else if(status === "quotationAccepted"){
+            else if(status === "QuotationAccepted"){
                 mycontroller.controllerFor('alldetails').set('isShowRequestAccept', false);
                 mycontroller.controllerFor('alldetails').set('isShowRequestInitaited',false);
                 mycontroller.controllerFor('alldetails').set('isShowQuotationRaised',false);
@@ -328,7 +328,7 @@ myIcon: {
                 
                 
             }
-            else if(status === "DoDelievered"){
+            else if(status === "DeliveryOrderDelievered"){
                 mycontroller.controllerFor('alldetails').set('isShowRequestAccept', false);
                 mycontroller.controllerFor('alldetails').set('isShowRequestInitaited',false);
                 mycontroller.controllerFor('alldetails').set('isShowQuotationRaised',false);
@@ -650,19 +650,14 @@ myIcon: {
 
             var dataString = {
 
-                "status": "quotationAccepted",
-                "InvolvedParties": "retailer",
+                "status": "QuotationAccepted",
+                "InvolvedParties": usertype,
                 "transactionString": {
                     "updatedby": usertype,
                     "companyname": "companyname",
-                    "address": "address",
-                    "materialtype": "Speedometer",
-                    "Quantity": "00",
                     "today": today,
-                    "url": "url",
-                    "totalprice": "totalprice",
-                    "status": "quotationAccepted",
-                    "remark": "NA"
+                    "status": "QuotationAccepted",
+                   
                 }
             }
             console.log(JSON.stringify(dataString));
@@ -992,7 +987,7 @@ selectedDestination =this.get('selectedDestination');
             this.set("selectedDestination",selectedDestination);
              this.set("selectedsource",selectedsource);
             var mydataString3 = {
-                "status": "shipped",
+                "status": "Shipped",
                 "InvolvedParties": usertype,
                 "transactionString": {
                     "updatedby": usertype,
@@ -1005,7 +1000,7 @@ selectedDestination =this.get('selectedDestination');
                     "totalprice": "NA",
                    "selectedsource":selectedsource,
                    "selectedDestination":selectedDestination,
-                    "status": "shipped",
+                    "status": "Shipped",
                     "remark": "NA"
                 }
             }
@@ -1082,7 +1077,7 @@ selectedDestination =this.get('selectedDestination');
             var mydate = dd + '/' + mm + '/' + yyyy;
             console.log("today--", mydate);
             var mydataString3 = {
-                "status": "DoDelievered",
+                "status": "DeliveryOrderDelievered",
                 "InvolvedParties": usertype,
                 "transactionString": {
                     "updatedby": usertype,
@@ -1091,10 +1086,8 @@ selectedDestination =this.get('selectedDestination');
                     "units": "NA",
                     "Quantity": myquantity,
                     "today": today,
-                    "url": "url",
-                    "totalprice": "NA",
-                    "status": "DoDelievered",
-                    "remark": "NA"
+                    "status": "DeliveryOrderDelievered",
+                    
                 }
             }
             console.log(JSON.stringify(mydataString3));
@@ -1168,7 +1161,7 @@ selectedDestination =this.get('selectedDestination');
                     "updatedby": usertype,
                    "myTotalPrice":myTotalPrice,
                     "devcharge":devcharge,
-                    "Quantity": "50",
+                 
                     "today": today,
                     "url": url,
                    "materialPrice":materialPrice,
@@ -1519,12 +1512,12 @@ selectedDestination =this.get('selectedDestination');
             var today = dd + '/' + mm + '/' + yyyy;
             console.log("today--", today);
              var mydataString3 = {
-                "status": "paymentPaid",
+                "status": "paymentReceived",
                 "InvolvedParties": usertype,
                 "transactionString": {
                     "updatedby": usertype, 
                     "today": today,
-                         "status": "paymentPaid"   
+                         "status": "paymentReceived"   
                 }
             }
             console.log(JSON.stringify(mydataString3));

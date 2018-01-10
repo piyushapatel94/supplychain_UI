@@ -189,7 +189,7 @@ this.controllerFor('alldetails').set(' isShow_fileupload', false);
                 mycontroller.controllerFor('alldetails').set('isShowSupDotbutton',true);
 
                 }     
-            if(mystatus === 'DoDelievered'){
+            if(mystatus === 'DeliveryOrderDelievered'){
                 mycontroller.controllerFor('alldetails').set('isShowManquotbutton', false);
                 mycontroller.controllerFor('alldetails').set('isShowSupplier', false);
                 mycontroller.controllerFor('alldetails').set('isShowSupquotbutton',false);
@@ -206,7 +206,7 @@ this.controllerFor('alldetails').set(' isShow_fileupload', false);
                  mycontroller.controllerFor('alldetails').set('isShowSuopINvobutton',false);
 
 
-            }  if(mystatus === "shipped"){
+            }  if(mystatus === "Shipped"){
                    mycontroller.controllerFor('alldetails').set('isShowManquotbutton', false);
                 mycontroller.controllerFor('alldetails').set('isShowSupplier', false);
                 mycontroller.controllerFor('alldetails').set('isShowSupquotbutton',false);
@@ -247,12 +247,19 @@ this.controllerFor('alldetails').set(' isShow_fileupload', false);
                  mycontroller.controllerFor('alldetails').set('isShowSuop_ReINVobutton',false);
                  mycontroller.controllerFor('alldetails').set('isShowSUpPaymentInit',true);
              }
+             if(mystatus === "paymentReceived"){
+                      mycontroller.controllerFor('alldetails').set('isShowManquotbutton', false);
+                        mycontroller.controllerFor('alldetails').set('isShowSupplier', false);
+                        mycontroller.controllerFor('alldetails').set('isShowSupquotbutton', false);
+                    mycontroller.controllerFor('alldetails').set('isShowSuopINvobutton', false);
+                     mycontroller.controllerFor('alldetails').set('isShowSUpPaymentInit', false);
+                  }
             }
          }
          if(usertype === "Manufacturer"){
                if(myupdatedby === 'Manufacturer'){
             
-            if(mystatus === "quotationAccepted"){
+            if(mystatus === "QuotationAccepted"){
                 mycontroller.controllerFor('alldetails').set('isShowManpotbutton', true);
                  mycontroller.controllerFor('alldetails').set('isShowManquotbutton', false);
                 }
@@ -312,7 +319,7 @@ this.controllerFor('alldetails').set(' isShow_fileupload', false);
                         mycontroller.controllerFor('alldetails').set('isShowMandOraisbutton', true);
                     
                     }
-                    if(mystatus === "DoDelievered"){
+                    if(mystatus === "DeliveryOrderDelievered"){
                         mycontroller.controllerFor('alldetails').set('isShowManReqAccbutton', false);
                         mycontroller.controllerFor('alldetails').set('isShowManQuobutton', false);
                         mycontroller.controllerFor('alldetails').set('isShowMandOraisbutton', false);
@@ -326,7 +333,7 @@ this.controllerFor('alldetails').set(' isShow_fileupload', false);
                     mycontroller.controllerFor('alldetails').set('isShowManpINvobutton', false);
                      mycontroller.controllerFor('alldetails').set('isShowManPaymentpaid', true);
                   }
-                  if(mystatus === "paymentPaid"){
+                  if(mystatus === "paymentReceived"){
                       mycontroller.controllerFor('alldetails').set('isShowManReqAccbutton', false);
                         mycontroller.controllerFor('alldetails').set('isShowManQuobutton', false);
                         mycontroller.controllerFor('alldetails').set('isShowMandOraisbutton', false);
@@ -358,7 +365,7 @@ this.controllerFor('alldetails').set(' isShow_fileupload', false);
                  mycontroller.controllerFor('alldetails').set('isShowlogshiptbutton', true); 
              }
              
-             if(mystatus === "shipped"){
+             if(mystatus === "Shipped"){
                   mycontroller.controllerFor('alldetails').set('isShowlogshiptbutton', false); 
                  mycontroller.controllerFor('alldetails').set('isShowlogdodtbutton', true); 
              }
@@ -458,7 +465,7 @@ this.controllerFor('alldetails').set(' isShow_fileupload', false);
                 mycontroller.controllerFor('alldetails').set('dislapymessage','The order is expected to  deliver by 27 Aug 2018.');
                 
                 
-            }else if(status === "shipped"){
+            }else if(status === "Shipped"){
                   mycontroller.controllerFor('alldetails').set('isshowquotationRejected',false);
                    mycontroller.controllerFor('alldetails').set('isShowRequestRejected',false);
                 mycontroller.controllerFor('alldetails').set('isShowRequestAccept', false);
@@ -472,7 +479,7 @@ this.controllerFor('alldetails').set(' isShow_fileupload', false);
                 
                 
             }
-            else if(status === "DoDelievered"){
+            else if(status === "DeliveryOrderDelievered"){
                   mycontroller.controllerFor('alldetails').set('isshowquotationRejected',false);
                    mycontroller.controllerFor('alldetails').set('isShowRequestRejected',false);
                 mycontroller.controllerFor('alldetails').set('isShowRequestAccept', false);
@@ -556,7 +563,7 @@ this.controllerFor('alldetails').set(' isShow_fileupload', false);
                 console.log(paymentobj,"----paymentobj");
                  mycontroller.controllerFor('alldetails').set('paymentobj',paymentobj);
             }
-            else if(status === "paymentPaid"){
+            else if(status === "paymentReceived"){
                   mycontroller.controllerFor('alldetails').set('isshowquotationRejected',false);
                    mycontroller.controllerFor('alldetails').set('isShowRequestRejected',false);
                 mycontroller.controllerFor('alldetails').set('isShowRequestAccept', false);

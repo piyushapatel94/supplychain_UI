@@ -339,12 +339,12 @@
          {{/if}}
          {{#if isShowSUpPaymentInit}}
          <div class="first-row-right" style="margin-top:-10mm">
-             <button class="button-right" {{action 'paymentpaid'}}>payment paid</button>
+             <button class="button-right" {{action 'paymentpaid'}}>Payment Received</button>
          </div>
          {{/if}}
         {{#if  isShowManReqAccbutton}}
         <div class="first-row-right" style="margin-top:-10mm">
-             <button class="button-right" {{action 'declinerequest'}}>Decline 2</button>
+             <button class="button-right" {{action 'declinerequest'}}>Decline </button>
              <button class="button-right" {{action 'acceptrequest'}}>Accept</button>
          </div>
         {{/if}}
@@ -383,7 +383,7 @@
          {{/if}}
          {{#if isShowManPaymentpaid}}
          <div class="first-row-right" style="margin-top:-10mm">
-             <button class="button-right" {{action 'paymentpaid'}}>payment paid</button>
+             <button class="button-right" {{action 'paymentpaid'}}>Payment Received</button>
          </div>
          {{/if}}
     </div>
@@ -416,7 +416,7 @@
                 </tr>
                 <tr id="in-tr-details">
                     <td>{{transactiondetails0.expecteddelivery}}</td>
-                    <td>{{transactiondetails2.Quantity}}</td>
+                    <td>{{transactiondetails0.Quantity}}</td>
                     <td>{{transactiondetails2.unit}}</td>
                     <td>{{transactiondetails2.totalprice}}</td>
                     <td></td>

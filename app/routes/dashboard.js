@@ -108,6 +108,7 @@ this.controllerFor('dashboard').set(' isShow_fileupload', false);
 
 
                    });
+                   
           Ember.$.ajax({
                        url: CONFIG.GOURL + '/readStatus',
                        type: 'GET',
@@ -142,7 +143,7 @@ this.controllerFor('dashboard').set(' isShow_fileupload', false);
                                 mycontroller.controllerFor('dashboard').set('QuotationRejectedcount', isQuotationRejectedCount * 10);
                                 mycontroller.controllerFor('dashboard').set('isQuotationRejectedCount', isQuotationRejectedCount);
                             }
-                             if (statuscount[i].statusname === "quotationAccepted") {
+                             if (statuscount[i].statusname === "QuotationAccepted") {
                                 var isquotationAcceptedCount = statuscount[i].statuscount;
                                 //var QuotationRejectedcount = Count * 10;
                                 console.log(JSON.stringify(statuscount[i].statuscount));
@@ -154,30 +155,30 @@ this.controllerFor('dashboard').set(' isShow_fileupload', false);
                                 var isPaymentInitiatedCount = statuscount[i].statuscount;
                              
                                 console.log(JSON.stringify(statuscount[i].statuscount));
-                                mycontroller.controllerFor('dashboard').set('PaymentInitiatedcount', isPaymentInitiatedCount * 10);
+                                //mycontroller.controllerFor('dashboard').set('PaymentInitiatedcount', isPaymentInitiatedCount * 10);
                                 mycontroller.controllerFor('dashboard').set('isPaymentInitiatedCount', isPaymentInitiatedCount);
                             } 
                            
 
                             if (statuscount[i].statusname === "purchaseorderRaised") {
                                 var ISPOCount = statuscount[i].statuscount;
-                            //    var POraisedcount = Count * 10;
+                         
                                 console.log(JSON.stringify(statuscount[i].statuscount));
                                 mycontroller.controllerFor('dashboard').set('POraisedcount', ISPOCount );
-                               // mycontroller.controllerFor('dashboard').set('ISPOCount', ISPOCount);
+                               
                             }
                            
-                            if (statuscount[i].statusname === "paymentPaid") {
+                            if (statuscount[i].statusname === "paymentReceived") {
                                 var IspaymentPaidCount = statuscount[i].statuscount;
-                             //   var PaymentReceivedcount = Count * 10;
+                             
                                 console.log(JSON.stringify(statuscount[i].statuscount));
                                 mycontroller.controllerFor('dashboard').set('paymentPaidcount', IspaymentPaidCount );
-                               // mycontroller.controllerFor('dashboard').set('IsPaymentReceivedCount', IsPaymentReceivedCount);
+                               
                             } 
                            
                             if (statuscount[i].statusname === "invoiceRaised") {
                                 var isInvoiceRaisedCount = statuscount[i].statuscount;
-                             //   var InvoiceRaisedcount = Count * 10;
+                            
                                 console.log("InvoiceRaisedcount-----",isInvoiceRaisedCount *10);
                                 mycontroller.controllerFor('dashboard').set('InvoiceRaisedcount', isInvoiceRaisedCount );
                                 mycontroller.controllerFor('dashboard').set('isInvoiceRaisedCount', isInvoiceRaisedCount);
@@ -185,24 +186,24 @@ this.controllerFor('dashboard').set(' isShow_fileupload', false);
                            
                             if (statuscount[i].statusname === "invoiceApproved") {
                                 var isInvoiceApprovedCount = statuscount[i].statuscount;
-                             //   var InvoiceApprovedcount = Count * 10;
+                             
                                 console.log(JSON.stringify(statuscount[i].statuscount));
                                 mycontroller.controllerFor('dashboard').set('InvoiceApprovedcount', isInvoiceApprovedCount );
                                 mycontroller.controllerFor('dashboard').set('isInvoiceApprovedCount', isInvoiceApprovedCount);
                             } 
                            
-                            if (statuscount[i].statusname === "DoDelievered") {
+                            if (statuscount[i].statusname === "DeliveryOrderDelievered") {
                                 var isDoDeliveredCount = statuscount[i].statuscount;
-                           //     var DoDeliveredcount = Count * 10;
+                         
                            dodelivredcnt = statuscount[i].statuscount;
                                 console.log(JSON.stringify(statuscount[i].statuscount));
                                 mycontroller.controllerFor('dashboard').set('DoDeliveredcount', isDoDeliveredCount );
                                 mycontroller.controllerFor('dashboard').set('isDoDeliveredCount', isDoDeliveredCount *10);
                             }
                             
-                            if (statuscount[i].statusname === "shipped") {
+                            if (statuscount[i].statusname === "Shipped") {
                                 var isShippedCount = statuscount[i].statuscount;
-                            //    var NotDeliveredcount = Count * 10
+                         
                             shippedcnt=statuscount[i].statuscount;
                                 console.log(JSON.stringify(statuscount[i].statuscount));
                                 mycontroller.controllerFor('dashboard').set('shippedcount', isShippedCount );
@@ -223,12 +224,11 @@ this.controllerFor('dashboard').set(' isShow_fileupload', false);
                                 var QuotationRaisedcount = IsQuotationRaisedCount *10 ;
                                 console.log("QuotationRaisedcount-------->", QuotationRaisedcount);
                                 mycontroller.controllerFor('dashboard').set('QuotationRaisedcount', IsQuotationRaisedCount  );
-                               // mycontroller.controllerFor('dashboard').set('IsQuotationRaisedCount', IsQuotationRaisedCount);
+                              
                             } 
                             
                             if (statuscount[i].statusname === "deliveryorderRaised") {
                                 var isDOraisedCount = statuscount[i].statuscount;
-                               // var DOraisedcount = isDOraisedCount * 10;
                                doraisedcnt = statuscount[i].statuscount;
                                 console.log( "DOraisedcount --->",isDOraisedCount * 10);
                                 mycontroller.controllerFor('dashboard').set('DOraisedcount', isDOraisedCount );
@@ -238,11 +238,9 @@ this.controllerFor('dashboard').set(' isShow_fileupload', false);
 
                             if (statuscount[i].statusname === "RequestRejected") {
                                 var RequestRejectedcpunt = statuscount[i].statuscount;
-                               // var DOraisedcount = isDOraisedCount * 10;
-                               //doraisedcnt = statuscount[i].statuscount;
-                               // console.log( "DOraisedcount --->",isDOraisedCount * 10);
+                               
                                 mycontroller.controllerFor('dashboard').set('RequestRejectedcpunt', RequestRejectedcpunt );
-                              //  mycontroller.controllerFor('dashboard').set('isDOraisedCount', isDOraisedCount * 10);
+                              
                                 
                             } 
                         }
@@ -262,8 +260,7 @@ this.controllerFor('dashboard').set(' isShow_fileupload', false);
                             },
                        error: function(response) {
                            console.log('DEBUG: GET Enquiries Failed');
-                           //console.log("Error Message: ", data.message);
-
+                        
                        }
 
 
@@ -336,10 +333,16 @@ this.controllerFor('dashboard').set(' isShow_fileupload', false);
                                     success: function(response) {
                                         console.log("data readCycle",JSON.stringify(response))
                                         var openStatus =response.openStatus;
-
+                                        mycontroller.controllerFor('dashboard').set("openStatus",openStatus);
                                         var closedStatus =response.closedStatus;
-                                             var totalStatus =openStatus+ closedStatus
-                                    },
+                                             var totalStatus = parseInt(openStatus)+parseInt(closedStatus)
+                                             var isShowOpenStatus = 100*(parseInt(openStatus)/parseInt(totalStatus))
+                                             console.log("isShowOpenStatus----",isShowOpenStatus);
+                                              mycontroller.controllerFor('dashboard').set("isShowOpenStatus",isShowOpenStatus);
+                                             var isShowCloseStatus = 100*(parseInt(closedStatus)/parseInt(totalStatus))
+                                             console.log("isShowCloseStatus----",isShowCloseStatus);
+                                             mycontroller.controllerFor('dashboard').set("isShowCloseStatus",isShowCloseStatus);
+                                 },
                                     error: function(response) {
                                         console.log('DEBUG: GET Enquiries Failed');
                                         console.log("Error Message: ", data.message);
@@ -369,14 +372,7 @@ this.controllerFor('dashboard').set(' isShow_fileupload', false);
 
 
                    });
-                   var data=[];
-               return      data = [
-  {"value": 1, "color": "red"},
-  {"value": 4.5, "color": "blue"},
-  {"value": 2, "color": "yellow"},
-  {"value": 3, "color": "green"}
-];
-          
+                
 
     }
 });

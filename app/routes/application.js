@@ -4,5 +4,6 @@ export default Route.extend({
     model(){
         this.transitionTo('home');
         //this.controllerFor('application').set('notshowuser',true);
+       
     }
 });

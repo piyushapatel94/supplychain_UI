@@ -66,7 +66,10 @@
   },
   "dependencies": {
     "flatpickr": "^4.1.2",
+    "node-sass": "^4.7.2",
+    "npm": "^5.6.0",
     "progressbar.js": "^1.0.1",
-    "radial-progress-chart": "0.0.4"
+    "radial-progress-chart": "0.0.4",
+    "rebuild": "^0.1.2"
   }
 }
