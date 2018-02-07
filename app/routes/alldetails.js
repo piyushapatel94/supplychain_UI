@@ -347,7 +347,7 @@ this.controllerFor('alldetails').set(' isShow_fileupload', false);
               if(mystatus === "QuotationRaised"){
                  mycontroller.controllerFor('alldetails').set('isShowretQuoAcppbutton', true);  
               }
-              if(mystatus === "quotationAccepted"){
+              if(mystatus === "QuotationAccepted"){
                     mycontroller.controllerFor('alldetails').set('isShowretQuoAcppbutton', false);  
                  mycontroller.controllerFor('alldetails').set('isShowretPoraisedpbutton', true);  
               }if(mystatus === "purchaseorderRaised"){
