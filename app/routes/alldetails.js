@@ -177,7 +177,7 @@ this.controllerFor('alldetails').set(' isShow_fileupload', false);
                 mycontroller.controllerFor('alldetails').set('isShowSupplier', false);
                 mycontroller.controllerFor('alldetails').set('isShowSupquotbutton',false);
             }
-            if(mystatus === "quotationAccepted"){
+            if(mystatus === "QuotationAccepted"){
                 mycontroller.controllerFor('alldetails').set('isShowManquotbutton', false);
                 mycontroller.controllerFor('alldetails').set('isShowSupplier', false);
                 mycontroller.controllerFor('alldetails').set('isShowSupquotbutton',false);
@@ -418,7 +418,7 @@ this.controllerFor('alldetails').set(' isShow_fileupload', false);
                 
                 
             }
-            else if(status === "quotationAccepted"){
+            else if(status === "QuotationAccepted"){
                   mycontroller.controllerFor('alldetails').set('isshowquotationRejected',false);
                    mycontroller.controllerFor('alldetails').set('isShowRequestRejected',false);
                 mycontroller.controllerFor('alldetails').set('isShowRequestAccept', false);
